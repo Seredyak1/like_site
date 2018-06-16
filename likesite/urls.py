@@ -25,6 +25,7 @@ urlpatterns = []
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('landing_page.urls')),
 ]
 
 urlpatterns += [
