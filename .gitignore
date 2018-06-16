@@ -4,10 +4,10 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 venv_likesite/
-./venv_market
-./venv_market/
+./venv_likesite
+./venv_likesite/
 .idea/
-./de_market/local_settings.py
+./likesite/local_settings.py
 
 ./cart/migrations/
 ./landing_page/migrations/
