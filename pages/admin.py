@@ -1,6 +1,5 @@
 from django.contrib import admin
-from pages.models import Partnership_Company, Team_member, Feedback
+from pages.models import Client_Company, Feedback
 
-admin.site.register(Partnership_Company)
-admin.site.register(Team_member)
+admin.site.register(Client_Company)
 admin.site.register(Feedback)
