@@ -16,7 +16,7 @@ class Order(models.Model):
     )
 
     user = models.ForeignKey(User, verbose_name='Buyer', on_delete=False)
-    journey = models.ForeignKey(Journey, related_name='in_orders')
+    journey = models.ForeignKey(Journey, related_name='in_orders', on_delete=False)
     track_number = models.CharField(max_length=255, verbose_name='Track Number', blank=True)
     email_address = models.CharField(max_length=255, verbose_name='Email Address', blank=False)
     contact_phone = models.CharField(max_length=255, verbose_name='Contact phone', blank=False)
