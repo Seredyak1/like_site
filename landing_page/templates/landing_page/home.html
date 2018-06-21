@@ -2,5 +2,83 @@
 
 
 {% block content %}
+        <!-- START block with Order for anonim and search block -->
+        <div class="container mt-1">
+            <div class="row">
+                <div class="col-6 mt-2">
+                    <a href="#"><button class="btn btn-outline-success btn-block">Сворити власну пригоду!</button></a>
+                </div>
 
+            <!-- START Search block -->
+                <div class="col-6">
+                        <form class="form-inline my-lg-0 ml-3 pl-5" id="searchform" aria-label="Search" action="#" method="get"
+                            accept-charset="utf-8">
+                        <input class="form-control mr-sm-2 h-100 w-75" style="margin-top: 11px;" id="searchbox" name="q" type="text" placeholder="Що шукаємо?">
+                            <a href="#">
+                            <button class="btn btn-rounded text-white p-0 h-100 w-100" style="background-color: #33691e; margin-top: 11px;" type="submit"><i
+                                class="material-icons m-1 h-30 w-30" style="font-size: 18px;">search</i></button>
+                            </a>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+        <!-- Col for News block and Facebook block -->
+            <div class="col-sm-3">
+                <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
+                        <p> Block for Facebook</p>
+                </div>
+                <div class="container mt-4" style="border: 2px solid #e0e0e0; border-radius: 10px">
+                    <h5 class="mt-3 text-center" style="color: #33691e">Остання новина: </h5>
+                        <div class="card mt-2 mb-2">
+
+                        <!-- Card image -->
+                            <img class="card-img-top" src="{{ newses.news_image.first.image.url }}" alt="Card image cap">
+                        <!-- Card content -->
+                            <div class="card-body">
+                                <h4 class="card-title"><a>{{ newses.title }}</a></h4>
+                                <p class="card-text text-justify">{{ newses.short_description }}</p>
+                                <div class="text-right">
+                                    <a href="#" class="text-danger text-right">Більше...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <a href="#" class="text-danger text-right"><p><strong>Більше новин >>></strong></p></a>
+                        </div>
+                </div>
+            </div>
+
+        <!-- Col for journey cards -->
+            <div class="col-sm-6">
+                <h4 style="color: #33691e"><strong>Найпопулярніші пригоди: </strong></h4>
+                <div>
+                    {# include 'product/journey_detail.html' #}
+                </div>
+            </div>
+
+        <!-- Col for Feedbacks -->
+            <div class="col-sm-3">
+                <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
+                    {% for feedback in feedbacks %}
+                        <div class="card mt-2">
+                          <!-- Card content -->
+                          <div class="card-body">
+                            <!-- Text -->
+                                <p class="card-text text-justify">{{ feedback.body_text }}</p>
+                                <hr>
+                              <div class="text-right">
+                                  <p><strong>{{ feedback.name }}</strong></p>
+                                  <p>{{ feedback.created_at }}</p>
+                              </div>
+                          </div>
+                        </div>
+                    {% endfor %}
+                        <div class="text-right">
+                            <a href="#" class="text-danger text-right"><p><strong>Більше відгуків >>></strong></p></a>
+                        </div>
+                </div>
+            </div>
+        </div>
 {% endblock %}
