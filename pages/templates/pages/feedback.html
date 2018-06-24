@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+ {% load bootstrap %}
+
+{% block content %}
+
+
+    <div class="d-flex justify-content-end pb-3">
+        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">
+            + Додати відгук
+        </button>
+    </div>
+
+    {% for i in feedbacks %}
+          <div class="card text">
+              <div class="card-body">
+                <p class="card-text">{{ i.body_text }}</p>
+              </div>
+              <div class="card-footer text-muted">
+                  <div class="d-flex justify-content-between"><span>{{ i.name }}</span><span>{{ i.created_at }}</span></div>
+              </div>
+            </div>
+    {% endfor %}
+
+{#    Modal for Create Feedback     #}
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Залишити відгук</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form role="form" method="POST">
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        {{ form|bootstrap }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Відмінити</button>
+                        <button type="submit" class="btn btn-outline-success">Опублікувати</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{#    Pagination   #}
+    {% if feedbacks.has_other_pages %}
+        <nav class="pt-2">
+          <ul class="pagination">
+            {% if feedbacks.has_previous %}
+              <li class="page-item"><a class="page-link" href="?page={{ feedbacks.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled page-item"><a class="page-link" href="#" tabindex="-1">&laquo;</a></li>
+            {% endif %}
+            {% for i in feedbacks.paginator.page_range %}
+              {% if users.number == i %}
+                <li class="page-item"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if feedbacks.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{ feedbacks.next_page_number }}">&raquo;</a></li>
+            {% else %}
+              <li class="disabled page-item"><a class="page-link" href="#" tabindex="-1">&raquo;</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+    {% endif %}
+
+{% endblock %}
