@@ -24,5 +24,10 @@ class JourneyAdmin(admin.ModelAdmin):
             obj.save()
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug',)
+    search_fields = ('name',)
+
+
 admin.site.register(Journey, JourneyAdmin)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)

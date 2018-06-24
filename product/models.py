@@ -4,12 +4,16 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     class Meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name = "Категорія"
+        verbose_name_plural = "Категорії"
 
-    name = models.CharField(max_length=255, verbose_name='Name of Category')
-    description = models.TextField(verbose_name='Description of Category')
-    category_logo = models.ImageField(upload_to='category-logo', null=True)
+    name = models.CharField(max_length=255, verbose_name='Назва Категорії')
+    slug = models.SlugField(unique=True, default='', verbose_name='Назва в URL')
+    description = models.TextField(verbose_name='Опис Категорії')
+    category_logo = models.ImageField(upload_to='category-logo', null=True, verbose_name='Катринка Категорії')
+
+    def __str__(self):
+        return self.name
 
 
 class Journey(models.Model):
