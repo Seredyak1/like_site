@@ -18,20 +18,20 @@ class Category(models.Model):
 
 class Journey(models.Model):
     class Meta:
-        verbose_name = "Journey"
-        verbose_name_plural = "Journeys"
-        ordering = ['-updated_at']
+        verbose_name = "Пригода"
+        verbose_name_plural = "Пригоди"
+        ordering = ('-updated_at',)
 
-    sku = models.CharField(max_length=255, verbose_name='SKU')
-    title = models.CharField(max_length=255, verbose_name='Name of Journey')
-    description = models.TextField(verbose_name='Description of Journey')
-    durations_days = models.IntegerField(verbose_name='Durations in days')
-    durations_night = models.IntegerField(verbose_name='Durations in night')
-    price = models.IntegerField(verbose_name='Price')
-    sale_price = models.IntegerField(verbose_name='Sale Price', null=True, blank=True)
-    category = models.ForeignKey(Category, related_name='Journeys', on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    sku = models.CharField(max_length=255, verbose_name='Номер')
+    title = models.CharField(max_length=255, verbose_name='Назва пригоди')
+    description = models.TextField(verbose_name='Опис пригоди')
+    durations_days = models.IntegerField(verbose_name='Тривалість днів')
+    durations_night = models.IntegerField(verbose_name='Тривалість ночей')
+    price = models.IntegerField(verbose_name='Ціна')
+    sale_price = models.IntegerField(verbose_name='Ціна зі скидкою', null=True, blank=True)
+    category = models.ForeignKey(Category, related_name='Journeys', on_delete=models.CASCADE, verbose_name='Категорія')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата створення')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата останнього оновлення')
 
     def __str__(self):
         return self.title
