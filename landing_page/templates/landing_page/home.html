@@ -48,19 +48,8 @@
                             <a href="#" class="text-danger text-right"><p><strong>Більше новин >>></strong></p></a>
                         </div>
                 </div>
-            </div>
-
-        <!-- Col for journey cards -->
-            <div class="col-sm-6">
-                <h4 style="color: #33691e"><strong>Найпопулярніші пригоди: </strong></h4>
-                <div>
-                    {# include 'product/journey_detail.html' #}
-                </div>
-            </div>
-
-        <!-- Col for Feedbacks -->
-            <div class="col-sm-3">
-                <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
+             <br>
+                 <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
                     {% for feedback in feedbacks %}
                         <div class="card mt-2">
                           <!-- Card content -->
@@ -79,6 +68,18 @@
                             <a href="#" class="text-danger text-right"><p><strong>Більше відгуків >>></strong></p></a>
                         </div>
                 </div>
+            </div>
+
+        <!-- Col for journey cards -->
+            <div class="col-sm-9">
+                <h4 style="color: #33691e"><strong>Найпопулярніші пригоди: </strong></h4>
+                <div>
+                    {%  include 'product/Journey_card.html' %}
+                </div>
+            </div>
+
+        <!-- Col for Feedbacks -->
+
             </div>
         </div>
 {% endblock %}
