@@ -40,10 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'django_extensions',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
     'bootstrapform',
+
+    'letsencrypt',
 
     'product.apps.ProductConfig',
     'order.apps.OrderConfig',
@@ -51,6 +57,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'news.apps.NewsConfig',
 ]
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -117,11 +125,38 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+SOCIALACCOUNT_PROVIDERS =  \
+    {
+        'facebook':
+        {'METHOD': 'oauth2',
+        'SCOPE': ['email'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'LOCALE_FUNC': lambda request: 'en_US',
+        'VERSION': 'v3.0'
+        }
+    }
+
+
+# TEST EMAIL CONFIGURATION
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'johnrain1974@gmail.com'
+EMAIL_HOST_PASSWORD = 'varvar84'
+EMAIL_PORT = 587
+
+
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
