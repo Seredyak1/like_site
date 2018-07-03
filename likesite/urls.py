@@ -25,8 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
     path('feedback', include('pages.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += [
     url(r'^__debug__/', include(debug_toolbar.urls)),
+    url(r'^\.well-known/', include('letsencrypt.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
