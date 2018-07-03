@@ -1,0 +1,33 @@
+{% for i in journeys_with_sale %}
+    <div class="media border transparent pb-1 pt-1">
+        <img class="align-self-start mr-3 pb-2 pt-2 ml-2" style="width: 180px; width: 180px" src="{{ i.photos.first.image.url }}" alt="Generic placeholder image">
+        <div class="media-body table-responsive-md">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td colspan="2" scope="col" class="border-0 pb-0 pt-4 font-weight-light" style="font-size: small">sku:{{ i.sku }}</td>
+                        <td scope="col"  class="border-0 d-flex justify-content-end pb-0 pt-1">
+                           <a href="#"><button type="button" class="btn btn-success">Замовити</button></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" scope="row" class="border-0 pb-0 pt-4" style="color:#33691e">{{ i.title }}</th>
+                        <td class="border-0 d-flex justify-content-end pt-4" ><h3 class="text-danger pr-2"><strike>{{ i.price }}</strike></h3><h3 class="text-danger">{{ i.sale_price }} грн</h3></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" scope="row" class="border-0 font-weight-light pt-1" style="font-size: small"> {% if i.durations_night == 1 or i.durations_days == 1 %}
+                                {{ i.durations_days}} день / {{i.durations_night }} ніч
+                            {% elif i.durations_night < 5 or i > 1 and i.durations_days < 5 and i > 1 %}
+                                {{ i.durations_days}} дні / {{i.durations_night }} ночі
+                            {% elif i.durations_night > 4 or i.durations_days > 4 %}
+                                {{ i.durations_days}} днів / {{i.durations_night }} ночей
+                            {% endif %}
+                        </td>
+                        <td class="border-0 d-flex justify-content-end pt-5 pb-0" style="font-size: small"><a class="text-danger" href="#">Дізнатись більше>>></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+{% endfor %}

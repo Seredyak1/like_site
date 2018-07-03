@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
     path('feedback', include('pages.urls')),
+    path('category/', include('product.category_urls'))
 ]
 
 urlpatterns += [
