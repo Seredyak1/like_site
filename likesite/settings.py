@@ -40,16 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'django_extensions',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'bootstrapform',
-
-    'letsencrypt',
 
     'product.apps.ProductConfig',
     'order.apps.OrderConfig',
