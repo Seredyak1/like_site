@@ -25,7 +25,13 @@
         App ID: 332976162394-l7skb4i13eqdva1smmsf0h3va2ki151a.apps.googleusercontent.com
         App Secret:8gmnzkRlFZaAAm16PbJ82DZm
 
-
+8. Встановлюємо крутий апп для редагування тексту! До речі, без нього не працюватимуть нормально моделі, тому встановлювати обов'язково!
+    1) оновлюємо requirements
+    2) йдемо за туторіалом - налаштовуємо лише editor --> https://github.com/django-ckeditor/django-ckeditor
+       по суті, налаштовуємо лише папку static, робимо ./manage.py collectstatic
+    2) перевіряємо у адмінці (за результатом зрозумієте, чи все пішло гуд)
+    
+    
 
 
 
