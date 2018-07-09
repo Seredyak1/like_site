@@ -7,7 +7,7 @@ from news.models import News
 def home(request):
     journeys = Journey.objects.all()[:8]
     feedbacks = Feedback.objects.all()[:5]
-    newses = News.objects.last()
+    newses = News.objects.exclude(published=False).first()
     return render(request, 'landing_page/home.html', {'journeys': journeys,
                                                       'feedbacks': feedbacks,
                                                       'newses': newses})
