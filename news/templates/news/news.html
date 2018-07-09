@@ -15,7 +15,7 @@
                 </div>
                 <div class="container mt-3">
                     <a href="{% url 'news_detail' news.id %}" class="text-success"><h3 ><strong>{{ news.title }}</strong></h3></a>
-                    <h5 class="text-justify mt-5">{{ news.short_description }}</h5>
+                    <h5 class="text-justify mt-5">{{ news.short_description|safe }}</h5>
                 </div>
                 <div class="container mt-5">
                     <a href="{% url 'news_detail' news.id %}" class="text-danger text-right"><h6>Дізнатись більше >>></h6></a>

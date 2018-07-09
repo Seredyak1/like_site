@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class News (models.Model):
@@ -6,8 +7,8 @@ class News (models.Model):
         ordering = ("-created_at",)
 
     title = models.CharField(max_length=255, blank=False)
-    short_description = models.TextField(blank=False)
-    body = models.TextField(blank=False)
+    short_description = RichTextField(blank=False)
+    body = RichTextField(blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
 
