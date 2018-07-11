@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+        <!-- START block with categories -->
+    <div class="container mt-1">
+        {%  include 'header_with_categories.html' %}
+    </div>
+    <!-- END block with categories -->
+
+<!-- START container with category's description -->
+    <div class="container mt-5" style="border: 3px solid #9a9a9a;  border-radius: 10px; min-height: 150px;">
+        <div class="row">
+            <div class="col-sm-3 mt-1 mb-1">
+                <img src="{{ category.category_logo.url }}" class="float-right img-thumbnail ml-2" alt="placeholder" height="360px" width="240px" >
+            </div>
+            <div class="col-sm-9">
+                <h4 class="font-italic mt-3" style="color: #FE3C01;"> <strong>{{ category.name }}</strong></h4>
+                <p class="text-justify">{{ category.description }}</p>
+            </div>
+        </div>
+    </div>
+<!-- END Category's description -->
+
+<!-- START button with order -->
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-sm-6">
+                <a href="#"><button class="btn btn-success btn-block"><strong>Сворити власну пригоду!</strong></button></a>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+<!-- END button with order -->
+
+<!-- Block with journeys with sale price -->
+
+    {% for i in journeys_with_sale %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-sm-10">
+                    <h4 style="color: #FE3C01;">Гарячі пропозиції: </h4>
+                    {% include 'product/Journey_card_with_sale.html' %}
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    {% endfor %}
+<!-- End block with sale price -->
+
+<!-- Pagination -->
+    <div class="container">
+        <nav class="mt-3">
+            <ul class="pagination pagination-sm pagination-circle justify-content-center">
+                <!--Arrow left-->
+                <li class="page-item">
+                    {% if journeys.has_previous %}
+                    <a class="page-link" aria-label="Previous"
+                       href="?page={{ journeys.previous_page_number }}">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    {% endif %}
+                </li>
+                <!--Numbers-->
+                {% for num in journeys.paginator.page_range %}
+                    {% if journeys.number == num %}
+                        <li class="page-item active"><a class="page-link">{{ num }}</a></li>
+                    {% elif num > journeys.number|add:'-3' and num < journeys.number|add:'3' %}
+                        <li class="page-item"><a class="page-link">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                <!--Arrow right-->
+                <li class="page-item">
+                    {% if journeys.has_next %}
+                    <a class="page-link" aria-label="Next"
+                       href="?page={{ journeys.next_page_number }}">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+<!-- START container with items. -->
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-sm-10">
+                {% include 'product/Journey_card.html' %}
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+<!-- End container -->
+
+{% endblock %}

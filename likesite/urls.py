@@ -25,6 +25,8 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
+    path('feedback', include('pages.urls')),
+    path('category/', include('product.category_urls'))
     path('home/', include('pages.urls')),
     path('accounts/', include('allauth.urls')),
     path('news/', include('news.urls')),
