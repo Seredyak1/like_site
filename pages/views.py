@@ -23,3 +23,8 @@ def feedback(request):
     feedbacks = feedbacks.get_page(page)
 
     return render(request, 'pages/feedback.html', {'feedbacks': feedbacks, 'form': form, 'categories': categories})
+
+
+def about_us(request):
+    categories = Category.objects.all()
+    return render(request, 'pages/about_us.html', {"categories": categories})

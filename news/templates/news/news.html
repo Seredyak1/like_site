@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="container"></div>
+    {% for news in newses %}
+    <div class="container m-3" style="border: 3px dotted #e0e0e0;">
+        <div class="row">
+            <div class="col-sm-6 ml-0 p-0">
+                <img src="{{ news.news_image.first.image.url }}" class="img-fluid">
+            </div>
+            <div class="col-sm-6">
+                <div class="container text-right mt-5" style="border-bottom: 2px solid #e0e0e0;">
+                    <h6>{{ news.created_at }}</h6>
+                </div>
+                <div class="container mt-3">
+                    <a href="{% url 'news_detail' news.id %}" class="text-success"><h3 ><strong>{{ news.title }}</strong></h3></a>
+                    <h5 class="text-justify mt-5">{{ news.short_description|safe }}</h5>
+                </div>
+                <div class="container mt-5">
+                    <a href="{% url 'news_detail' news.id %}" class="text-danger text-right"><h6>Дізнатись більше >>></h6></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 text-center">
+        <h1>...</h1>
+    </div>
+    {% endfor %}
+
+<!-- Pagination -->
+     <div class="container">
+         <nav class="mt-3">
+             <ul class="pagination pagination-sm pagination-circle justify-content-center">
+                 <!--Arrow left-->
+                 <li class="page-item">
+                     {% if newses.has_previous %}
+                     <a class="page-link" aria-label="Previous"
+                        href="?page={{ newses.previous_page_number }}">
+                     <span aria-hidden="true">&laquo;</span>
+                     <span class="sr-only">Previous</span>
+                     </a>
+                     {% endif %}
+                 </li>
+                 <!--Numbers-->
+                {% for num in newses.paginator.page_range %}
+                    {% if newses.number == num %}
+                        <li class="page-item active"><a class="page-link">{{ num }}</a></li>
+                    {% elif num > newses.number|add:'-3' and num < newses.number|add:'3' %}
+                        <li class="page-item"><a class="page-link">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                <!--Arrow right-->
+                <li class="page-item">
+                    {% if newses.has_next %}
+                    <a class="page-link" aria-label="Next"
+                       href="?page={{ newses.next_page_number }}">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
