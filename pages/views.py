@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from pages.forms import FeedbackForm
 from pages.models import Feedback
-
+from product.models import Category
 
 def feedback(request):
     """Create or show list for feedback"""
@@ -21,3 +21,8 @@ def feedback(request):
     feedbacks = feedbacks.get_page(page)
 
     return render(request, 'pages/feedback.html', {'feedbacks': feedbacks, 'form': form})
+
+
+def about_us(request):
+    categories = Category.objects.all()
+    return render(request, 'pages/about_us.html', {"categories": categories})

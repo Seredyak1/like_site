@@ -6,8 +6,8 @@ from news.models import News
 
 def home(request):
     journeys = Journey.objects.all()[:8]
-    feedbacks = Feedback.objects.all()[:5]
-    newses = News.objects.exclude(published=False).first()
+    feedbacks = Feedback.objects.all().exclude(is_published=False)[:5]
+    newses = News.objects.last()
     return render(request, 'landing_page/home.html', {'journeys': journeys,
                                                       'feedbacks': feedbacks,
                                                       'newses': newses})

@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -49,7 +48,6 @@ INSTALLED_APPS = [
     'bootstrapform',
     'ckeditor',
     'ckeditor_uploader',
-
 
     'product.apps.ProductConfig',
     'order.apps.OrderConfig',

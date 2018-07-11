@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="container mt-5" style="color: #33691e">
+        <img src="http://static.panoramio.com/photos/original/57957691.jpg" class="img-fluid">
+        <h3 class="text-center font-italic mt-3">Вітаємо, шукачу пригод!</h3>
+        <p class="text-justify font-italic mt-3"><strong>Закарпаття</strong> - унікальний куточок України. Водночас тут можна побачити
+        холодні вершини Карпат та відчути тепло Закарпатської долини, здійснити подорож гірською полониною та відпочити
+        у гарячих термальних басейнах. Це мультикультурний край, що представлений сотнею різних національностей та етносів,
+        побачити архітектурні стилі з усієї Європи та світу. До сьогодні тут збережений унікальний діалект української мови
+        складений зі слів кожного народу, хто колись проживав чи проживає на Закарпатті, та що змінюється від села до села,
+        від регіону до регіону. Тільки тут можна скуштувати безліч різномінітних страв української, угорської, румунської, чеської,
+        німецькою та десятків ніших кухонь, спробувати світових сортів вина. Саме такою є земля, наближена до неба!</p>
+        <h5 class="mt-3 font-weight-bold">Оператор пригод LAiK запрошує до Закарпаття, та організує тільки хороші пригоди по Сріберній Землі!</h5>
+
+    </div>
+    <div class="container mt-5" style="color: #33691e">
+        <h5 class="font-weight-bold">У нашій роботі ми опираємось на 3 основні цінності:</h5>
+        <div class="row mt-5">
+            <div class="col-sm-4 text-center">
+                <img src="https://lh6.googleusercontent.com/MeTHG6Dga7cGrbDfyp27BmcuBeDu47PYZAbXaSL62x622ZGB9nLX1XwLQEUkXB7aR1ACNh6V7ySntVpHImXl=w1855-h914" class="img-fluid">
+                <h5 class="font-weight-bold mt-3">Прагнення до найкращого</h5>
+                <p>Ми завжди продумовуємо все до останньої дрібниці, роблячи пригоду цікавою, захопливою та
+                такою, що запам'ятається!</p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img src="https://lh4.googleusercontent.com/CX84sCKpz1bHq5X_ENJvdEUdlvT-Z5ylvNuA6rdE9p2AADyLHWhzVPYCIAwg9kxxXKrjXQWc6CXEjmzQc7_f=w1855-h914" class="img-fluid">
+                <h5 class="font-weight-bold mt-3">Професіоналізм у дрібницях</h5>
+                <p class="text-center">Під час пригоди з Вами працюють тільки професіонали своєї справи.</p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img src="https://lh3.googleusercontent.com/wIGQqM8zLp0erydSR9A645MSXmFj_R-_oSn5rUS8uTn6_OpOjqd1nOVlv5kbvGC_pdgZV2A9WwvBO8rrZOTe=w1855-h914" class="img-fluid">
+                <h5 class="font-weight-bold mt-3">Цінування партнерства</h5>
+                <p class="text-center">Цінування та повага до наших партнерів для отримання лише відмінного
+                сервісу під час пригоди.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" style="color: #33691e">
+        <h5 class="font-weight-bold mt-3">Для зручності, наші пригоди поділена на категорії:</h5>
+        <ul>
+            {% for category in categories %}
+            <li><a href="#" class="text-success">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <h5 class="font-weight-bold mt-4">Якщо ж Ви хочете пригоду, не запропоновану нами, ми готові запропонувати Вам
+            скласти <a href="#" class="text-success">свою пригоду на Закарпатті.</a></h5>
+    </div>
+    <div class="container mt-5" style="color: #33691e">
+        <h4 class="mt-3">Віримо, що пригоди на Закарпатті Вам обов'язково сподобаються. Більше про нашу роботу Ви щможете прочитати
+        на <a href="{% url "feedback"  %}">сторінці відгуків</a>, або ж на стрінках у соціальних мережах.</h4>
+
+    </div>
+
+{% endblock %}

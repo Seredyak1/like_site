@@ -1,6 +1,5 @@
 from django.contrib import admin
-from pages.models import ClientCompany, Feedback
-
+from pages.models import ClientCompany, Feedback, Document
 
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_published',)
@@ -9,3 +8,4 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 admin.site.register(ClientCompany)
 admin.site.register(Feedback, FeedbackAdmin)
+admin.site.register(Document)
