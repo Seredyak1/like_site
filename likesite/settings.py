@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'django_extensions',
 
     'allauth',
     'allauth.account',
@@ -48,8 +47,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'bootstrapform',
+    'ckeditor',
+    'ckeditor_uploader',
 
-    'letsencrypt',
 
     'product.apps.ProductConfig',
     'order.apps.OrderConfig',
@@ -178,6 +178,28 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'public/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+#ckeditor locations
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 500,
+        'width': 900,
+        'extraPlugins': 'codesnippet',
+    },
+}
+
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_BROWSE_SHOW_DIRS = True
+
 
 try:
     from .local_settings import *
