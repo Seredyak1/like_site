@@ -21,11 +21,14 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
     path('home/', include('pages.urls')),
     path('accounts/', include('allauth.urls')),
+    path('news/', include('news.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += [
