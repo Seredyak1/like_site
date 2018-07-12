@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import CommentForm, Comment
 from .models import Journey
 from django.http import Http404
+from product.models import Category, Journey
+from product.utils import handle_pagination
 
 
 def journey_details(request, journey_id):
@@ -51,3 +53,13 @@ def comment_delete(request, comment_id, journey_id):
         return render(request, "product/item_details.html")
     else:
         return redirect('/')
+
+def category_detail(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    categories = Category.objects.all()
+    journeys = Journey.objects.filter(category=category)
+    journeys_with_sale = Journey.objects.filter(category=category).exclude(sale_price__isnull=True)[:5]
+    return render(request, 'product/Category_detail.html', {'category': category,
+                                                            'categories': categories,
+                                                            'journeys': handle_pagination(request, journeys),
+                                                            'journeys_with_sale': journeys_with_sale})

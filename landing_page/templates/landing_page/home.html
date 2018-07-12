@@ -2,6 +2,13 @@
 
 
 {% block content %}
+
+    <!-- START block with categories -->
+    <div class="container mt-1">
+        {%  include 'header_with_categories.html' %}
+    </div>
+    <!-- END block with categories -->
+
         <!-- START block with Order for anonim and search block -->
         <div class="container mt-1">
             <div class="row">
@@ -38,14 +45,12 @@
                         <!-- Card content -->
                             <div class="card-body">
                                 <h4 class="card-title"><a>{{ newses.title }}</a></h4>
-                                <p class="card-text text-justify">{{ newses.short_description }}</p>
-                                <div class="text-right">
-                                    <a href="#" class="text-danger text-right">Більше...</a>
-                                </div>
+                                <p class="card-text text-justify" style="text-overflow: ellipsis">{{ newses.short_description }}</p>
+                                <a href="{% url "news_detail" newses.id %}" class="text-danger"><p class="text-right">Читати >>></p></a>
                             </div>
                         </div>
                         <div class="text-right">
-                            <a href="#" class="text-danger text-right"><p><strong>Більше новин >>></strong></p></a>
+                            <a href="{% url 'news' %}" class="text-danger text-right"><p><strong>Більше новин >>></strong></p></a>
                         </div>
                 </div>
              <br>

@@ -1,0 +1,34 @@
+[
+  {
+    "model": "product.Category",
+    "pk": 1,
+    "fields": {
+      "name": "Подорожі Україною",
+      "slug": "ukraine"
+    }
+  },
+  {
+    "model": "product.Category",
+    "pk": 2,
+    "fields": {
+      "name": "Коропоративні пропозиції",
+      "slug": "corporate"
+    }
+  },
+  {
+    "model": "product.Category",
+    "pk": 3,
+    "fields": {
+      "name": "Пригоди в Закарпатті",
+      "slug": "zakarpattya"
+    }
+  },
+    {
+    "model": "product.Category",
+    "pk": 4,
+    "fields": {
+      "name": "Екстримальні пригоди",
+      "slug": "extreme"
+    }
+  }
+]

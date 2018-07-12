@@ -2,9 +2,13 @@
  {% load bootstrap %}
 
 {% block content %}
+        <!-- START block with categories -->
+    <div class="container mt-1">
+        {%  include 'header_with_categories.html' %}
+    </div>
+    <!-- END block with categories -->
 
-
-    <div class="d-flex justify-content-end pb-3">
+    <div class="d-flex justify-content-end pb-3 mt-2">
         <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">
             + Додати відгук
         </button>

@@ -25,11 +25,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
     path('feedback', include('pages.urls')),
+    path('category/', include('product.category_urls'))
+    path('home/', include('pages.urls')),
     path('accounts/', include('allauth.urls')),
+    path('news/', include('news.urls')),
     path('journey/', include('product.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += [
     url(r'^__debug__/', include(debug_toolbar.urls)),
-    # url(r'^\.well-known/', include('letsencrypt.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
