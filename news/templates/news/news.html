@@ -2,12 +2,19 @@
 
 
 {% block content %}
+
+        <!-- START block with categories -->
+    <div class="container mt-1">
+        {%  include 'header_with_categories.html' %}
+    </div>
+    <!-- END block with categories -->
+
     <div class="container"></div>
     {% for news in newses %}
     <div class="container m-3" style="border: 3px dotted #e0e0e0;">
         <div class="row">
             <div class="col-sm-6 ml-0 p-0">
-                <img src="{{ news.news_image.first.image.url }}" class="img-fluid">
+                <a href="{% url 'news_detail' news.id %}"><img src="{{ news.news_image.first.image.url }}" class="img-fluid"></a>
             </div>
             <div class="col-sm-6">
                 <div class="container text-right mt-5" style="border-bottom: 2px solid #e0e0e0;">
