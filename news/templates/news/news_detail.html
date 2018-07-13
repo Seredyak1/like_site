@@ -2,6 +2,13 @@
 
 
 {% block content %}
+
+        <!-- START block with categories -->
+    <div class="container mt-1">
+        {%  include 'header_with_categories.html' %}
+    </div>
+    <!-- END block with categories -->
+
     <div class="container mt-4">
         <div class="container mt-3" style="border-bottom: 2px solid #e0e0e0;">
             <a href="{% url 'news' %}" class="text-danger text-right"><h5><strong>Повернутись до всіх новин</strong></h5></a>
