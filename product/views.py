@@ -16,6 +16,17 @@ def journey_details(request, journey_id):
     return render(request, 'product/item_details.html', {'journey': journey, 'comments': comments, 'form': form})
 
 
+def category_detail(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    categories = Category.objects.all()
+    journeys = Journey.objects.filter(category=category)
+    journeys_with_sale = Journey.objects.filter(category=category).exclude(sale_price__isnull=True)[:5]
+    return render(request, 'product/Category_detail.html', {'category': category,
+                                                            'categories': categories,
+                                                            'journeys': handle_pagination(request, journeys),
+                                                            'journeys_with_sale': journeys_with_sale})
+
+
 def create_comment(request, journey_id):
     if request.user.is_authenticated:
         journey = get_object_or_404(Journey, id=journey_id)
@@ -54,12 +65,3 @@ def comment_delete(request, comment_id, journey_id):
     else:
         return redirect('/')
 
-def category_detail(request, slug):
-    category = get_object_or_404(Category, slug=slug)
-    categories = Category.objects.all()
-    journeys = Journey.objects.filter(category=category)
-    journeys_with_sale = Journey.objects.filter(category=category).exclude(sale_price__isnull=True)[:5]
-    return render(request, 'product/Category_detail.html', {'category': category,
-                                                            'categories': categories,
-                                                            'journeys': handle_pagination(request, journeys),
-                                                            'journeys_with_sale': journeys_with_sale})
