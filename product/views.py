@@ -10,6 +10,14 @@ def journey_details(request, journey_id):
     journey = Journey.objects.filter(id=journey_id).first()
     if not journey:
         raise Http404
+
+    return render(request, 'product/item_details.html', {'journey': journey})
+
+
+def journey_comments(request, journey_id):
+    journey = Journey.objects.filter(id=journey_id).first()
+    if not journey:
+        raise Http404
     comments = Comment.objects.filter(journey=journey)
     form = CommentForm()
 
@@ -64,4 +72,3 @@ def comment_delete(request, comment_id, journey_id):
         return render(request, "product/item_details.html")
     else:
         return redirect('/')
-
