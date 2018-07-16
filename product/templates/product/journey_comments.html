@@ -1,0 +1,117 @@
+<hr>
+    <div class="row">
+        <div class="col-md-6">Відгуки про {{ journey.title }} ({{ comments.count }})</div>
+        <div class="col-md-6 text-right">
+
+        {% if request.user.is_authenticated %}
+             <a data-toggle="modal" data-target="#create"><i class="material-icons" style="font-size: 40px; color: #FE3C01;">add</i></a>
+        {% else %}
+             <h5>Авторизуйтесь перед коментуванням!</h5>
+        {% endif %}
+
+        </div>
+    </div>
+
+
+{% for comment in comments %}
+
+    <div class="container" style="border: solid #33691e; margin-top: 2px">
+        <div class="row" style="margin-top: 10px">
+            <div class="col-md-6">{{ comment.user.email }}</div>
+            <div class="col-md-6 text-right">{{ comment.created_at|date:"d/m/y" }}</div>
+        </div>
+
+    <hr style="margin-top: 4px">
+        <div style="border:1px dashed;"><h6 style="margin-left: 10px; margin-right: 10px; padding-top: 5px;">{{ comment.body }}</h6></div>
+
+        {% if request.user.is_authenticated %}
+                <div class="text-right" style="margin-top: 10px">
+                    <a data-toggle="modal" data-target="#Update{{ comment.id }}"><i class="material-icons" style="font-size: 30px; color: red">edit</i></a>
+                    <a data-toggle="modal" data-target="#Del{{ comment.id }}"><i class="material-icons" style="font-size: 30px; color: red;">delete</i></a>
+                </div>
+        {% else %}
+
+            <div class="text-right" style="margin-top: 10px"></div>
+
+        {% endif %}
+
+    </div>
+
+                                                                <!-- Modal for update -->
+
+
+                                    <form method="POST" action="{% url 'update_comment' journey.id comment.id %}"> {% csrf_token %}
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Update{{ comment.id }}" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center" style="background: #33691e; color: white;">
+                                                    <h4 class="modal-title w-100 font-weight-bold">Редагувати відгук:</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ form.body }}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-success" type="submit">Зберегти</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                                                   <!-- Modal for delete -->
+
+
+                                  <form method="POST" action="{% url 'comment_delete' journey.id comment.id %}"> {% csrf_token %}
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Del{{ comment.id }}" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center" style="background: #33691e; color: white;">
+                                                    <h4 class="modal-title w-100 font-weight-bold">Видалення відгуку</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-center" style="color: blue">Ви справді хочете видалити відгук?</p>
+                                                </div>
+                                                <div class="modal-footer small">
+                                                    <button class="btn btn-danger" type="submit">Видалити</button>
+                                                    <button class="btn btn-secondary" data-dismiss="modal">Відмінити</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  </form>
+
+                                                                    <!-- Modal for create -->
+
+
+                                    <form method="POST" class="form-group" action="{% url 'create_comment' journey.id %}"> {% csrf_token %}
+                                            <div class="modal custom fade" id="create" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header text-center" style="background: #33691e; color: white;">
+                                                            <h4 class="modal-title w-100 font-weight-bold">Додати відгук:</h4>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                                {{ form.body }}
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-success" type="submit">Зберегти</button>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
+
+
+{% endfor %}

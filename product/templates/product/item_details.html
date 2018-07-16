@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <p class="text-center">Details of {{ journey }}</p>
+
+    <div class="text-center">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{% url 'journey_details' journey.id %}"><button type="button" class="btn btn-secondary" style="background-color: #33691e">Інфо</button></a>
+            <a href="{% url 'journey_comments' journey.id%}"><button type="button" class="btn btn-secondary" style="background-color: #33691e">Коментарі</button></a>
+        </div>
+    </div>
+
+    {% if comments %}
+
+        {% include 'product/journey_comments.html' %}
+
+    {% endif %}
+
+{% endblock %}
