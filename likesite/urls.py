@@ -30,6 +30,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('news/', include('news.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('order/', include('order.urls')),
 ]
 
 urlpatterns += [

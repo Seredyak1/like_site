@@ -25,6 +25,7 @@ class Order(models.Model):
     persons = models.IntegerField(verbose_name='Persons', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    contacted = models.BooleanField(verbose_name="Зконтактовано")
 
     def __str__(self):
         return "Order # " + str(self.pk)
@@ -37,6 +38,7 @@ class OrderAnonim(models.Model):
     duration = models.IntegerField(blank=False)
     email = models.CharField(max_length=255, blank=True)
     phone = models.CharField(max_length=255, blank=False)
+    contacted = models.BooleanField(verbose_name="Зконтактовано", default=False)
 
     def __str__(self):
         return "Order # " + str(self.name)
