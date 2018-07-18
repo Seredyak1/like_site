@@ -30,6 +30,8 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('journey/', include('product.urls')),
+    path('order/', include('order.urls')),
+
 ]
 
 
