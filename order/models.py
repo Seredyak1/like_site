@@ -25,18 +25,24 @@ class Order(models.Model):
     persons = models.IntegerField(verbose_name='Persons', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    contacted = models.BooleanField(verbose_name="Зконтактовано")
 
     def __str__(self):
         return "Order # " + str(self.pk)
 
 
 class OrderAnonim(models.Model):
-    name = models.CharField(max_length=255, blank=False)
-    description = models.TextField(blank=False)
-    person = models.IntegerField(blank=True)
-    duration = models.IntegerField(blank=False)
-    email = models.CharField(max_length=255, blank=True)
-    phone = models.CharField(max_length=255, blank=False)
+    class Meta:
+        verbose_name = "Анонімне замовлення"
+        verbose_name_plural = "Анонімні замовлення"
+
+    name = models.CharField(max_length=255, blank=False, verbose_name='ПІБ')
+    description = models.TextField(blank=False, verbose_name='Опис')
+    person = models.IntegerField(blank=True, verbose_name='Кількість осіб')
+    duration = models.IntegerField(blank=False, verbose_name='Тривалість')
+    email = models.CharField(max_length=255, blank=True, verbose_name='Email')
+    phone = models.CharField(max_length=255, blank=False, verbose_name='Телефон')
+    contacted = models.BooleanField(verbose_name="Зконтактовано", default=False)
 
     def __str__(self):
         return "Order # " + str(self.name)
