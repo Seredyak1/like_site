@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class ClientCompany(models.Model):
@@ -38,3 +39,15 @@ class Document(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Faq(models.Model):
+    class Meta:
+        verbose_name = "Типове запитання"
+        verbose_name_plural = "Типові запитання"
+
+    question = RichTextField(blank=False, verbose_name="Типове Запитання")
+    answer = RichTextField(blank=False, verbose_name="Відповідь")
+
+    def __str__(self):
+        return self.question

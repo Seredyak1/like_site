@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <!-- START block with categories -->
+    <div class="container mt-1">
+        {%  include 'header_with_categories.html' %}
+    </div>
+    <!-- END block with categories -->
+
+    <div class="container mt-3">
+        <h3 class="mt-2 text-center" style="color: #33691e;">Сторінка типових запитань (FAQ)</h3>
+        <div class="accordion mt-4" id="accordionExample">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    {% for i in faq %}
+                        <div class="card">
+                            <div class="card-header text-light collapsed" id="heading{{ i.id }}" style="height: 50px; background-color: #33691e;"
+                                 data-toggle="collapse" data-target="#collapse{{ i.id }}" aria-expanded="false" aria-controls="collapse{{ i.id }}"> {{ i.question|safe }}
+                            </div>
+                            <div id="collapse{{ i.id }}" class="collapse" aria-labelledby="heading{{ i.id }}" data-parent="#accordionExample">
+                                <div class="card-body">
+                                        {{ i.answer|safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
