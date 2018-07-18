@@ -48,7 +48,7 @@ class Comment(models.Model):
 
     journey = models.ForeignKey(Journey, related_name='comments', on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='comments', on_delete=False)
-    body = models.TextField(verbose_name='Comment text')
+    body = models.TextField(verbose_name='Відгук')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

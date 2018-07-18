@@ -21,7 +21,6 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
@@ -31,7 +30,9 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('order/', include('order.urls')),
+    path('journey/', include('product.urls')),
 ]
+
 
 urlpatterns += [
     url(r'^__debug__/', include(debug_toolbar.urls)),
