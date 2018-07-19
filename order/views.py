@@ -1,7 +1,24 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from product.models import Journey
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from product.models import Category
+from .forms import CreateOrderAnonim, CreateOrder
 from .models import Order
-from .forms import CreateOrder
+from product.models import Journey
+
+
+def order_anonim(request):
+    categories = Category.objects.all()
+    """Create order anonim"""
+    if request.method == "POST":
+        form = CreateOrderAnonim(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Ваше замовлення зареєстроване! Наш менеджер обов'язково Вас сконтактує найблищим часом!")
+            redirect('/')
+
+    form = CreateOrderAnonim()
+
+    return render(request, 'order/order_for_anonim.html', {'form': form, 'categories': categories})
 
 
 def create_order(request, journey_id):
@@ -17,7 +34,7 @@ def create_order(request, journey_id):
             if form.is_valid():
                 form.save()
 
-            return render(request, 'product/Journey_card.html', {'form': form})
+            return render(request, 'product/Journey_card.html', {'form': form, 'journey': journey})
 
     else:
 
