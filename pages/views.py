@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 
 from pages.forms import FeedbackForm
-from pages.models import Feedback
+from pages.models import Feedback, Faq
 from product.models import Category
 
 
@@ -28,3 +28,9 @@ def feedback(request):
 def about_us(request):
     categories = Category.objects.all()
     return render(request, 'pages/about_us.html', {"categories": categories})
+
+
+def get_faq(request):
+    categories = Category.objects.all()
+    faq = Faq.objects.all()
+    return render(request, 'pages/faq.html', {'categories': categories, 'faq': faq})

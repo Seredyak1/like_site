@@ -1,9 +1,14 @@
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from product.models import Category
 from .forms import CreateOrderAnonim, CreateOrder
 from .models import Order
 from product.models import Journey
+from product.models import Category
+from .models import OrderAnonim
+from .forms import CreateOrderAnonim
 
 
 def order_anonim(request):

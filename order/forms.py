@@ -2,6 +2,7 @@ from django import forms
 from order.models import Order, OrderAnonim
 
 
+<<<<<<< HEAD
 class CreateOrder(forms.Form):
     contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
 
@@ -10,6 +11,8 @@ class CreateOrder(forms.Form):
         fields = ('contact_phone',)
 
 
+=======
+>>>>>>> master
 class CreateOrderAnonim(forms.ModelForm):
 
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label="Призвіще та ім'я")
