@@ -24,7 +24,7 @@ class Order(models.Model):
     persons = models.IntegerField(verbose_name='Persons', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    contacted = models.BooleanField(verbose_name="Зконтактовано")
+    contacted = models.BooleanField(verbose_name="Зконтактовано", default=False)
 
     def __str__(self):
         return "Order # " + str(self.pk)

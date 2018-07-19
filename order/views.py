@@ -1,14 +1,9 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from product.models import Category
-from .forms import CreateOrderAnonim, CreateOrder
 from .models import Order
 from product.models import Journey
 from product.models import Category
-from .models import OrderAnonim
-from .forms import CreateOrderAnonim
+from .forms import CreateOrderAnonim, CreateOrder
 
 
 def order_anonim(request):
@@ -27,20 +22,21 @@ def order_anonim(request):
 
 
 def create_order(request, journey_id):
+    categories = Category.objects.all()
     if request.user.is_authenticated:
-        journey = get_object_or_404(Journey, journey_id)
+        journey = get_object_or_404(Journey, id=journey_id)
 
         if request.method == "POST":
-            order = Order.objects.create(user=request.user, total=journey.price,
-                                         contact_phone=request.POST['contact_phone'],
-                                         journey=journey_id)
 
-            form = CreateOrder(request.POST, instance=order)
-            if form.is_valid():
-                form.save()
+            Order.objects.create(user=request.user, journey=journey, contact_phone=request.POST['contact_phone'],
+                                 persons=request.POST['persons'], total=int(request.POST['persons']) * journey.price)
 
-            return render(request, 'product/Journey_card.html', {'form': form, 'journey': journey})
+            return render(request, 'product/Journey_card.html')
+
+        else:
+
+            form = CreateOrder()
+            return render(request, 'order/order.html', {'form': form, 'journey': journey, 'categories':categories})
 
     else:
-
         return redirect("/")
