@@ -8,7 +8,7 @@ class CreateOrder(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('contact_phone', 'persons')
+        fields = ('contact_phone', 'persons',)
 
 
 class CreateOrderAnonim(forms.ModelForm):

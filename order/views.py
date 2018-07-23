@@ -31,12 +31,27 @@ def create_order(request, journey_id):
             Order.objects.create(user=request.user, journey=journey, contact_phone=request.POST['contact_phone'],
                                  persons=request.POST['persons'], total=int(request.POST['persons']) * journey.price)
 
-            return render(request, 'product/Journey_card.html')
+            return redirect('/')
 
         else:
 
             form = CreateOrder()
-            return render(request, 'order/order.html', {'form': form, 'journey': journey, 'categories':categories})
+            return render(request, 'order/order_for_users.html', {'form': form, 'journey': journey,
+                                                                  'categories': categories})
 
     else:
         return redirect("/")
+
+
+def add_person(request, journey_id, order_id):
+    categories = Category.objects.all()
+    journey = get_object_or_404(Journey, id=journey_id)
+
+    order = get_object_or_404(Order, order_id)
+
+    order.persons += 1
+
+    form = CreateOrder()
+
+    return render(request, 'order/order_for_users.html', {'form': form, 'journey': journey,
+                                                          'categories': categories, 'order': order})

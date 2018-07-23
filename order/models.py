@@ -21,7 +21,7 @@ class Order(models.Model):
     contact_phone = models.CharField(max_length=255, verbose_name='Contact phone', blank=False)
     status = models.IntegerField(choices=ORDER_STATUS_CHOICES, default=ORDER_STATUS_CHOICES[0][0])
     total = models.IntegerField(verbose_name='Total price', null=True)
-    persons = models.IntegerField(verbose_name='Persons', null=True)
+    persons = models.IntegerField(verbose_name='Persons', default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     contacted = models.BooleanField(verbose_name="Зконтактовано", default=False)

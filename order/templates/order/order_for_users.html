@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <h3 style="margin-bottom: 20px"><strong>Замовлення пригоди:</strong></h3>
+
+
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">#</th>
+          <th scope="col" class="text-center">Назва пригоди</th>
+          <th scope="col" class="text-center">Кількість осіб</th>
+          <th scope="col" class="text-center">Ціна всього:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row" class="text-center">{{ journey.sku }}</th>
+          <td class="text-center">{{ journey.title }}</td>
+            <td class="text-center">{{ order.persons }}</td>
+          <td class="text-center">@mdo</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+
+    <div class="row">
+        <div class="col-md-6" style="margin-top: 40px"><h3>Для підтвердження замовлення введіть актуальний номер мобільного телефону</h3></div>
+        <div class="col-md-6">
+            <form method="POST" style="margin-top: 35px"> {% csrf_token %}
+
+                {{ form.as_p }}
+
+            <div class="text-right">
+                <button class="btn btn-success" type="submit">Замовити</button>
+                <a href="/"><button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button></a>
+
+            </div>
+
+            </form>
+
+            <form method="POST" action="{% url 'add_person' journey.id order.id%}"> {% csrf_token %}
+                <input type="number" name="quantity" min="1" max="5">
+                <input type="submit" value="Send">
+            </form>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
