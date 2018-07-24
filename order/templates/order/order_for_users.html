@@ -2,11 +2,9 @@
 
 {% block content %}
 
-
     <h3 style="margin-bottom: 20px"><strong>Замовлення пригоди:</strong></h3>
 
-
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="border-color: #33691e;">
 
       <thead>
         <tr>
@@ -21,37 +19,41 @@
         <tr>
           <th scope="row" class="text-center">{{ journey.sku }}</th>
           <td class="text-center">{{ journey.title }}</td>
-            <td class="text-center">{{ order.persons }}</td>
-          <td class="text-center">@mdo</td>
+            <td class="text-center">
+
+                <form method="POST" action="{% url 'update_persons' journey.id %}">{% csrf_token %}
+
+                    <input class="text-center" type="text" value="{{ order.persons }}" size="3" name="update_persons"/>
+                    <button class="btn btn-info" style="font-size: 10px; margin-bottom: 2px" type="submit">Оновити</button>
+
+                </form>
+
+            </td>
+          <td class="text-center">{{ full_price }}</td>
         </tr>
       </tbody>
 
     </table>
 
-
     <div class="row">
         <div class="col-md-6" style="margin-top: 40px"><h3>Для підтвердження замовлення введіть актуальний номер мобільного телефону</h3></div>
         <div class="col-md-6">
-            <form method="POST" style="margin-top: 35px"> {% csrf_token %}
 
-                {{ form.as_p }}
+    <form method="POST" style="margin-top: 35px"> {% csrf_token %}
 
-            <div class="text-right">
-                <button class="btn btn-success" type="submit">Замовити</button>
-                <a href="/"><button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button></a>
-
+            <div class="text-center">
+                <input class="text-center" type="text" name="contact_phone" required placeholder="+380507293834"
+                       size="35"
+                       style="margin-top: 30px;">
             </div>
 
-            </form>
-
-            <form method="POST" action="{% url 'add_person' journey.id order.id%}"> {% csrf_token %}
-                <input type="number" name="quantity" min="1" max="5">
-                <input type="submit" value="Send">
-            </form>
-
+            <div class="text-right" style="margin-top: 60px">
+                <button class="btn btn-success" type="submit">Замовити</button>
+                <a href="/"><button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button></a>
+            </div>
+    </form>
 
         </div>
     </div>
-
 
 {% endblock %}

@@ -1,14 +1,5 @@
 from django import forms
-from order.models import Order, OrderAnonim
-
-
-class CreateOrder(forms.ModelForm):
-    contact_phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label="Номер телефону")
-    persons = forms.IntegerField(label="Кількість осіб")
-
-    class Meta:
-        model = Order
-        fields = ('contact_phone', 'persons',)
+from order.models import OrderAnonim
 
 
 class CreateOrderAnonim(forms.ModelForm):

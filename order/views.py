@@ -3,7 +3,7 @@ from django.contrib import messages
 from .models import Order
 from product.models import Journey
 from product.models import Category
-from .forms import CreateOrderAnonim, CreateOrder
+from .forms import CreateOrderAnonim
 
 
 def order_anonim(request):
@@ -13,7 +13,8 @@ def order_anonim(request):
         form = CreateOrderAnonim(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Ваше замовлення зареєстроване! Наш менеджер обов'язково Вас сконтактує найблищим часом!")
+            messages.success(request, "Ваше замовлення зареєстроване!"
+                                      " Наш менеджер обов'язково Вас сконтактує найблищим часом!")
             redirect('/')
 
     form = CreateOrderAnonim()
@@ -23,35 +24,38 @@ def order_anonim(request):
 
 def create_order(request, journey_id):
     categories = Category.objects.all()
+
     if request.user.is_authenticated:
         journey = get_object_or_404(Journey, id=journey_id)
+        order = Order.objects.filter().last()
+
+        if journey.sale_price:
+            full_price = order.persons * journey.sale_price
+        else:
+            full_price = order.persons * journey.price
 
         if request.method == "POST":
-
-            Order.objects.create(user=request.user, journey=journey, contact_phone=request.POST['contact_phone'],
-                                 persons=request.POST['persons'], total=int(request.POST['persons']) * journey.price)
+            order, created = Order.objects.get_or_create(user=request.user, journey=journey,
+                                                         contact_phone=request.POST['contact_phone'],
+                                                         persons=order.persons,
+                                                         total=full_price)
+            order.save()
 
             return redirect('/')
 
         else:
 
-            form = CreateOrder()
-            return render(request, 'order/order_for_users.html', {'form': form, 'journey': journey,
-                                                                  'categories': categories})
+            return render(request, 'order/order_for_users.html', {'journey': journey,
+                                                                  'categories': categories, 'order': order,
+                                                                  'full_price': full_price})
 
     else:
         return redirect("/")
 
 
-def add_person(request, journey_id, order_id):
-    categories = Category.objects.all()
-    journey = get_object_or_404(Journey, id=journey_id)
+def update_persons(request, journey_id):
+    order = Order.objects.filter().last()
+    order.persons = request.POST['update_persons']
+    order.save()
 
-    order = get_object_or_404(Order, order_id)
-
-    order.persons += 1
-
-    form = CreateOrder()
-
-    return render(request, 'order/order_for_users.html', {'form': form, 'journey': journey,
-                                                          'categories': categories, 'order': order})
+    return redirect('/order/journey/{}'.format(journey_id))
