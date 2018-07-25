@@ -1,5 +1,5 @@
 from django import forms
-from order.models import Order, OrderAnonim
+from order.models import OrderAnonim
 
 
 class CreateOrderAnonim(forms.ModelForm):
@@ -8,7 +8,6 @@ class CreateOrderAnonim(forms.ModelForm):
     duration = forms.IntegerField(label="Тривалість")
     person = forms.IntegerField(label="Кількість осіб")
     description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4}), label='Що б Ви хотіли побачити?')
-    phone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label="Номер телефону")
     email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control'}), label="Email-адреса")
 
     class Meta:
