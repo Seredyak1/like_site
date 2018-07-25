@@ -4,6 +4,7 @@ from .models import Order
 from product.models import Journey
 from product.models import Category
 from .forms import CreateOrderAnonim
+from django.core.cache import cache
 
 
 def order_anonim(request):
@@ -27,26 +28,31 @@ def create_order(request, journey_id):
 
     if request.user.is_authenticated:
         journey = get_object_or_404(Journey, id=journey_id)
-        order = Order.objects.filter().last()
+
+        if cache.get('persons'):
+            cached_persons = cache.get('persons')
+        else:
+            cached_persons = 1
 
         if journey.sale_price:
-            full_price = order.persons * journey.sale_price
+            full_price = int(cached_persons) * journey.sale_price
         else:
-            full_price = order.persons * journey.price
+            full_price = int(cached_persons) * journey.price
 
         if request.method == "POST":
             order, created = Order.objects.get_or_create(user=request.user, journey=journey,
                                                          contact_phone=request.POST['contact_phone'],
-                                                         persons=order.persons,
+                                                         persons=cached_persons,
                                                          total=full_price)
             order.save()
 
-            return redirect('/')
+            return render(request, 'order/confirmation_page.html')
 
         else:
 
             return render(request, 'order/order_for_users.html', {'journey': journey,
-                                                                  'categories': categories, 'order': order,
+                                                                  'categories': categories,
+                                                                  'cached_persons': cached_persons,
                                                                   'full_price': full_price})
 
     else:
@@ -54,8 +60,6 @@ def create_order(request, journey_id):
 
 
 def update_persons(request, journey_id):
-    order = Order.objects.filter().last()
-    order.persons = request.POST['update_persons']
-    order.save()
+    cache.set('persons', request.POST['update_persons'], 100)
 
     return redirect('/order/journey/{}'.format(journey_id))

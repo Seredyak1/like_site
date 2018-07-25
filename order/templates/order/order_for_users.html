@@ -10,6 +10,7 @@
         <tr>
           <th scope="col" class="text-center">#</th>
           <th scope="col" class="text-center">Назва пригоди</th>
+          <th scope="col" class="text-center">Ціна:</th>
           <th scope="col" class="text-center">Кількість осіб</th>
           <th scope="col" class="text-center">Ціна всього:</th>
         </tr>
@@ -19,12 +20,13 @@
         <tr>
           <th scope="row" class="text-center">{{ journey.sku }}</th>
           <td class="text-center">{{ journey.title }}</td>
+          <td class="text-center">{% if journey.sale_price %}{{ journey.sale_price }}{% else %}{{ journey.price }}{% endif %}</td>
             <td class="text-center">
 
                 <form method="POST" action="{% url 'update_persons' journey.id %}">{% csrf_token %}
 
-                    <input class="text-center" type="text" value="{{ order.persons }}" size="3" name="update_persons"/>
-                    <button class="btn btn-info" style="font-size: 10px; margin-bottom: 2px" type="submit">Оновити</button>
+                    <input class="text-center" type="text" value="{{ cached_persons }}" size="3" name="update_persons"/>
+                    <button class="btn btn-info" style="font-size: 10px; margin-bottom: 2px; color: white" type="submit">Порахувати</button>
 
                 </form>
 
@@ -48,12 +50,13 @@
             </div>
 
             <div class="text-right" style="margin-top: 60px">
-                <button class="btn btn-success" type="submit">Замовити</button>
+                <button class="btn btn-success" type="submit" data-target="#create">Замовити</button>
                 <a href="/"><button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button></a>
             </div>
     </form>
 
         </div>
     </div>
+
 
 {% endblock %}
