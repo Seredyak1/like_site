@@ -29,10 +29,7 @@ def create_order(request, journey_id):
     if request.user.is_authenticated:
         journey = get_object_or_404(Journey, id=journey_id)
 
-        if cache.get('persons'):
-            cached_persons = cache.get('persons')
-        else:
-            cached_persons = 1
+        cached_persons = cache.get('persons', 1)
 
         if journey.sale_price:
             full_price = int(cached_persons) * journey.sale_price
