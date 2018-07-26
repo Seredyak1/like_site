@@ -38,7 +38,7 @@ def create_order(request, journey_id):
 
         if request.method == "POST":
             order, created = Order.objects.get_or_create(user=request.user, journey=journey,
-                                                         email_address=request.user.email,
+                                                         email_address = request.user.email,
                                                          contact_phone=request.POST['contact_phone'],
                                                          persons=cached_persons,
                                                          total=full_price)
