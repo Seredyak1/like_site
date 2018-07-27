@@ -1,10 +1,12 @@
 from django.contrib import messages
 from django.core.paginator import Paginator
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from pages.forms import FeedbackForm
-from pages.models import Feedback, Faq
+from pages.models import Feedback, Faq, Document
 from product.models import Category, Journey
+import os
+import mimetypes
+from django.http import HttpResponse
 
 
 def feedback(request):
@@ -54,3 +56,21 @@ def search(request):
                                                      ':query_journey_content':query_journey_content,
                                                      'journeys_count': journeys_count})
 
+
+def documents(request):
+    documents = Document.objects.all()
+
+    return render(request, 'pages/documents.html', {'documents': documents})
+
+
+def download_file(request, file_id):
+        document_for_download = Document.objects.get(id=file_id)
+        path = document_for_download.document.path
+        content_type = mimetypes.guess_type(path)
+        if os.path.exists(path):
+            with open(path, 'rb') as fh:
+                response = HttpResponse(fh.read(), content_type="application/{}".format(content_type))
+                f_extension = str(document_for_download.document).rpartition('.')[-1]
+                response['Content-Disposition'] = 'inline; filename={}.{}'.format(document_for_download.title,
+                                                                                  f_extension)
+                return response

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <table class="table table-bordered" style="border-color: #33691e;">
+
+            <thead>
+                {% for d in documents %}
+
+                    <tr>
+                        <th scope="col" class="text-center" style="width: 50%; padding-bottom: 15px">{{ d.title }}</th>
+                        <th scope="col" class="text-center">
+                            <a href="{% url 'download_file' d.id %}"><button type="button" class="btn btn-success btn-sm">Скачати</button></a>
+                        </th>
+                    </tr>
+
+                {% endfor %}
+            </thead>
+
+        </table>
+
+{% endblock %}
