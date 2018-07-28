@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 
+
 class Category(models.Model):
     class Meta:
         verbose_name = "Категорія"
@@ -24,7 +25,7 @@ class Journey(models.Model):
 
     sku = models.CharField(max_length=255, verbose_name='Номер')
     title = models.CharField(max_length=255, verbose_name='Назва пригоди')
-    description = models.TextField(verbose_name='Опис пригоди')
+    description = RichTextField(verbose_name='Опис пригоди')
     durations_days = models.IntegerField(verbose_name='Тривалість днів')
     durations_night = models.IntegerField(verbose_name='Тривалість ночей')
     price = models.IntegerField(verbose_name='Ціна')
