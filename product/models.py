@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from ckeditor.fields import RichTextField
 
 class Category(models.Model):
     class Meta:
@@ -9,7 +9,7 @@ class Category(models.Model):
 
     name = models.CharField(max_length=255, verbose_name='Назва Категорії')
     slug = models.SlugField(unique=True, default='', verbose_name='Назва в URL')
-    description = models.TextField(verbose_name='Опис Категорії')
+    description = RichTextField(verbose_name='Опис Категорії')
     category_logo = models.ImageField(upload_to='category-logo', null=True, verbose_name='Катринка Категорії')
 
     def __str__(self):
