@@ -19,7 +19,7 @@ import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
-
+from product import views as views_product
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,7 +31,8 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('order/', include('order.urls')),
     path('journey/', include('product.urls')),
-    path('order/', include('order.urls')),
+    path('new/', views_product.get_category_new, name="new"),
+    path('hot_sale/', views_product.get_category_sale, name="hot_sales"),
 
 ]
 
