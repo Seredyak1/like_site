@@ -71,3 +71,17 @@ def comment_delete(request, comment_id, journey_id):
         return render(request, "product/journey_comments.html")
     else:
         return redirect('/')
+
+
+def get_category_new(request):
+    categories = Category.objects.all()
+    journeys = Journey.objects.all()[:10]
+    return render(request, 'product/new_journeys.html', {'categories': categories,
+                                                         'journeys': journeys})
+
+
+def get_category_sale(request):
+    categories = Category.objects.all()
+    journeys_with_sale = Journey.objects.exclude(sale_price__isnull=True)
+    return render(request, 'product/sale_journeys.html', {'categories': categories,
+                                                          'journeys_with_sale': journeys_with_sale})

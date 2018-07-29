@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-sm-6">
-                <a href="#"><button class="btn btn-success btn-block"><strong>Сворити власну пригоду!</strong></button></a>
+                <a href="{% url 'order_anonim' %}"><button class="btn btn-success btn-block"><strong>Сворити власну пригоду!</strong></button></a>
             </div>
             <div class="col-3"></div>
         </div>
@@ -36,18 +36,18 @@
 
 <!-- Block with journeys with sale price -->
 
-    {% for i in journeys_with_sale %}
+
         <div class="container mt-5">
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-sm-10">
                     <h4 style="color: #FE3C01;">Гарячі пропозиції: </h4>
-                    {% include 'product/Journey_card_with_sale.html' %}
+                        {% include 'product/Journey_card_with_sale.html' %}
                 </div>
                 <div class="col-1"></div>
             </div>
         </div>
-    {% endfor %}
+
 <!-- End block with sale price -->
 
 <!-- Pagination -->
