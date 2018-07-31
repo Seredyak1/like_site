@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Order
-from product.models import Journey
-from product.models import Category
+from product.models import Journey, Category
 from .forms import CreateOrderAnonim
 from django.core.cache import cache
+from django.core.mail import send_mail
+from likesite.settings import EMAIL_HOST_USER
+from django.template.loader import render_to_string
 
 
 def order_anonim(request):
@@ -16,6 +18,14 @@ def order_anonim(request):
             form.save()
             messages.success(request, "Ваше замовлення зареєстроване!"
                                       " Наш менеджер обов'язково Вас сконтактує найблищим часом!")
+
+            send_mail('Here will be title of email!',
+                      'Here is a text for email!!',
+                      EMAIL_HOST_USER,
+                      [request.POST['email']],
+                      html_message=render_to_string('order/email_confirmation.html'),
+                      fail_silently=False)
+
             redirect('/')
 
     form = CreateOrderAnonim()
@@ -43,6 +53,13 @@ def create_order(request, journey_id):
                                                          persons=cached_persons,
                                                          total=full_price)
             order.save()
+
+            send_mail('Here will be title of email!',
+                      'Here is a text for email!!',
+                      EMAIL_HOST_USER,
+                      [order.email_address],
+                      html_message=render_to_string('order/email_confirmation.html'),
+                      fail_silently=False)
 
             return render(request, 'order/confirmation_page.html')
 
