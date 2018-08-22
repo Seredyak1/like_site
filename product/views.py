@@ -10,7 +10,9 @@ def journey_details(request, journey_id):
     if not journey:
         raise Http404
 
-    return render(request, 'product/item_details.html', {'journey': journey})
+    categories = Category.objects.all()
+    return render(request, 'product/journey_detail.html', {'journey': journey,
+                                                           'categories': categories})
 
 
 def journey_comments(request, journey_id):
@@ -19,19 +21,11 @@ def journey_comments(request, journey_id):
         raise Http404
     comments = Comment.objects.filter(journey=journey)
     form = CommentForm()
-
-    return render(request, 'product/item_details.html', {'journey': journey, 'comments': comments, 'form': form})
-
-
-def category_detail(request, slug):
-    category = get_object_or_404(Category, slug=slug)
     categories = Category.objects.all()
-    journeys = Journey.objects.filter(category=category)
-    journeys_with_sale = Journey.objects.filter(category=category).exclude(sale_price__isnull=True)[:5]
-    return render(request, 'product/Category_detail.html', {'category': category,
-                                                            'categories': categories,
-                                                            'journeys': handle_pagination(request, journeys),
-                                                            'journeys_with_sale': journeys_with_sale})
+    return render(request, 'product/journey_detail.html', {'journey': journey,
+                                                           'comments': comments,
+                                                           'form': form,
+                                                           'categories': categories})
 
 
 def create_comment(request, journey_id):
@@ -71,6 +65,17 @@ def comment_delete(request, comment_id, journey_id):
         return render(request, "product/journey_comments.html")
     else:
         return redirect('/')
+
+
+def category_detail(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    categories = Category.objects.all()
+    journeys = Journey.objects.filter(category=category)
+    journeys_with_sale = Journey.objects.filter(category=category).exclude(sale_price__isnull=True)[:5]
+    return render(request, 'product/Category_detail.html', {'category': category,
+                                                            'categories': categories,
+                                                            'journeys': handle_pagination(request, journeys),
+                                                            'journeys_with_sale': journeys_with_sale})
 
 
 def get_category_new(request):
