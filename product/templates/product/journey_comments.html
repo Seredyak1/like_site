@@ -1,10 +1,13 @@
 <hr>
     <div class="row">
-        <div class="col-md-6">Відгуки про {{ journey.title }} ({{ comments.count }})</div>
         <div class="col-md-6 text-right">
 
         {% if request.user.is_authenticated %}
-             <a data-toggle="modal" data-target="#create"><i class="material-icons" style="font-size: 40px; color: #FE3C01;">add</i></a>
+            {% if comments.count == 0 %}
+                <h4 class="text-center">Ще ніхто не написав коментар до цієї подорожі! <a data-toggle="modal" data-target="#create">Будьте першим!</a></h4>
+            {% else %}
+                <a class="text-right" data-toggle="modal" data-target="#create"><i class="material-icons" style="font-size: 40px; color: #FE3C01;">add</i></a>
+                {% endif %}
         {% else %}
              <h5>Авторизуйтесь перед коментуванням!</h5>
         {% endif %}
@@ -15,10 +18,10 @@
 
 {% for comment in comments %}
 
-    <div class="container" style="border: solid #33691e; margin-top: 2px">
+    <div class="container">
         <div class="row" style="margin-top: 10px">
-            <div class="col-md-6">{{ comment.user.email }}</div>
-            <div class="col-md-6 text-right">{{ comment.created_at|date:"d/m/y" }}</div>
+            <div class="col-md-6" style="color: #33691e"><strong>{{ comment.user.email }}</strong></div>
+            <div class="col-md-6 text-right" style="color: #33691e"><strong>{{ comment.created_at|date:"d/m/y" }}</strong></div>
         </div>
 
     <hr style="margin-top: 4px">
@@ -54,8 +57,8 @@
                                                     {{ form.body }}
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-success" type="submit">Зберегти</button>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button>
+                                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Відмінити</button>
+                                                    <button class="btn btn-outline-success" type="submit">Зберегти</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,8 +82,8 @@
                                                     <p class="text-center" style="color: blue">Ви справді хочете видалити відгук?</p>
                                                 </div>
                                                 <div class="modal-footer small">
+                                                    <button class="btn btn-outline-secondary" data-dismiss="modal">Відмінити</button>
                                                     <button class="btn btn-danger" type="submit">Видалити</button>
-                                                    <button class="btn btn-secondary" data-dismiss="modal">Відмінити</button>
                                                 </div>
                                                 </div>
                                             </div>
@@ -104,14 +107,13 @@
                                                         </div>
 
                                                         <div class="modal-footer">
-                                                            <button class="btn btn-success" type="submit">Зберегти</button>
-                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button>
+                                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Відмінити</button>
+                                                            <button class="btn btn-outline-success" type="submit">Зберегти</button>
                                                         </div>
 
                                                     </div>
                                                 </div>
                                             </div>
                                     </form>
-
 
 {% endfor %}

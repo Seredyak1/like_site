@@ -7,7 +7,7 @@
                     <tr>
                         <td colspan="2" scope="col" class="border-0 pb-0 pt-4 font-weight-light" style="font-size: small">sku:{{ i.sku }}</td>
                         <td scope="col"  class="border-0 d-flex justify-content-end pb-0 pt-1">
-                           <a href="#"><button type="button" class="btn btn-success">Замовити</button></a>
+                           <a href="{% url 'create_order' i.id %}"><button type="button" class="btn btn-success">Замовити</button></a>
                         </td>
                     </tr>
                     <tr>

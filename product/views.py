@@ -11,8 +11,12 @@ def journey_details(request, journey_id):
         raise Http404
 
     categories = Category.objects.all()
+    comments = Comment.objects.filter(journey=journey)
+    form = CommentForm()
     return render(request, 'product/journey_detail.html', {'journey': journey,
-                                                           'categories': categories})
+                                                           'categories': categories,
+                                                           'comments': comments,
+                                                           'form': form})
 
 
 def journey_comments(request, journey_id):

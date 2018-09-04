@@ -144,8 +144,8 @@ SOCIALACCOUNT_PROVIDERS =  \
 # TEST EMAIL CONFIGURATION
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'johnrain1974@gmail.com'
-EMAIL_HOST_PASSWORD = 'varvar84'
+EMAIL_HOST_USER = 'sanya.seredyak@gmail.com'
+EMAIL_HOST_PASSWORD = 'general12345'
 EMAIL_PORT = 587
 
 

@@ -1,6 +1,6 @@
 import random
 from django.contrib import admin
-from product.models import Journey, Category, JourneyPhoto
+from product.models import Journey, Category, JourneyPhoto, Comment
 
 
 class JourneyPhotoInline(admin.TabularInline):
@@ -31,3 +31,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Journey, JourneyAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Comment)

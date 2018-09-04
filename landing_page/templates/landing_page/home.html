@@ -34,7 +34,8 @@
         <!-- Col for News block and Facebook block -->
             <div class="col-sm-3">
                 <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
-                        <p> Block for Facebook</p>
+                        {% social_widget_render "facebook/likebox.html" locale="en_US" app_id=12345678 href="https://www.facebook.com/" height=300 colorscheme="light" force_wall=False header=True show_border=True show_faces=True stream=False width=300 %}
+
                 </div>
                 <div class="container mt-4" style="border: 2px solid #e0e0e0; border-radius: 10px">
                     <h5 class="mt-3 text-center" style="color: #33691e">Остання новина: </h5>
@@ -55,6 +56,7 @@
                 </div>
              <br>
                  <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
+                    <h5 class="mt-3 text-center" style="color: #33691e">Відгуки: </h5>
                     {% for feedback in feedbacks %}
                         <div class="card mt-2">
                           <!-- Card content -->
