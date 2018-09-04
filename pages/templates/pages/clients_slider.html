@@ -1,0 +1,88 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'slick.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'slick-theme.css' %}">
+  <style type="text/css">
+
+    .slider {
+        width: 100%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+        {% if clients.count > 6 %}
+          <section class="center slider">
+              {% for client in clients %}
+            <div>
+              <a href="{{ client.site }}">
+                  <img src="{{ client.logo.url }}">
+                  <h5 class="text-center">{{ client.title }}</h5>
+              </a>
+            </div>
+
+              {% endfor %}
+          </section>
+
+        {% elif clients.count <= 6 %}
+            <div class="container">
+            <div class="row mt-5 justify-content-center">
+                {% for client in clients %}
+                    <a href="{{ client.site }}">
+                        <img class="img-fluid text-center" src="{{ client.logo.url }}" height="120px" width="120">
+                        <h5 class="text-center">{{ client.title }}</h5>
+                    </a>
+                {% endfor %}
+            </div>
+            </div>
+        {% endif %}
+
+      <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+      <script src="{% static 'slick.js' %}" type="text/javascript" charset="utf-8"></script>
+      <script type="text/javascript">
+        $(document).on('ready', function() {
+
+          $(".center").slick({
+            dots: true,
+            infinite: true,
+            centerMode: true,
+            slidesToShow: 5,
+            slidesToScroll: 3
+          });
+        });
+</script>
+
+</body>
+</html>
