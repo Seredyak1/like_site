@@ -1,39 +1,38 @@
 {% for i in journeys %}
-    <div class="media border transparent pb-1 pt-1">
-        <img class="align-self-start mr-3 pb-2 pt-2 ml-2" style="width: 180px; width: 180px" src="{{ i.photos.first.image.url }}" alt="Generic placeholder image">
-        <div class="media-body table-responsive-md">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td colspan="2" scope="col" class="border-0 pb-0 pt-4 font-weight-light" style="font-size: small">sku:{{ i.sku }}</td>
-                        <td scope="col"  class="border-0 d-flex justify-content-end pb-0 pt-1">
-                           <a href="{% url 'create_order' i.id %}"><button type="button" class="btn btn-success">Замовити</button></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" scope="row" class="border-0 pb-0 pt-2" style="color:#33691e"><a href="{% url 'journey_details' i.id %}">{{ i.title }}</a></th>
-                        <td class="border-0 d-flex justify-content-end pt-2" >
-                        {% if i.sale_price %}
-                            <h3 class="text-danger pr-2"><strike>{{ i.price }}</strike></h3><h3 class="text-danger">{{ i.sale_price }} грн</h3>
-                        {% else %}
-                            <h3 class="text-danger">{{ i.price }} грн</h3></td>
-                        {% endif %}
 
-                    </tr>
-                    <tr>
-                        <td colspan="2" scope="row" class="border-0 font-weight-light pt-1" style="font-size: small"> {% if i.durations_night == 1 or i.durations_days == 1 %}
-                                {{ i.durations_days}} день 
+    <div class="container mt-3" style="border: 1px solid #33691e; border-radius: 10px;">
+        <div class="container text-right mt-2">
+            <a href="{% url 'create_order' i.id %}"><button type="button" class="btn btn-success">Замовити</button></a>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-fluid" src="{{ i.photos.first.image.url }}">
+            </div>
+            <div class="col-sm-5">
+                <p class="mb-0">#{{ i.sku }}</p>
+                <h5 class="mt-1"><strong><a href="{% url 'journey_details' i.id %}" class="text-success"> {{ i.title }}</a></strong></h5>
+                <h6><strong>Тривалість:</strong></h6><h6 class="font-italic">
+                            {% if i.durations_night == 1 or i.durations_days == 1 %}
+                                {{ i.durations_days}} день
                             {% elif i.durations_night < 5 or i > 1 and i.durations_days < 5 and i > 1 %}
                                 {{ i.durations_days}} дні / {{i.durations_night }} ночі
                             {% elif i.durations_night > 4 or i.durations_days > 4 %}
                                 {{ i.durations_days}} днів / {{i.durations_night }} ночей
-                            {% endif %}
-                        </td>
-                        <td class="border-0 d-flex justify-content-end pt-5 pb-0" style="font-size: small"><a class="text-danger" href="{% url 'journey_details' i.id %}">Дізнатись більше>>></a></td>
-                    </tr>
-                </tbody>
-            </table>
+                            {% endif %}</h6>
+
+            </div>
+            <div class="col-sm-3">
+                <div class="text-right mt-5">
+                        {% if i.sale_price %}
+                            <h4 class="text-danger pr-2"><strike>{{ i.price }}</strike></h4><h4 class="text-danger">{{ i.sale_price }} грн</h4>
+                        {% else %}
+                            <h4 class="text-danger">{{ i.price }} грн</h4></td>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="container mb-2">
+            <div class="text-right"><a class="text-danger" href="{% url 'journey_details' i.id %}">Дізнатись більше>>></a></div>
         </div>
     </div>
-    <br>
 {% endfor %}

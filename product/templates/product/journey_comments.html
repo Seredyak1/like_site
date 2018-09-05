@@ -1,20 +1,17 @@
 <hr>
-    <div class="row">
-        <div class="col-md-6 text-right">
 
         {% if request.user.is_authenticated %}
             {% if comments.count == 0 %}
                 <h4 class="text-center">Ще ніхто не написав коментар до цієї подорожі! <a data-toggle="modal" data-target="#create">Будьте першим!</a></h4>
             {% else %}
-                <a class="text-right" data-toggle="modal" data-target="#create"><i class="material-icons" style="font-size: 40px; color: #FE3C01;">add</i></a>
-                {% endif %}
+                <div class="text-right mr-3">
+                        <a data-toggle="modal" data-target="#create"><i class="material-icons" style="font-size: 40px; color: #FE3C01;">add</i></a>
+                </div>
+
+            {% endif %}
         {% else %}
              <h5>Авторизуйтесь перед коментуванням!</h5>
         {% endif %}
-
-        </div>
-    </div>
-
 
 {% for comment in comments %}
 
@@ -51,7 +48,7 @@
                                             <!-- Modal content-->
                                             <div class="modal-content">
                                                 <div class="modal-header text-center" style="background: #33691e; color: white;">
-                                                    <h4 class="modal-title w-100 font-weight-bold">Редагувати відгук:</h4>
+                                                    <h4 class="modal-title w-100 font-weight-bold">Редагувати коментар:</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                     {{ form.body }}
@@ -76,7 +73,7 @@
                                             <!-- Modal content-->
                                             <div class="modal-content">
                                                 <div class="modal-header text-center" style="background: #33691e; color: white;">
-                                                    <h4 class="modal-title w-100 font-weight-bold">Видалення відгуку</h4>
+                                                    <h4 class="modal-title w-100 font-weight-bold">Видалення коментаря</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                     <p class="text-center" style="color: blue">Ви справді хочете видалити відгук?</p>
@@ -99,7 +96,7 @@
                                                     <div class="modal-content">
 
                                                         <div class="modal-header text-center" style="background: #33691e; color: white;">
-                                                            <h4 class="modal-title w-100 font-weight-bold">Додати відгук:</h4>
+                                                            <h4 class="modal-title w-100 font-weight-bold">Додати коментар</h4>
                                                         </div>
 
                                                         <div class="modal-body">
