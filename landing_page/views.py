@@ -4,7 +4,6 @@ from pages.models import Feedback, ClientCompany
 from news.models import News
 
 
-
 def home(request):
     journeys = Journey.objects.all()[:8]
     feedbacks = Feedback.objects.all().exclude(is_published=False)[:5]
