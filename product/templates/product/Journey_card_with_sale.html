@@ -1,4 +1,5 @@
-{% for i in journeys %}
+{% for i in journeys_with_sale %}
+    {% if i.sale_price %}
 
     <div class="container mt-3" style="border: 1px solid #33691e; border-radius: 10px;">
         <div class="container text-right mt-2">
@@ -35,4 +36,6 @@
             <div class="text-right"><a class="text-danger" href="{% url 'journey_details' i.id %}">Дізнатись більше>>></a></div>
         </div>
     </div>
+
+    {% endif %}
 {% endfor %}
