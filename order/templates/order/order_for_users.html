@@ -52,15 +52,22 @@
                        size="35"
                        style="margin-top: 30px;">
             </div>
-
-            <div class="text-right" style="margin-top: 60px">
-                <button class="btn btn-success" type="submit" data-target="#create">Замовити</button>
-                <a href="/"><button type="button" class="btn btn-danger" data-dismiss="modal">Відмінити</button></a>
-            </div>
-    </form>
-
         </div>
     </div>
+    <div class="row mt-3">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <a href="{% url 'home' %}"><button class="btn btn-outline-danger btn-block">Відмінити</button></a>
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" data-target="#create" class="btn btn-outline-success btn-block">Замовити</button>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    </form>
+
+
+
 
 
 {% endblock %}

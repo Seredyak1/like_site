@@ -77,7 +77,7 @@ def create_order(request, journey_id):
                       ['sanya.seredyak@gmail.com', 'avseredyak@gmail.com', 'office@laik-travel.com'],
                       fail_silently=False)
 
-            return render(request, 'order/confirmation_page.html')
+            return render(request, 'order/confirmation_page.html', {'categories': categories})
 
         else:
 

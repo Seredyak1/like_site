@@ -2,10 +2,54 @@
 
         {% if request.user.is_authenticated %}
             {% if comments.count == 0 %}
-                <h4 class="text-center">Ще ніхто не написав коментар до цієї подорожі! <a data-toggle="modal" data-target="#create">Будьте першим!</a></h4>
+                <h4 class="text-center">Ще ніхто не написав коментар до цієї подорожі! <a data-toggle="modal" data-target="#create"> <h4 class="text-success">Будьте першим!</h4></a></h4>
+                <form method="POST" class="form-group" action="{% url 'create_comment' journey.id %}"> {% csrf_token %}
+                                            <div class="modal custom fade" id="create" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header text-center" style="background: #33691e; color: white;">
+                                                            <h4 class="modal-title w-100 font-weight-bold">Додати коментар</h4>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                                {{ form.body }}
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Відмінити</button>
+                                                            <button class="btn btn-outline-success" type="submit">Зберегти</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
             {% else %}
                 <div class="text-right mr-3">
                         <a data-toggle="modal" data-target="#create"><i class="material-icons" style="font-size: 40px; color: #FE3C01;">add</i></a>
+                                    <form method="POST" class="form-group" action="{% url 'create_comment' journey.id %}"> {% csrf_token %}
+                                            <div class="modal custom fade" id="create" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header text-center" style="background: #33691e; color: white;">
+                                                            <h4 class="modal-title w-100 font-weight-bold">Додати коментар</h4>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                                {{ form.body }}
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Відмінити</button>
+                                                            <button class="btn btn-outline-success" type="submit">Зберегти</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
                 </div>
 
             {% endif %}
@@ -86,31 +130,5 @@
                                             </div>
                                         </div>
                                   </form>
-
-                                                                    <!-- Modal for create -->
-
-
-                                    <form method="POST" class="form-group" action="{% url 'create_comment' journey.id %}"> {% csrf_token %}
-                                            <div class="modal custom fade" id="create" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-
-                                                        <div class="modal-header text-center" style="background: #33691e; color: white;">
-                                                            <h4 class="modal-title w-100 font-weight-bold">Додати коментар</h4>
-                                                        </div>
-
-                                                        <div class="modal-body">
-                                                                {{ form.body }}
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Відмінити</button>
-                                                            <button class="btn btn-outline-success" type="submit">Зберегти</button>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </form>
 
 {% endfor %}
