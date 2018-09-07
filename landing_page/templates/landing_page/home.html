@@ -49,6 +49,7 @@
                         <blockquote cite="https://www.facebook.com/DubkyExtrim/" class="fb-xfbml-parse-ignore">
                             <a href="https://www.facebook.com/DubkyExtrim/">Дубки - Екстрім</a></blockquote></div>
                 </div>
+            {% if newses %}
                 <div class="container mt-4" style="border: 2px solid #e0e0e0; border-radius: 10px">
                     <h5 class="mt-3 text-center" style="color: #33691e">Остання новина: </h5>
                         <div class="card mt-2 mb-2">
@@ -66,6 +67,7 @@
                             <a href="{% url 'news' %}" class="text-danger text-right"><p><strong>Більше новин >>></strong></p></a>
                         </div>
                 </div>
+            {% endif %}
              <br>
                  <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
                     <h5 class="mt-3 text-center" style="color: #33691e">Відгуки: </h5>
