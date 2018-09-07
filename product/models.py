@@ -16,6 +16,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('category_detail', args=[self.slug])
+
 
 class Journey(models.Model):
     class Meta:
@@ -36,6 +40,10 @@ class Journey(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('journey_details', args=[str(self.id)])
 
 
 class JourneyPhoto(models.Model):
