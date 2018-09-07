@@ -14,13 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
+
+from likesite.sitemap import StaticViewSitemap, CategorySitemap, JourneySitemap
 from product import views as views_product
 
+
+sitemaps = {
+    'journey': JourneySitemap,
+    'static': StaticViewSitemap,
+    'category': CategorySitemap,
+}
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
@@ -33,7 +42,8 @@ urlpatterns = [
     path('journey/', include('product.urls')),
     path('new/', views_product.get_category_new, name="new"),
     path('hot_sale/', views_product.get_category_sale, name="hot_sales"),
-
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 
