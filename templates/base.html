@@ -63,7 +63,7 @@
                             </li>
                         {% else %}
                             <li class="nav-item ml-3">
-                                <a class="nav-link" style="color: #33691e;"> Привіт, <strong>{{request.user.username}}</strong></a>
+                                <a class="nav-link" style="color: #33691e;"> Привіт, <strong>{{request.user.first_name}}</strong></a>
                             </li>
                             <li class="nav-item ml-3">
                                 <a class="nav-link" href="{% url 'account_logout' %}" style="color: #33691e;">Вихід</a>
