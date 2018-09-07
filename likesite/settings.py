@@ -200,6 +200,11 @@ CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_BROWSE_SHOW_DIRS = True
 
 
+ACCOUNT_FORMS = {
+    'signup': 'pages.forms.CustomSignupForm',
+}
+
+
 try:
     from .local_settings import *
 except ImportError:

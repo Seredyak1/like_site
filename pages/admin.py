@@ -1,6 +1,7 @@
 from django.contrib import admin
 from pages.models import ClientCompany, Feedback, Document, Faq
 
+
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_published',)
     list_filter = ('is_published',)

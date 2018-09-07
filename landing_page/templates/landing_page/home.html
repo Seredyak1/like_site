@@ -13,7 +13,7 @@
         <div class="container mt-1">
             <div class="row">
                 <div class="col-6 mt-2 mr-0 p-0">
-                    <a href="{% url 'order_anonim' %}"><button class="btn btn-outline-success btn-block">Сворити пригоду!</button></a>
+                    <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-outline-success btn-block">Створити пригоду!</button></a>
                 </div>
 
             <!-- START Search block -->
@@ -32,7 +32,7 @@
 
         <div class="row mt-3">
         <!-- Col for News block and Facebook block -->
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
                     <div id="fb-root"></div>
                     <script>(function(d, s, id) {
@@ -92,22 +92,21 @@
             </div>
 
         <!-- Col for journey cards -->
-            <div class="col-sm-9">
+            <div class="col-sm-8">
                 <h4 style="color: #33691e"><strong>Найпопулярніші пригоди: </strong></h4>
                 <div>
                     {%  include 'product/Journey_card.html' %}
                 </div>
-
-
             </div>
 
         </div>
 
         <!-- Clients slider -->
+    {% if clients %}
             <div class="container mt-5">
                 <h4 class="text-center"><strong>Наші кліенти:</strong></h4>
                 {% include 'pages/clients_slider.html' %}
             </div>
+    {% endif %}
 
 {% endblock %}
-

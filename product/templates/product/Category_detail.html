@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-sm-6">
-                <a href="{% url 'order_anonim' %}"><button class="btn btn-success btn-block"><strong>Сворити власну пригоду!</strong></button></a>
+                <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-success btn-block"><strong>Створити власну пригоду!</strong></button></a>
             </div>
             <div class="col-3"></div>
         </div>
@@ -36,24 +36,40 @@
 
 <!-- Block with journeys with sale price -->
 
-
+    {% if journeys_with_sale %}
         <div class="container mt-5">
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-sm-10">
-                    <h4 style="color: #FE3C01;">Гарячі пропозиції: </h4>
+                    <h4 style="color: #FE3C01;">Гарячі пригоди: </h4>
                         {% include 'product/Journey_card_with_sale.html' %}
                 </div>
                 <div class="col-1"></div>
             </div>
         </div>
-
+    {% endif %}
 <!-- End block with sale price -->
 
+    <!-- START container with journeys. -->
+ {% if journeys %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-sm-10">
+                <h4 style="color: #FE3C01;">Пропозиції: </h4>
+                {% include 'product/Journey_card.html' %}
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+    {% endif %}
+<!-- End container -->
+
 <!-- Pagination -->
-    <div class="container">
+    <div class="container d-flex justify-content-center">
         <nav class="mt-3">
-            <ul class="pagination pagination-sm pagination-circle justify-content-center">
+            {% if journeys.has_next or journeys.has_previous %}
+            <ul class="pagination pg-red">
                 <!--Arrow left-->
                 <li class="page-item">
                     {% if journeys.has_previous %}
@@ -67,9 +83,9 @@
                 <!--Numbers-->
                 {% for num in journeys.paginator.page_range %}
                     {% if journeys.number == num %}
-                        <li class="page-item active"><a class="page-link">{{ num }}</a></li>
+                        <li class="page-item active"><a class="page-link" href='?page={{ num }}'>{{ num }}</a></li>
                     {% elif num > journeys.number|add:'-3' and num < journeys.number|add:'3' %}
-                        <li class="page-item"><a class="page-link">{{ num }}</a></li>
+                        <li class="page-item"><a class="page-link" href='?page={{ num }}'>{{ num }}</a></li>
                     {% endif %}
                 {% endfor %}
                 <!--Arrow right-->
@@ -83,19 +99,8 @@
                     {% endif %}
                 </li>
             </ul>
+        {% endif %}
         </nav>
     </div>
-
-<!-- START container with items. -->
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-sm-10">
-                {% include 'product/Journey_card.html' %}
-            </div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-<!-- End container -->
 
 {% endblock %}

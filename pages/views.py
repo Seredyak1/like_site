@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from pages.forms import FeedbackForm
 from pages.models import Feedback, Faq, Document
@@ -40,20 +41,20 @@ def get_faq(request):
 
 def search(request):
     categories = Category.objects.all()
-    query_journey_content = request.GET.get('q')
+    query_search = request.GET.get('q')
     query_category_id = request.GET.get('category_id')
     if query_category_id:
-        journeys = Journey.objects.filter(category=query_category_id, description__icontains=query_journey_content)
+        journeys = Journey.objects.filter(category=query_category_id).filter(Q(description__icontains=query_search) | Q(title__icontains=query_search))
         journeys_count = journeys.count()
         return render(request, 'pages/search.html', {'journeys': journeys, 'categories': categories,
-                                                     ':query_journey_content':query_journey_content,
+                                                     'query_search':query_search,
                                                      'query_category_id':query_category_id,
                                                      'journeys_count': journeys_count})
     else:
-        journeys = Journey.objects.filter(description__icontains=query_journey_content)
+        journeys = Journey.objects.filter(Q(description__icontains=query_search) | Q(title__icontains=query_search))
         journeys_count = journeys.count()
         return render(request, 'pages/search.html', {'journeys': journeys, 'categories': categories,
-                                                     ':query_journey_content':query_journey_content,
+                                                     'query_search': query_search,
                                                      'journeys_count': journeys_count})
 
 
