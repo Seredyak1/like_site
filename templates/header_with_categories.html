@@ -1,14 +1,13 @@
 <div class="row text-center p-2" style="background-color: #33691e;">
     <div class="col-sm-2">
-        <a href="{% url 'hot_sales' %}"><h5 class="text-white" style="background-color: #33691e">Гарячі пропозиції</h5></a>
+        <a href="{% url 'hot_sales' %}"><h5 class="text-white" style="background-color: #33691e; margin-top: 4px">Гарячі пропозиції</h5></a>
     </div>
     <div class="col-sm-2">
         <a href="{% url 'new' %}"><h5 class="text-white m-3" style="background-color: #33691e">Новинки</h5></a>
     </div>
     {% for category in categories %}
     <div class="col-sm-2">
-        <a href="{% url 'category_detail' category.slug %}"><h5 class="text-white" style="background-color: #33691e">{{ category.name }}</h5></a>
+        <a href="{% url 'category_detail' category.slug %}"><h5 class="text-white" style="background-color: #33691e; margin-top: 4px;">{{ category.name }}</h5></a>
     </div>
     {% endfor %}
 </div>
-

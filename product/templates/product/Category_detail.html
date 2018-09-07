@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-9">
                 <h4 class="font-italic mt-3" style="color: #FE3C01;"> <strong>{{ category.name }}</strong></h4>
-                <p class="text-justify">{{ category.description }}</p>
+                <p class="text-justify">{{ category.description | safe }}</p>
             </div>
         </div>
     </div>

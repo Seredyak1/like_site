@@ -141,11 +141,12 @@ SOCIALACCOUNT_PROVIDERS =  \
     }
 
 
-# TEST EMAIL CONFIGURATION
+# WORKED EMAIL CONFIGURATION
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'johnrain1974@gmail.com'
-EMAIL_HOST_PASSWORD = 'varvar84'
+EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_HOST_USER = 'office@laik-travel.com'
+EMAIL_HOST_PASSWORD = '8reave_Crass'
 EMAIL_PORT = 587
 
 

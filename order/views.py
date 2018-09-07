@@ -19,11 +19,19 @@ def order_anonim(request):
             messages.success(request, "Ваше замовлення зареєстроване!"
                                       " Наш менеджер обов'язково Вас сконтактує найблищим часом!")
 
-            send_mail('Here will be title of email!',
-                      'Here is a text for email!!',
+            send_mail('LAIK TRAVEL - пітвердження замовлення',
+                      '',
                       EMAIL_HOST_USER,
                       [request.POST['email']],
                       html_message=render_to_string('order/email_confirmation.html'),
+                      fail_silently=False)
+
+            send_mail('LAIK TRAVEL - замовлення',
+                      """Зробили нове анонімне замовлення! Зконтактувати найблищим часом. 
+                      http://127.0.0.1:8000/admin/order/orderanonim/
+                      """,
+                      EMAIL_HOST_USER,
+                      ['sanya.seredyak@gmail.com', 'avseredyak@gmail.com', 'office@laik-travel.com'],
                       fail_silently=False)
 
             redirect('/')
@@ -61,7 +69,15 @@ def create_order(request, journey_id):
                       html_message=render_to_string('order/email_confirmation.html'),
                       fail_silently=False)
 
-            return render(request, 'order/confirmation_page.html')
+            send_mail('LAIK TRAVEL - замовлення',
+                      """Зробили нове замовлення! Зконтактувати найблищим часом. 
+                      http://127.0.0.1:8000/admin/order/order/
+                      """,
+                      EMAIL_HOST_USER,
+                      ['sanya.seredyak@gmail.com', 'avseredyak@gmail.com', 'office@laik-travel.com'],
+                      fail_silently=False)
+
+            return render(request, 'order/confirmation_page.html', {'categories': categories})
 
         else:
 
