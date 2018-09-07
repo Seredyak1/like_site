@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-sm-6">
-                <a href="{% url 'order_anonim' %}"><button class="btn btn-success btn-block"><strong>Сворити власну пригоду!</strong></button></a>
+                <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-success btn-block"><strong>Створити власну пригоду!</strong></button></a>
             </div>
             <div class="col-3"></div>
         </div>
@@ -51,9 +51,10 @@
 <!-- End block with sale price -->
 
 <!-- Pagination -->
-    <div class="container">
+    <div class="container d-flex justify-content-center">
         <nav class="mt-3">
-            <ul class="pagination pagination-sm pagination-circle justify-content-center">
+            {% if journeys.has_next or journeys.has_previous %}
+            <ul class="pagination pg-red">
                 <!--Arrow left-->
                 <li class="page-item">
                     {% if journeys.has_previous %}
@@ -67,9 +68,9 @@
                 <!--Numbers-->
                 {% for num in journeys.paginator.page_range %}
                     {% if journeys.number == num %}
-                        <li class="page-item active"><a class="page-link">{{ num }}</a></li>
+                        <li class="page-item active"><a class="page-link" href='?page={{ num }}'>{{ num }}</a></li>
                     {% elif num > journeys.number|add:'-3' and num < journeys.number|add:'3' %}
-                        <li class="page-item"><a class="page-link">{{ num }}</a></li>
+                        <li class="page-item"><a class="page-link" href='?page={{ num }}'>{{ num }}</a></li>
                     {% endif %}
                 {% endfor %}
                 <!--Arrow right-->
@@ -83,10 +84,11 @@
                     {% endif %}
                 </li>
             </ul>
+        {% endif %}
         </nav>
     </div>
 
-<!-- START container with items. -->
+<!-- START container with journeys. -->
     <div class="container mt-3">
         <div class="row">
             <div class="col-1"></div>
