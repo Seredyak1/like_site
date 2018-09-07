@@ -16,6 +16,10 @@ class News (models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('news_detail', args=[str(self.id)])
+
 
 class NewsPhoto(models.Model):
     news = models.ForeignKey(News, related_name='news_image', on_delete=models.CASCADE)
