@@ -9,6 +9,7 @@ class Category(models.Model):
         verbose_name_plural = "Категорії"
 
     name = models.CharField(max_length=255, verbose_name='Назва Категорії')
+    seo_title = models.CharField(max_length=255, verbose_name='SEO title', blank=True, help_text='Заголовок для пошукового бота')
     slug = models.SlugField(unique=True, default='', verbose_name='Назва в URL')
     description = RichTextField(verbose_name='Опис Категорії')
     category_logo = models.ImageField(upload_to='category-logo', null=True, verbose_name='Катринка Категорії')
@@ -29,6 +30,7 @@ class Journey(models.Model):
 
     sku = models.CharField(max_length=255, verbose_name='Номер')
     title = models.CharField(max_length=255, verbose_name='Назва пригоди')
+    seo_title = models.CharField(max_length=255, verbose_name='SEO title', blank=True, help_text='Заголовок для пошукового бота')
     description = RichTextField(verbose_name='Опис пригоди')
     durations_days = models.IntegerField(verbose_name='Тривалість днів')
     durations_night = models.IntegerField(verbose_name='Тривалість ночей')

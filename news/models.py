@@ -7,6 +7,7 @@ class News (models.Model):
         ordering = ("-created_at",)
 
     title = models.CharField(max_length=255, blank=False)
+    seo_title = models.CharField(max_length=255, blank=True)
     short_description = RichTextField(blank=False)
     body = RichTextField(blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
