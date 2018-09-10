@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
 
-from likesite.sitemap import StaticViewSitemap, CategorySitemap, JourneySitemap
+from likesite.sitemap import StaticViewSitemap, CategorySitemap, JourneySitemap, NewsViewSitemap
 from product import views as views_product
 
 
@@ -29,7 +29,9 @@ sitemaps = {
     'journey': JourneySitemap,
     'static': StaticViewSitemap,
     'category': CategorySitemap,
+    'news': NewsViewSitemap,
 }
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),

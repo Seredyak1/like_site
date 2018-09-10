@@ -1,6 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
+from news.models import News
 from product.models import Journey, Category
 
 
@@ -32,3 +33,14 @@ class StaticViewSitemap(Sitemap):
 
     def location(self, item):
         return reverse(item)
+
+
+class NewsViewSitemap(Sitemap):
+    priority = 0.5
+    changefreq = 'daily'
+
+    def items(self):
+        return News.objects.filter(published=True)
+
+    def lastmod(self, obj):
+        return obj.created_at
