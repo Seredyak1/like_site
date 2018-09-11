@@ -40,39 +40,41 @@
 
 <body>
 
-    <!-- START Header top with links -->
-    <div class="container-fluid" style="border-bottom: 1px solid #e0e0e0; height: 50px;">
-        <div class="container">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item ml-3">
-                            <a class="nav-link" href="{% url 'about_us' %}" style="color: #33691e;">Про нас</a>
-                        </li>
-                        <li class="nav-item ml-3">
-                            <a class="nav-link" href="{%  url 'order_anonim' %}" style="color: #33691e;">Створити замовлення</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        {% if not user.is_authenticated %}
-                            <li class="nav-item ml-3">
-                                <a class="nav-link" href="{% url 'account_login' %}" style="color: #33691e;">Ввійти</a>
-                            </li>
-                            <li class="nav-item ml-3">
-                                <a class="nav-link" href="{% url 'account_signup' %}" style="color: #33691e;">Зареєструватися</a>
-                            </li>
-                        {% else %}
-                            <li class="nav-item ml-3">
-                                <a class="nav-link" style="color: #33691e;"> Привіт, <strong>{{request.user.first_name}}</strong></a>
-                            </li>
-                            <li class="nav-item ml-3">
-                                <a class="nav-link" href="{% url 'account_logout' %}" style="color: #33691e;">Вихід</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </nav>
-            </div>
-        </div>
+{#    <!-- START Header top with links -->#}
+    <div class="container" style="border-bottom: 1px solid #e0e0e0;">
+        <nav class="navbar navbar-expand-lg navbar-light">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ml-3">
+                    <a class="nav-link" href="{% url 'about_us' %}" style="color: #33691e;">Про нас</a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link" href="{%  url 'order_anonim' %}" style="color: #33691e;">Створити замовлення</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+             {% if not user.is_authenticated %}
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="{% url 'account_login' %}" style="color: #33691e;">Ввійти</a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="{% url 'account_signup' %}" style="color: #33691e;">Зареєструватися</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" style="color: #33691e;"> Привіт, <strong>{{request.user.first_name}}</strong></a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="{% url 'account_logout' %}" style="color: #33691e;">Вихід</a>
+                    </li>
+                {% endif %}
+            </ul>
+          </div>
+        </nav>
     </div>
     <!-- END Header top with links -->
 
@@ -90,7 +92,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="card-body border-0 text-center mt-2">
-                        <i class="material-icons" style="font-size: 40px;">call</i><h4>+380 95 250 9586</h4><h4>+380 67 377 7982</h4>
+                        <div class="d-none d-sm-block">
+                        <i class="material-icons" style="font-size: 40px;">call</i>
+                            </div>
+                        <h4>+380 95 250 9586</h4><h4>+380 67 377 7982</h4>
                         </div>
                 </div>
             </div>
