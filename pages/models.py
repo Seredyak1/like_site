@@ -32,13 +32,14 @@ class Feedback(models.Model):
 class Document(models.Model):
     class Meta:
         verbose_name = "Документ"
-        ordering = ('title',)
+        ordering = ('title_ukr',)
 
-    title = models.CharField(max_length=255, verbose_name="Назва документу", blank=False)
+    title_ukr = models.CharField(max_length=255, verbose_name="Назва документу", blank=False, help_text="Назва українською")
+    title_doc = models.CharField(max_length=255, verbose_name="Назва документу", blank=False, help_text="Назва англійською для скачування")
     document = models.FileField(upload_to='documentation')
 
     def __str__(self):
-        return self.title
+        return self.title_ukr
 
 
 class Faq(models.Model):
