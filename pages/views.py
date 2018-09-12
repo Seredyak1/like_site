@@ -60,8 +60,9 @@ def search(request):
 
 def documents(request):
     documents = Document.objects.all()
+    categories = Category.objects.all()
 
-    return render(request, 'pages/documents.html', {'documents': documents})
+    return render(request, 'pages/documents.html', {'documents': documents, 'categories': categories})
 
 
 def download_file(request, file_id):
@@ -70,8 +71,8 @@ def download_file(request, file_id):
         content_type = mimetypes.guess_type(path)
         if os.path.exists(path):
             with open(path, 'rb') as fh:
-                response = HttpResponse(fh.read(), content_type="application/{}".format(content_type))
+                response = HttpResponse(fh.read(), content_type=content_type[0])
                 f_extension = str(document_for_download.document).rpartition('.')[-1]
-                response['Content-Disposition'] = 'inline; filename={}.{}'.format(document_for_download.title,
+                response['Content-Disposition'] = 'attachment; filename={}.{}'.format(document_for_download.title_doc,
                                                                                   f_extension)
                 return response
