@@ -13,9 +13,11 @@
                 <p class="mb-0">#{{ i.sku }}</p>
                 <h5 class="mt-1"><strong><a href="{% url 'journey_details' i.id %}" class="text-success"> {{ i.title }}</a></strong></h5>
                 <h6><strong>Тривалість:</strong></h6><h6 class="font-italic">
-                            {% if i.durations_night == 1 or i.durations_days == 1 %}
+                            {% if i.durations_days == 1 %}
                                 {{ i.durations_days}} день
-                            {% elif i.durations_night < 5 or i > 1 and i.durations_days < 5 and i > 1 %}
+                            {% elif i.durations_days < 5 and i.durations_night == 1  %}
+                                {{ i.durations_days}} дні / {{i.durations_night }} ніч
+                            {% elif i.durations_night < 5 and i.durations_night > 1 and i.durations_days < 5 %}
                                 {{ i.durations_days}} дні / {{i.durations_night }} ночі
                             {% elif i.durations_night > 4 or i.durations_days > 4 %}
                                 {{ i.durations_days}} днів / {{i.durations_night }} ночей
