@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'storages',
 
     'allauth',
     'allauth.account',
@@ -175,12 +176,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = 'public/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
 #ckeditor locations
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
@@ -215,3 +210,26 @@ if DEBUG:
     INSTALLED_APPS += ['debug_toolbar']
     MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
     INTERNAL_IPS = ['127.0.0.1']
+
+
+if not DEBUG:
+    AWS_STORAGE_BUCKET_NAME = 'like-site'
+    AWS_ACCESS_KEY_ID = 'AKIAJTFIVA7JHDHRWKZQ'
+    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_S3_FILE_OVERWRITE = False
+
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATIC_URL = 'https://{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    MEDIA_URL = 'htts://{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+else:
+    MEDIA_ROOT = 'public/media'
+    MEDIA_URL = '/media/'
+
+    STATIC_ROOT = "static"
+    STATIC_URL = '/static/'

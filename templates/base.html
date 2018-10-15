@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load i18n %}
-{% load staticfiles %}
-
+{% load static %}
 
 <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -85,7 +84,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-6">
                     <div class="mt-0 ml-4">
-                        <a href="{% url 'home' %}" ><img src="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/35433355_250549849035581_2379910617881378816_n.png?_nc_cat=0&oh=15d2c046cf8652ba93901313c33c3b03&oe=5BB22670"
+                        <a href="{% url 'home' %}" ><img src="{% static 'img/logo.png' %}"
                                      width="400"  class="img-fluid"></a>
                     </div>
 
