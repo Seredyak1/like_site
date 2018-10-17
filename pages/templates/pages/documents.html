@@ -19,7 +19,7 @@
                     <tr>
                         <th scope="col" class="text-center" style="width: 50%; padding-bottom: 15px">{{ d.title_ukr }}</th>
                         <th scope="col" class="text-center">
-                            <a href="{% url 'download_file' d.id %}"><button type="button" class="btn btn-success btn-sm">Скачати</button></a>
+                            <a href="{{ d.document.path }}"><button type="button" class="btn btn-success btn-sm">Скачати</button></a>
                         </th>
                     </tr>
 
