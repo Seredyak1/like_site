@@ -28,7 +28,7 @@ def order_anonim(request):
 
             send_mail('LAIK TRAVEL - замовлення',
                       """Зробили нове анонімне замовлення! Зконтактувати найблищим часом. 
-                      http://127.0.0.1:8000/admin/order/orderanonim/
+                      http://52.29.28.77/admin/order/orderanonim/
                       """,
                       EMAIL_HOST_USER,
                       ['sanya.seredyak@gmail.com', 'avseredyak@gmail.com', 'office@laik-travel.com'],
@@ -62,8 +62,8 @@ def create_order(request, journey_id):
                                                          total=full_price)
             order.save()
 
-            send_mail('Here will be title of email!',
-                      'Here is a text for email!!',
+            send_mail('LAIK TRAVEL - пітвердження замовлення',
+                      '',
                       EMAIL_HOST_USER,
                       [order.email_address],
                       html_message=render_to_string('order/email_confirmation.html'),
@@ -71,7 +71,7 @@ def create_order(request, journey_id):
 
             send_mail('LAIK TRAVEL - замовлення',
                       """Зробили нове замовлення! Зконтактувати найблищим часом. 
-                      http://127.0.0.1:8000/admin/order/order/
+                      http://52.29.28.77/admin/order/orderanonim/
                       """,
                       EMAIL_HOST_USER,
                       ['sanya.seredyak@gmail.com', 'avseredyak@gmail.com', 'office@laik-travel.com'],
