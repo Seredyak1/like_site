@@ -57,7 +57,7 @@
                         <!-- Card content -->
                             <div class="card-body">
                                 <h4 class="card-title"><a>{{ newses.title }}</a></h4>
-                                <p class="card-text text-justify" style="text-overflow: ellipsis">{{ newses.short_description }}</p>
+                                <p class="card-text text-justify" style="text-overflow: ellipsis">{{ newses.short_description|safe }}</p>
                                 <a href="{% url "news_detail" newses.id %}" class="text-danger"><p class="text-right">Читати >>></p></a>
                             </div>
                         </div>
