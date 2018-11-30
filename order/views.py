@@ -28,10 +28,10 @@ def order_anonim(request):
 
             send_mail('LAIK TRAVEL - замовлення',
                       """Зробили нове анонімне замовлення! Зконтактувати найблищим часом. 
-                      http://52.29.28.77/admin/order/orderanonim/
+                      http://laik-travel.com/admin/order/order/
                       """,
                       EMAIL_HOST_USER,
-                      ['sanya.seredyak@gmail.com', 'avseredyak@gmail.com', 'office@laik-travel.com'],
+                      ['sanya.seredyak@gmail.com', 'office@laik-travel.com'],
                       fail_silently=False)
 
             redirect('/')
@@ -71,10 +71,10 @@ def create_order(request, journey_id):
 
             send_mail('LAIK TRAVEL - замовлення',
                       """Зробили нове замовлення! Зконтактувати найблищим часом. 
-                      http://52.29.28.77/admin/order/orderanonim/
+                      http://laik-travel.com/admin/order/orderanonim/
                       """,
                       EMAIL_HOST_USER,
-                      ['sanya.seredyak@gmail.com', 'avseredyak@gmail.com', 'office@laik-travel.com'],
+                      ['sanya.seredyak@gmail.com', 'office@laik-travel.com'],
                       fail_silently=False)
 
             return render(request, 'order/confirmation_page.html', {'categories': categories})
