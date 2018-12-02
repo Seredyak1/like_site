@@ -87,7 +87,8 @@ def create_order(request, journey_id):
                                                                   'full_price': full_price})
 
     else:
-        return redirect("/")
+        messages.error(extra_tags='danger', request=request, message='Для замовлення пригоди спочатку зареєструйтесь!')
+        return redirect('home')
 
 
 def update_persons(request, journey_id):
