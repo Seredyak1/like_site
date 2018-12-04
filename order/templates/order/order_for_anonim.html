@@ -82,11 +82,13 @@
                 </div>
             </div>
 
+            {% if not user.is_authenticated %}
             <div class="container text-center m-4 text-success">
                 <h5>Чи хотіли б Ви отримувати більше пропозицій щодо найкращих пригод?
                     <a href="{% url 'account_login' %}" class="text-success">Зареєструватись...</a>
                 </h5>
             </div>
+            {% endif %}
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-3">
