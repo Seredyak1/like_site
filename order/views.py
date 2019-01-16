@@ -47,18 +47,16 @@ def create_order(request, journey_id):
     if request.user.is_authenticated:
         journey = get_object_or_404(Journey, id=journey_id)
 
-        cached_persons = cache.get('persons', 1)
-
-        if journey.sale_price:
-            full_price = int(cached_persons) * journey.sale_price
-        else:
-            full_price = int(cached_persons) * journey.price
-
         if request.method == "POST":
+            if journey.sale_price:
+                full_price = int(request.POST['persons']) * journey.sale_price
+            else:
+                full_price = int(request.POST['persons']) * journey.price
+
             order, created = Order.objects.get_or_create(user=request.user, journey=journey,
                                                          email_address = request.user.email,
                                                          contact_phone=request.POST['contact_phone'],
-                                                         persons=cached_persons,
+                                                         persons=request.POST['persons'],
                                                          total=full_price)
             order.save()
 
@@ -82,9 +80,7 @@ def create_order(request, journey_id):
         else:
 
             return render(request, 'order/order_for_users.html', {'journey': journey,
-                                                                  'categories': categories,
-                                                                  'cached_persons': cached_persons,
-                                                                  'full_price': full_price})
+                                                                  'categories': categories})
 
     else:
         messages.error(extra_tags='danger', request=request, message='Для замовлення пригоди спочатку зареєструйтесь!')

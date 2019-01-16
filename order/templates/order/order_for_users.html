@@ -8,6 +8,9 @@
 
     <h3 style="margin-bottom: 20px"><strong>Замовлення пригоди:</strong></h3>
 
+<form method="POST" style="margin-top: 35px">
+    {% csrf_token %}
+
     <table class="table table-bordered" style="border-color: #33691e;">
 
       <thead>
@@ -24,50 +27,51 @@
         <tr>
           <th scope="row" class="text-center">{{ journey.sku }}</th>
           <td class="text-center">{{ journey.title }}</td>
-          <td class="text-center">{% if journey.sale_price %}{{ journey.sale_price }}{% else %}{{ journey.price }}{% endif %}</td>
+          <td class="text-center"  id="one_price">{% if journey.sale_price %}{{ journey.sale_price }}{% else %}{{ journey.price }}{% endif %}</td>
             <td class="text-center">
-
-                <form method="POST" action="{% url 'update_persons' journey.id %}">{% csrf_token %}
-
-                    <input class="text-center" type="text" value="{{ cached_persons }}" size="3" name="update_persons"/>
-                    <button class="btn btn-info" style="font-size: 10px; margin-bottom: 2px; color: white" type="submit">Порахувати</button>
-
-                </form>
-
+                    <input class="text-center" id="persons" name="persons" type="text" value="1" size="3">
             </td>
-          <td class="text-center">{{ full_price }}</td>
+          <td class="text-center"  id="total_price">{% if journey.sale_price %}{{ journey.sale_price }}{% else %}{{ journey.price }}{% endif %}</td>
         </tr>
       </tbody>
 
     </table>
 
-    <div class="row">
-        <div class="col-md-6" style="margin-top: 40px"><h3>Для підтвердження замовлення введіть актуальний номер мобільного телефону</h3></div>
-        <div class="col-md-6">
-
-    <form method="POST" style="margin-top: 35px"> {% csrf_token %}
-
-            <div class="text-center">
-                <input class="text-center" type="text" name="contact_phone" required placeholder="+380952509586"
-                       size="35"
-                       style="margin-top: 30px;">
+        <div class="row">
+            <div class="col-md-6" style="margin-top: 40px"><h3>Для підтвердження замовлення введіть актуальний номер мобільного телефону</h3></div>
+            <div class="col-md-6">
+                <div class="text-center">
+                    <input class="text-center" type="text" name="contact_phone" required placeholder="+380952509586"
+                           size="35"
+                           style="margin-top: 30px;">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3">
-            <a href="{% url 'home' %}" style="text-decoration: none"><button class="btn btn-outline-danger btn-block">Відмінити</button></a>
+        <div class="row mt-3">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <a href="{% url 'home' %}" style="text-decoration: none" class="btn btn-outline-danger btn-block">Відмінити</a>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" data-target="#create" class="btn btn-outline-success btn-block">Замовити</button>
+            </div>
         </div>
-        <div class="col-sm-3">
-            <button type="submit" data-target="#create" class="btn btn-outline-success btn-block">Замовити</button>
-        </div>
-        <div class="col-sm-3"></div>
-    </div>
     </form>
 
 
+{% endblock %}
 
+{% block for_scripts %}
 
+<script>
+// For recount total price when user change persons
+
+    $('#persons').on('input', function () {
+        var one_price = parseInt($('#one_price').text());
+        var persons = parseInt(this.value);
+        $('#total_price').html(one_price * persons);
+    });
+
+</script>
 
 {% endblock %}
