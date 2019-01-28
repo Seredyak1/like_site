@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
 
-<script>window.CKEDITOR_BASEPATH = '/assets/ckeditor/ckeditor/';</script>
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
 
 
 <link rel="stylesheet" type="text/css" href="{% static 'djangocms_admin_style/css/djangocms-admin.css' %}" /> {% if request.user.is_superuser %}{% render_update_notification %}{% endif %}
@@ -12,3 +12,4 @@
 {% block title %}{% include 'admin/inc/title.html' %}{% endblock %}
 
 {% block bodyclass %}{{ block.super }} djangocms-admin-style{% endblock %} {% block branding %}{% include 'admin/inc/branding.html' %}{% endblock %} {% block userlinks %}{% include 'admin/inc/userlinks.html' %}{{ block.super }}{% endblock %}
+
