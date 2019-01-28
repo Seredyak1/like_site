@@ -2,7 +2,7 @@
 
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
-<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+<script>window.CKEDITOR_BASEPATH = '/assets/ckeditor/ckeditor/';</script>
 
 {% block branding %}
 <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
