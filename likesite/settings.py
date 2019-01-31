@@ -175,7 +175,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 #ckeditor locations
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+#CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = 'pillow'
