@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 {% block title %}{{ news.seo_title }}{% endblock title %}
 
 
@@ -12,7 +14,7 @@
 
     <div class="container mt-4">
         <div class="container mt-3" style="border-bottom: 2px solid #e0e0e0;">
-            <a href="{% url 'news' %}" class="text-danger text-right"><h5><strong>Повернутись до всіх новин</strong></h5></a>
+            <a href="{% url 'news' %}" class="text-danger text-right"><h5><strong>{% trans "Повернутись до всіх новин" %}</strong></h5></a>
             <h1>{{ news.title }}</h1>
             <p class="text-secondary">{{ news.created_at }}</p>
         </div>
@@ -21,7 +23,7 @@
             <p class="mt-4 text-justify" >{{ news.body|safe }}</p>
         </div>
         <div class="container mt-3">
-            <h4><strong>Більше фото:</strong></h4>
+            <h4><strong>{% trans "Більше фото" %}:</strong></h4>
             {% for i in news.news_image.all %}
             <a href="{{ i.image.url }}" data-toggle="lightbox" data-gallery="example-gallery">
                 <img src="{{ i.image.url }}" class="img-thumbnail" style="max-width: 100px;">

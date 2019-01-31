@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Новини{% endblock title %}
+{% load i18n %}
+
+{% block title %}{% trans "Новини" %}{% endblock title %}
 
 
 {% block content %}
@@ -26,7 +28,7 @@
                     <h5 class="text-justify mt-5">{{ news.short_description|safe }}</h5>
                 </div>
                 <div class="container mt-5">
-                    <a href="{% url 'news_detail' news.id %}" class="text-danger text-right"><h6>Дізнатись більше >>></h6></a>
+                    <a href="{% url 'news_detail' news.id %}" class="text-danger text-right"><h6>{% trans "Дізнатись більше" %} >>></h6></a>
                 </div>
             </div>
         </div>

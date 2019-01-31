@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
  {% block title %}{{ category.seo_title }}{% endblock title %}
 
@@ -28,7 +29,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-sm-6">
-                <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-success btn-block"><strong>Створити власну пригоду!</strong></button></a>
+                <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-success btn-block"><strong>{% trans "Створити власну пригоду" %}!</strong></button></a>
             </div>
             <div class="col-3"></div>
         </div>
@@ -42,7 +43,7 @@
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-sm-10">
-                    <h4 style="color: #FE3C01;">Гарячі пригоди: </h4>
+                    <h4 style="color: #FE3C01;">{% trans "Гарячі пригоди:" %} </h4>
                         {% include 'product/Journey_card_with_sale.html' %}
                 </div>
                 <div class="col-1"></div>
@@ -57,7 +58,7 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-sm-10">
-                <h4 style="color: #FE3C01;">Пропозиції: </h4>
+                <h4 style="color: #FE3C01;">{% trans "Пропозиції:"%} </h4>
                 {% include 'product/Journey_card.html' %}
             </div>
             <div class="col-1"></div>

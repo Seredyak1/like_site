@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block head_title %}SignUp{% endblock %}
+{% block head_title %}{% trans "Реєстрація" %}{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -29,27 +29,27 @@
                         {% endif %}
 
                     <div class="card-header p-3 mb-2 text-white" style="background-color: #33691e;">
-                        <h4 class="my-0 font-weight-normal">Реєстрація</h4>
+                        <h4 class="my-0 font-weight-normal">{% trans "Реєстрація" %}</h4>
                     </div>
                     <div class="card-body">
-                        <p>Вже маєте обліковий запис?<br> Тоді <a href="{{ login_url }} " class="text-danger">увійдіть</a></p>
+                        <p>{% trans "Вже маєте обліковий запис?" %}<br> <a href="{{ login_url }} " class="text-danger">{% trans "Тоді увійдіть" %}</a></p>
                         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
                             {% csrf_token %}
                         <fieldset>
                                 <div class="form-group">
-                                    <label class="control-label" for="id_first_name">Ім'я</label>
+                                    <label class="control-label" for="id_first_name">{% trans "Ім'я" %}</label>
                                     <input type="text" name="first_name" value="" placeholder="Ім'я:" required id="id_first_name" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="id_email">E-Mail:</label>
+                                    <label class="control-label" for="id_email">{% trans "E-Mail" %}:</label>
                                     <input type="text" name="email" value="" placeholder="E-Mail:" id="id_email" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="id-password1">Пароль:</label>
+                                    <label class="control-label" for="id-password1">{% trans "Пароль" %}:</label>
                                     <input type="password" name="password1" value="" placeholder="Пароль" id="id_password1"  class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="id-password2">Повторіть пароль:</label>
+                                    <label class="control-label" for="id-password2">{% trans "Повторіть пароль" %}:</label>
                                     <input type="password" name="password2" value="" placeholder="Пароль" id="id_password2"  class="form-control">
                                 </div>
                                 <input type="submit" value="Зареєструватися" class="btn btn-block btn-success"/>

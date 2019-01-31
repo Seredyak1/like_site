@@ -25,8 +25,8 @@ class JourneyAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug',)
-    search_fields = ('name',)
+    list_display = ('name_uk', 'slug',)
+    search_fields = ('name_uk',)
 
 
 admin.site.register(Journey, JourneyAdmin)

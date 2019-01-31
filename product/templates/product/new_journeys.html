@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 
 {% block content %}
         <!-- START block with categories -->
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-sm-6">
-                <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-success btn-block"><strong>Створити власну пригоду!</strong></button></a>
+                <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-success btn-block"><strong>{% trans "Створити власну пригоду" %}!</strong></button></a>
             </div>
             <div class="col-3"></div>
         </div>
@@ -21,7 +21,7 @@
 <!-- END button with order -->
 
     <div class="text-center mt-5">
-        <h3 style="color: #33691e"><strong>Найновіші пропозиції:</strong></h3>
+        <h3 style="color: #33691e"><strong>{% trans "Найновіші пропозиції" %}:</strong></h3>
     </div>
 
 <!-- START container with items. -->
