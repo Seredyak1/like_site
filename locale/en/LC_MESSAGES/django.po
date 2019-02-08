@@ -1,0 +1,867 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-31 18:18+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: landing_page/templates/landing_page/home.html:4
+msgid "Пригоди, відпочинок, дозвілля у Карпатах / Корпоративи та відпустка"
+msgstr "Adventures and rest in Carpathians / Corporate events and vacation"
+
+#: landing_page/templates/landing_page/home.html:18
+msgid "Створити пригоду"
+msgstr "Create a trip"
+
+#: landing_page/templates/landing_page/home.html:25
+#: pages/templates/pages/search.html:27
+msgid "Що шукаємо?"
+msgstr "What are you searching?"
+
+#: landing_page/templates/landing_page/home.html:54
+msgid "Остання новина:"
+msgstr "Last news:"
+
+#: landing_page/templates/landing_page/home.html:63
+msgid "Читати"
+msgstr "Read more"
+
+#: landing_page/templates/landing_page/home.html:67
+msgid "Більше новин"
+msgstr "More news"
+
+#: landing_page/templates/landing_page/home.html:73 pages/models.py:23
+#: pages/templates/pages/feedback.html:4 pages/templates/pages/feedback.html:22
+#: templates/base.html:208
+msgid "Відгуки"
+msgstr "Feedback"
+
+#: landing_page/templates/landing_page/home.html:89
+msgid "Більше відгуків"
+msgstr "More feedback"
+
+#: landing_page/templates/landing_page/home.html:96
+msgid "Найпопулярніші пригоди"
+msgstr "The most popular trips"
+
+#: landing_page/templates/landing_page/home.html:107
+msgid "Наші кліенти"
+msgstr "Our clients"
+
+#: likesite/settings.py:164
+msgid "Українська"
+msgstr "Ukrainian"
+
+#: likesite/settings.py:165
+msgid "English"
+msgstr "English"
+
+#: news/models.py:18 news/templates/news/news.html:4 templates/base.html:187
+msgid "Новини"
+msgstr "News"
+
+#: news/templates/news/news.html:31
+#: product/templates/product/Journey_card.html:38
+#: product/templates/product/Journey_card_with_sale.html:39
+msgid "Дізнатись більше"
+msgstr "Learn more"
+
+#: news/templates/news/news_detail.html:17
+msgid "Повернутись до всіх новин"
+msgstr "Return to all news"
+
+#: news/templates/news/news_detail.html:26
+msgid "Більше фото"
+msgstr "More photos"
+
+#: order/forms.py:8
+msgid "Призвіще та ім'я"
+msgstr "Surname and name"
+
+#: order/forms.py:9 order/models.py:41
+msgid "Тривалість"
+msgstr "Duration"
+
+#: order/forms.py:10 order/models.py:40
+#: order/templates/order/order_for_anonim.html:27
+#: order/templates/order/order_for_users.html:19
+msgid "Кількість осіб"
+msgstr "Number of people"
+
+#: order/forms.py:11
+msgid "Що б Ви хотіли побачити?"
+msgstr "What are you interested in?"
+
+#: order/forms.py:12 order/templates/order/order_for_anonim.html:76
+msgid "Email-адреса"
+msgstr "Email"
+
+#: order/models.py:10 order/models.py:11
+msgid "Замовлення"
+msgstr "Order"
+
+#: order/models.py:14
+msgid "Нове"
+msgstr "New"
+
+#: order/models.py:15
+msgid "Оплачене"
+msgstr "Paid"
+
+#: order/models.py:18
+msgid "Покупець"
+msgstr "Customer"
+
+#: order/models.py:21 order/templates/order/order_for_anonim.html:64
+msgid "Номер телефону"
+msgstr "Phone number"
+
+#: order/models.py:23
+msgid "Загальна ціна"
+msgstr "Total price"
+
+#: order/models.py:30 order/models.py:47
+msgid "Order # "
+msgstr "Order # "
+
+#: order/models.py:35
+msgid "Анонімне замовлення"
+msgstr "Anonymous order"
+
+#: order/models.py:36
+msgid "Анонімні замовлення"
+msgstr "Anonymous orders"
+
+#: order/models.py:38
+msgid "ПІБ"
+msgstr "Surname and name"
+
+#: order/models.py:39
+msgid "Опис"
+msgstr "Description"
+
+#: order/models.py:42
+msgid "Email"
+msgstr "Email"
+
+#: order/models.py:43
+msgid "Телефон"
+msgstr "Phone number"
+
+#: order/templates/order/confirmation_page.html:13
+msgid "Дякуємо, що обрали!"
+msgstr "Thank you for choosing us!"
+
+#: order/templates/order/confirmation_page.html:13
+msgid "Для підтвердження замовлення та узгодження всіх деталей наш менеджер"
+msgstr "For the order confirmation and agreement on all details our manager"
+
+#: order/templates/order/confirmation_page.html:14
+msgid "зв'яжеться з Вами найблищим часом!"
+msgstr " will contact you soon!"
+
+#: order/templates/order/confirmation_page.html:14
+msgid "Бажаємо захоплюючої пригоди!"
+msgstr "Wish you an exciting adventure!"
+
+#: order/templates/order/confirmation_page.html:16
+msgid "Повернутися на головну"
+msgstr "Return to home page"
+
+#: order/templates/order/email_confirmation.html:6
+msgid "Підтвердження замовлення"
+msgstr "Order confirmation"
+
+#: order/templates/order/email_confirmation.html:7
+msgid "Доброго дня,"
+msgstr "Hello,"
+
+#: order/templates/order/email_confirmation.html:8
+msgid ""
+"Дякуємо, що обрали! Для узгодження всіх деталей наш менеджер зв'яжеться з "
+"Вами найближчим часом."
+msgstr "Thank you for choosing us! For the order confirmation and agreement on all details our manager will contact you soon."
+
+#: order/templates/order/email_confirmation.html:9
+msgid "Бажаємо хорошого дня та чудової пригоди!"
+msgstr "Wish you a good day and an exciting adventure!"
+
+#: order/templates/order/email_confirmation.html:12
+msgid ""
+"Якщо ви отримали повідомлення помилково, то не потрібно відповідати на нього."
+msgstr "If you have received the message by mistake, don`t reply."
+
+#: order/templates/order/email_confirmation.html:13
+msgid ""
+"Зверніть увагу: це електронне повідомлення було відправлено з адреси, яка не "
+"може приймати вхідні електронні листи."
+msgstr "Please note: This e-mail was sent from an address that cannot accept incoming e-mails."
+
+#: order/templates/order/email_confirmation.html:14
+msgid ""
+"Будь-ласка, якщо вам потрібно знову зв'язатися з нами, скористайтеся "
+"електоронною поштою"
+msgstr "If you need to contact us again, use our email, please"
+
+#: order/templates/order/order_for_anonim.html:17
+msgid "Прізвище та ім'я"
+msgstr "Surname and name"
+
+#: order/templates/order/order_for_anonim.html:39
+msgid "Кількість днів"
+msgstr "Duration in days"
+
+#: order/templates/order/order_for_anonim.html:51
+msgid "Що Вас цікавить"
+msgstr "What are you interested in?"
+
+#: order/templates/order/order_for_anonim.html:56
+msgid "Озеро Синевир, Паланок, закарпатський банош..."
+msgstr "Sinevir lake, castles, Transcarpathian dishes..."
+
+#: order/templates/order/order_for_anonim.html:88
+msgid "Чи хотіли б Ви отримувати більше пропозицій щодо найкращих пригод?"
+msgstr "Do you want to receive more offers about the best trips?"
+
+#: order/templates/order/order_for_anonim.html:89
+msgid "Зареєструватись"
+msgstr "Register"
+
+#: order/templates/order/order_for_anonim.html:96
+#: order/templates/order/order_for_users.html:60
+#: pages/templates/pages/feedback.html:51
+#: product/templates/product/journey_comments.html:20
+#: product/templates/product/journey_comments.html:45
+#: product/templates/product/journey_comments.html:101
+#: product/templates/product/journey_comments.html:126
+msgid "Відмінити"
+msgstr "Cancel"
+
+#: order/templates/order/order_for_anonim.html:99
+#: order/templates/order/order_for_users.html:63
+#: product/templates/product/Journey_card.html:6
+#: product/templates/product/Journey_card_with_sale.html:7
+#: product/templates/product/journey_detail.html:14
+msgid "Замовити"
+msgstr "Order"
+
+#: order/templates/order/order_for_users.html:10
+msgid "Замовлення пригоди"
+msgstr "Trip ordering"
+
+#: order/templates/order/order_for_users.html:17
+msgid "Назва пригоди"
+msgstr "Name of trip"
+
+#: order/templates/order/order_for_users.html:18
+#: product/templates/product/journey_detail.html:40
+msgid "Ціна"
+msgstr "Price"
+
+#: order/templates/order/order_for_users.html:20
+msgid "Ціна всього"
+msgstr "Total price"
+
+#: order/templates/order/order_for_users.html:45
+msgid ""
+"Для підтвердження замовлення введіть актуальний номер мобільного телефону"
+msgstr "For order confirmation write your actual phone number"
+
+#: order/views.py:20
+msgid ""
+"Ваше замовлення зареєстроване!Наш менеджер обов'язково Вас сконтактує "
+"найблищим часом!"
+msgstr "Your order is registered! Our manager will contact you soon!"
+
+#: order/views.py:23 order/views.py:67
+msgid "LAIK TRAVEL - пітвердження замовлення"
+msgstr "LAIK TRAVEL - order confirmation"
+
+#: order/views.py:92
+msgid "Для замовлення пригоди спочатку зареєструйтесь!"
+msgstr "To order the trip register first!"
+
+#: pages/forms.py:9
+msgid "Будь-ласка, додайте Ваше імя та прізвище"
+msgstr "Please, add your name and surname"
+
+#: pages/forms.py:10
+msgid "Залиште відгук"
+msgstr "Add feedback"
+
+#: pages/models.py:22 pages/models.py:26 product/models.py:94
+msgid "Відгук"
+msgstr "Feedback"
+
+#: pages/models.py:25
+msgid "Імя"
+msgstr "Name"
+
+#: pages/models.py:56
+msgid "Типове запитання"
+msgstr "Typical question"
+
+#: pages/models.py:59
+msgid "Типове Запитання українською"
+msgstr "Typical question in ukr"
+
+#: pages/models.py:60
+msgid "Відповідь українською"
+msgstr "Typical answer in ukr"
+
+#: pages/models.py:61
+msgid "Типове Запитання англійською"
+msgstr "Typical question in eng"
+
+#: pages/models.py:62
+msgid "Відповідь англійською"
+msgstr "Typical answer in eng"
+
+#: pages/templates/pages/about_us.html:5 templates/base.html:53
+#: templates/base.html:181 templates/base.html:184
+msgid "Про нас"
+msgstr "About us"
+
+#: pages/templates/pages/about_us.html:17
+msgid "Вітаємо, шукачу пригод!"
+msgstr "Hello, adventure seeker!"
+
+#: pages/templates/pages/about_us.html:18
+msgid "Закарпаття"
+msgstr "Transcarpathia"
+
+#: pages/templates/pages/about_us.html:19
+msgid ""
+"Оператор пригод LAiK запрошує до Закарпаття, та організує тільки хороші "
+"пригоди по Сріберній Землі"
+msgstr "Operator of adventures LAiK invites you to Transcarpathia. We organise only good trips in Silver Land"
+
+#: pages/templates/pages/about_us.html:23
+msgid "У нашій роботі ми опираємось на 3 основні цінності"
+msgstr "Our 3 main values"
+
+#: pages/templates/pages/about_us.html:27
+msgid "Прагнення до найкращого"
+msgstr "Striving for excellence"
+
+#: pages/templates/pages/about_us.html:28
+msgid ""
+"Ми завжди продумовуємо все до останньої дрібниці, роблячи пригоду цікавою, "
+"захопливою та такою, що запам'ятається!"
+msgstr "We always think everything through very carefully to make the adventure exciting and memorable!"
+
+#: pages/templates/pages/about_us.html:32
+msgid "Професіоналізм у дрібницях"
+msgstr "Professionalism in every little thing"
+
+#: pages/templates/pages/about_us.html:33
+msgid "Під час пригоди з Вами працюють тільки професіонали своєї справи"
+msgstr "Only professionals work with you during the trip"
+
+#: pages/templates/pages/about_us.html:37
+msgid "Цінування партнерства"
+msgstr "Partnership appreciation"
+
+#: pages/templates/pages/about_us.html:38
+msgid ""
+"Цінування та повага до наших партнерів для отримання лише відмінного сервісу "
+"під час пригоди."
+msgstr "Appreciation and respect to our partners for reaching the best results."
+
+#: pages/templates/pages/about_us.html:45
+msgid "Для зручності, наші пропозиції поділені на категорії"
+msgstr "Our offers are divided into categories"
+
+#: pages/templates/pages/about_us.html:51
+msgid ""
+"Якщо ж Ви хочете таку пригоду, яку ще ніхто не мав, ми готові запропонувати "
+"Вам"
+msgstr "If you want an adventure no-one has ever had, we are ready to organize "
+
+#: pages/templates/pages/about_us.html:52
+msgid "замовити свою пригоду на Закарпатті"
+msgstr "your own trp in Transcarpathia"
+
+#: pages/templates/pages/about_us.html:55
+msgid ""
+"Віримо, що пригоди на Закарпатті Вам обов'язково сподобаються. Більше про "
+"нашу роботу Ви зможете прочитати на"
+msgstr "We believe that you are going to like the adventures in Transcarpathia. More about our work you can read on"
+
+#: pages/templates/pages/about_us.html:56
+msgid "сторінці відгуків"
+msgstr "the feedback page"
+
+#: pages/templates/pages/about_us.html:56
+msgid "або ж на стрінках у соціальних мережах"
+msgstr "or in social networks"
+
+#: pages/templates/pages/documents.html:4
+#: pages/templates/pages/documents.html:14
+msgid "Офіційні документи"
+msgstr "Official documents"
+
+#: pages/templates/pages/documents.html:24
+msgid "Завантажити"
+msgstr "Download"
+
+#: pages/templates/pages/faq.html:4
+msgid "Запитання та Відповіді"
+msgstr "FAQs"
+
+#: pages/templates/pages/faq.html:16
+msgid "Сторінка типових запитань (FAQs)"
+msgstr "Frequently asked questions"
+
+#: pages/templates/pages/feedback.html:17
+msgid "Додати відгук"
+msgstr "Add feedback"
+
+#: pages/templates/pages/feedback.html:40
+msgid "Залишити відгук"
+msgstr "Add feedback"
+
+#: pages/templates/pages/feedback.html:52
+msgid "Опублікувати"
+msgstr "Confirm"
+
+#: pages/templates/pages/search.html:28
+msgid "Пошук"
+msgstr "Search"
+
+#: pages/templates/pages/search.html:38
+msgid "За вашим пошуком знайдена "
+msgstr "We found "
+
+#: pages/templates/pages/search.html:38
+msgid "пригода"
+msgstr "trip"
+
+#: pages/templates/pages/search.html:40 pages/templates/pages/search.html:42
+#: pages/templates/pages/search.html:44
+msgid "За вашим пошуком знайденo "
+msgstr "We found"
+
+#: pages/templates/pages/search.html:40
+msgid "пригоди"
+msgstr "trips"
+
+#: pages/templates/pages/search.html:42 pages/templates/pages/search.html:44
+msgid "пригод"
+msgstr "trips"
+
+#: pages/views.py:21
+msgid "Ваш відгук буде опубліковано після перевірки модератором. Дякуємо!"
+msgstr "Your feedback will be publish after the moderator checks it. Thanks!"
+
+#: pages/views.py:34
+msgid ""
+"\n"
+"    - унікальний куточок України. Водночас тут можна побачити\n"
+"        холодні вершини Карпат та відчути тепло Закарпатської долини, "
+"здійснити подорож гірською полониною та відпочити\n"
+"        у гарячих термальних басейнах. Це мультикультурний край, що "
+"представлений сотнею різних національностей та етносів,\n"
+"        побачити архітектурні стилі з усієї Європи та світу. До сьогодні тут "
+"збережений унікальний діалект української мови\n"
+"        складений зі слів кожного народу, хто колись проживав чи проживає на "
+"Закарпатті, та що змінюється від села до села,\n"
+"        від регіону до регіону. Тільки тут можна скуштувати безліч "
+"різномінітних страв української, угорської, румунської, чеської,\n"
+"        німецькою та десятків ніших кухонь, спробувати світових сортів вина. "
+"Саме такою є земля, наближена до небa!"
+msgstr "- a unique nook of Ukraine. At the same time you can see here cold Carpathian peaks and feel the warmth of Transcarpathian valley,"
+"wander around a Polonyna and relax in hot thermal pools. It's a multicultural place represented by a hundred of different nationalities and ethnic groups"
+"Here you can see architecture styles from all over the Europe and world. A unique dialect of a Ukrainian language has been preserved here until nowadays."
+"It has been composed of words taken from every nation which lived or lives in Transcarpathia and varies from village to village, from district to district."
+"Only here you can try many different dishes from Ukrainian, Hungarian, Romanian, Czech, German and other cuisines, taste a variety of world's wines. This is the land close to the sky!"
+
+#: product/models.py:18 product/models.py:69
+msgid "Категорія"
+msgstr "Category"
+
+#: product/models.py:19
+msgid "Категорії"
+msgstr "Categories"
+
+#: product/models.py:21
+msgid "Назва Категорії Українською"
+msgstr "Category's title in uk"
+
+#: product/models.py:22
+msgid "Назва Категорії Англійською"
+msgstr "Category's title in eng"
+
+#: product/models.py:23
+msgid "SEO title укр"
+msgstr "SEO title uk"
+
+#: product/models.py:25
+msgid "SEO title англ"
+msgstr "SEO title eng"
+
+#: product/models.py:27
+msgid "Назва в URL"
+msgstr "URL slug"
+
+#: product/models.py:28
+msgid "Опис Категорії"
+msgstr "Description uk"
+
+#: product/models.py:29
+msgid "Опис Англійською"
+msgstr "Description eng"
+
+#: product/models.py:30
+msgid "Лого Категорії"
+msgstr "Category's logo"
+
+#: product/models.py:52
+msgid "Пригода"
+msgstr "Trip"
+
+#: product/models.py:53 templates/base.html:199
+msgid "Пригоди"
+msgstr "Trips"
+
+#: product/models.py:56 product/templates/product/journey_detail.html:25
+msgid "Номер"
+msgstr "Number"
+
+#: product/models.py:57
+msgid "Назва пригоди українською"
+msgstr "Trip's title uk"
+
+#: product/models.py:58
+msgid "Назва пригоди англійською"
+msgstr "Trip's title en"
+
+#: product/models.py:59 product/models.py:61
+msgid "SEO title"
+msgstr "SEO title"
+
+#: product/models.py:63
+msgid "Опис пригоди українською"
+msgstr "Trip's description in uk"
+
+#: product/models.py:64
+msgid "Опис пригоди англійською"
+msgstr "Trip's description in eng"
+
+#: product/models.py:65
+msgid "Тривалість днів"
+msgstr "Duration days"
+
+#: product/models.py:66
+msgid "Тривалість ночей"
+msgstr "Duration nights"
+
+#: product/models.py:67
+msgid "Ціна у грн"
+msgstr "Price"
+
+#: product/models.py:68
+msgid "Ціна зі скидкою у грн"
+msgstr "Sale price"
+
+#: product/models.py:70
+msgid "Дата створення"
+msgstr "Created"
+
+#: product/models.py:71
+msgid "Дата останнього оновлення"
+msgstr "Updated"
+
+#: product/templates/product/Category_detail.html:32
+#: product/templates/product/new_journeys.html:16
+#: product/templates/product/sale_journeys.html:16
+msgid "Створити власну пригоду"
+msgstr "Create your own trip"
+
+#: product/templates/product/Category_detail.html:46
+msgid "Гарячі пригоди:"
+msgstr "Hot sales:"
+
+#: product/templates/product/Category_detail.html:61
+msgid "Пропозиції:"
+msgstr "Trips:"
+
+#: product/templates/product/Journey_card.html:15
+#: product/templates/product/Journey_card_with_sale.html:16
+msgid "Тривалість:"
+msgstr "Duration:"
+
+#: product/templates/product/Journey_card.html:17
+#: product/templates/product/Journey_card_with_sale.html:18
+#: product/templates/product/journey_detail.html:29
+msgid "день"
+msgstr "day"
+
+#: product/templates/product/Journey_card.html:19
+#: product/templates/product/Journey_card.html:21
+#: product/templates/product/Journey_card_with_sale.html:20
+#: product/templates/product/Journey_card_with_sale.html:22
+#: product/templates/product/journey_detail.html:31
+#: product/templates/product/journey_detail.html:33
+msgid "дні"
+msgstr "days"
+
+#: product/templates/product/Journey_card.html:19
+#: product/templates/product/Journey_card_with_sale.html:20
+#: product/templates/product/journey_detail.html:31
+msgid "ніч"
+msgstr "night"
+
+#: product/templates/product/Journey_card.html:21
+#: product/templates/product/Journey_card_with_sale.html:22
+#: product/templates/product/journey_detail.html:33
+msgid "ночі"
+msgstr "nights"
+
+#: product/templates/product/Journey_card.html:23
+#: product/templates/product/Journey_card_with_sale.html:24
+#: product/templates/product/journey_detail.html:35
+msgid "днів"
+msgstr "days"
+
+#: product/templates/product/Journey_card.html:23
+#: product/templates/product/Journey_card_with_sale.html:24
+#: product/templates/product/journey_detail.html:35
+msgid "ночей"
+msgstr "nights"
+
+#: product/templates/product/Journey_card.html:30
+#: product/templates/product/Journey_card.html:32
+#: product/templates/product/Journey_card_with_sale.html:31
+#: product/templates/product/Journey_card_with_sale.html:33
+#: product/templates/product/journey_detail.html:42
+#: product/templates/product/journey_detail.html:44
+msgid "грн"
+msgstr "UAH"
+
+#: product/templates/product/journey_comments.html:5
+msgid "Ще ніхто не написав коментар до цієї подорожі!"
+msgstr "No-one has written a comment yet!"
+
+#: product/templates/product/journey_comments.html:5
+msgid "Будьте першим!"
+msgstr "Be the first!"
+
+#: product/templates/product/journey_comments.html:12
+#: product/templates/product/journey_comments.html:37
+msgid "Додати коментар"
+msgstr "Add a comment"
+
+#: product/templates/product/journey_comments.html:21
+#: product/templates/product/journey_comments.html:46
+#: product/templates/product/journey_comments.html:102
+msgid "Зберегти"
+msgstr "Confirm"
+
+#: product/templates/product/journey_comments.html:57
+msgid "Авторизуйтесь перед коментуванням!"
+msgstr "Sign in before commenting!"
+
+#: product/templates/product/journey_comments.html:95
+msgid "Редагувати коментар"
+msgstr "Edit a comment"
+
+#: product/templates/product/journey_comments.html:120
+msgid "Видалення коментаря"
+msgstr "Delete a comment"
+
+#: product/templates/product/journey_comments.html:123
+msgid "Ви справді хочете видалити відгук?"
+msgstr "Are you sure you want to delete this comment?"
+
+#: product/templates/product/journey_comments.html:127
+msgid "Видалити"
+msgstr "Delete"
+
+#: product/templates/product/journey_detail.html:53
+msgid "Інформація"
+msgstr "Info"
+
+#: product/templates/product/journey_detail.html:56
+msgid "Фото"
+msgstr "Photos"
+
+#: product/templates/product/journey_detail.html:59
+msgid "Коментарі"
+msgstr "Comments"
+
+#: product/templates/product/new_journeys.html:24
+msgid "Найновіші пропозиції"
+msgstr "The newest offers"
+
+#: product/templates/product/sale_journeys.html:24
+msgid "Гарячі пропозиції на пригоди"
+msgstr "Hot sales"
+
+#: templates/allauth/account/login.html:5
+#: templates/allauth/account/login.html:37
+msgid "Вхід"
+msgstr "Sign in"
+
+#: templates/allauth/account/login.html:40
+msgid "Будь-ласка введіть дані свого облікового запису або створіть"
+msgstr "Please type your username and password or create your account"
+
+#: templates/allauth/account/login.html:41
+msgid "новий"
+msgstr "new"
+
+#: templates/allauth/account/login.html:51
+#: templates/allauth/account/signup.html:48
+msgid "Пароль"
+msgstr "Password"
+
+#: templates/allauth/account/login.html:55
+msgid "Запам'ятати"
+msgstr "Remember me"
+
+#: templates/allauth/account/login.html:61
+#: templates/allauth/account/password_reset.html:45
+msgid "Забули пароль"
+msgstr "Forgot password?"
+
+#: templates/allauth/account/login.html:64
+msgid "Або увійдіть через"
+msgstr "Or sign in via"
+
+#: templates/allauth/account/password_change.html:4
+#: templates/allauth/account/password_change.html:31
+msgid "Зміна пароля"
+msgstr "Change the password"
+
+#: templates/allauth/account/password_change.html:38
+msgid "Поточний пароль"
+msgstr "Old password"
+
+#: templates/allauth/account/password_change.html:42
+msgid "Новий пароль"
+msgstr "New password"
+
+#: templates/allauth/account/password_change.html:46
+msgid "Повторіть новий пароль"
+msgstr "Repeat the password"
+
+#: templates/allauth/account/password_change.html:49
+#: templates/allauth/account/password_reset.html:56
+msgid "Змінити пароль"
+msgstr "Change the password"
+
+#: templates/allauth/account/password_reset.html:6
+#: templates/allauth/account/password_reset.html:42
+msgid "Скидання пароля"
+msgstr "Reset the password"
+
+#: templates/allauth/account/password_reset.html:45
+msgid ""
+"Введіть e-mail адресу, яку ви використовували для входу на наш сайт нижче, і "
+"ми надішлемо вам листа з інструкціями для скидання пароля"
+msgstr "Type email address, which you used for signing in on our site, and we wil send you a message with instructions for resetting the password"
+
+#: templates/allauth/account/password_reset.html:53
+msgid "E-mail"
+msgstr "E-mail"
+
+#: templates/allauth/account/signup.html:4
+#: templates/allauth/account/signup.html:32
+msgid "Реєстрація"
+msgstr "Register"
+
+#: templates/allauth/account/signup.html:35
+msgid "Вже маєте обліковий запис?"
+msgstr "Do you have an account?"
+
+#: templates/allauth/account/signup.html:35
+msgid "Тоді увійдіть"
+msgstr "Sign in"
+
+#: templates/allauth/account/signup.html:40
+msgid "Ім'я"
+msgstr "Name"
+
+#: templates/allauth/account/signup.html:44
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: templates/allauth/account/signup.html:52
+msgid "Повторіть пароль"
+msgstr "Repeat the password"
+
+#: templates/base.html:14
+msgid "LAIK оператор пригод"
+msgstr "LAIK operator of adventures"
+
+#: templates/base.html:56
+msgid "Створити замовлення"
+msgstr "Create an order"
+
+#: templates/base.html:78
+msgid "Ввійти"
+msgstr "Sing in"
+
+#: templates/base.html:81
+msgid "Зареєструватися"
+msgstr "Register"
+
+#: templates/base.html:85
+msgid "Привіт"
+msgstr "Hello"
+
+#: templates/base.html:88
+msgid "Вихід"
+msgstr "Log out"
+
+#: templates/base.html:147
+msgid "Долучайтесь у соціальних мережах"
+msgstr "Find us in social networks"
+
+#: templates/base.html:173
+msgid "Туроператор пригод"
+msgstr "Operator of adventures"
+
+#: templates/base.html:175
+msgid ""
+"Всі пригоди Закарпаття тут! Відчуй себе мандрівником та підкори край, "
+"наближений до неба"
+msgstr "All adventures in Transcarpathia are here! Feel yourself a wanderer and explore the land close to the sky"
+
+#: templates/base.html:190
+msgid "Документи"
+msgstr "Documents"
+
+#: templates/base.html:202
+msgid "Сворити пригоду"
+msgstr "Create a trip"
+
+#: templates/base.html:217
+msgid "Контакти"
+msgstr "Contacts"
+
+#: templates/base.html:219
+msgid "Ужгород, Україна"
+msgstr "Uzhhorod, Ukraine"
+
+#: templates/header_with_categories.html:5
+msgid "Гарячі пропозиції"
+msgstr "Hot sales to adventures"
+
+#: templates/header_with_categories.html:8
+msgid "Новинки"
+msgstr "New trips"

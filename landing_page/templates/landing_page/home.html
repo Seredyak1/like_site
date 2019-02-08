@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Пригоди, відпочинок, дозвілля у Карпатах / Корпоративи та відпустка{% endblock title %}
+{% load i18n %}
+
+{% block title %}{% trans "Пригоди, відпочинок, дозвілля у Карпатах / Корпоративи та відпустка" %}{% endblock title %}
 
 {% block content %}
 
@@ -13,14 +15,14 @@
         <div class="container mt-1">
             <div class="row">
                 <div class="col-md-6 mt-2 mr-0 p-0">
-                    <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-outline-success btn-block">Створити пригоду!</button></a>
+                    <a href="{% url 'order_anonim' %}" style="text-decoration: none;"><button class="btn btn-outline-success btn-block">{% trans "Створити пригоду" %}!</button></a>
                 </div>
 
             <!-- START Search block -->
                 <div class="col-md-6 m-0 p-0">
                         <form class="form-inline pl-md-5 d-flex justify-content-center" id="searchform" aria-label="Search" action="{% url 'search' %}" method="get"
                             accept-charset="utf-8">
-                        <input class="form-control h-100 w-75" style="margin-top: 11px;" id="searchbox" name="q" type="text" placeholder="Що шукаємо?">
+                        <input class="form-control h-100 w-75" style="margin-top: 11px;" id="searchbox" name="q" type="text" placeholder={% trans "Що шукаємо?"%}>
                             <button class="btn btn-rounded text-white p-0 ml-2 h-100" style="background-color: #33691e; margin-top: 11px;" type="submit"><i
                                 class="material-icons m-1 h-30 w-30" style="font-size: 18px;">search</i></button>
                         </form>
@@ -49,7 +51,7 @@
                 </div>
             {% if newses %}
                 <div class="container mt-4" style="border: 2px solid #e0e0e0; border-radius: 10px">
-                    <h5 class="mt-3 text-center" style="color: #33691e">Остання новина: </h5>
+                    <h5 class="mt-3 text-center" style="color: #33691e">{% trans "Остання новина:" %} </h5>
                         <div class="card mt-2 mb-2">
 
                         <!-- Card image -->
@@ -58,17 +60,17 @@
                             <div class="card-body">
                                 <h4 class="card-title"><a>{{ newses.title }}</a></h4>
                                 <p class="card-text text-justify" style="text-overflow: ellipsis">{{ newses.short_description|safe }}</p>
-                                <a href="{% url "news_detail" newses.id %}" class="text-danger"><p class="text-right">Читати >>></p></a>
+                                <a href="{% url "news_detail" newses.id %}" class="text-danger"><p class="text-right">{% trans "Читати" %} >>></p></a>
                             </div>
                         </div>
                         <div class="text-right">
-                            <a href="{% url 'news' %}" class="text-danger text-right"><p><strong>Більше новин >>></strong></p></a>
+                            <a href="{% url 'news' %}" class="text-danger text-right"><p><strong>{% trans "Більше новин" %} >>></strong></p></a>
                         </div>
                 </div>
             {% endif %}
              <br>
                  <div class="container" style="border: 2px solid #e0e0e0; border-radius: 10px">
-                    <h5 class="mt-3 text-center" style="color: #33691e">Відгуки: </h5>
+                    <h5 class="mt-3 text-center" style="color: #33691e">{% trans "Відгуки" %}: </h5>
                     {% for feedback in feedbacks %}
                         <div class="card mt-2">
                           <!-- Card content -->
@@ -84,14 +86,14 @@
                         </div>
                     {% endfor %}
                         <div class="text-right mt-2">
-                            <a href="{% url 'feedback' %}" class="text-danger text-right"><p><strong>Більше відгуків >>></strong></p></a>
+                            <a href="{% url 'feedback' %}" class="text-danger text-right"><p><strong>{% trans "Більше відгуків" %} >>></strong></p></a>
                         </div>
                 </div>
             </div>
 
         <!-- Col for journey cards -->
             <div class="col-sm-8">
-                <h4 style="color: #33691e"><strong>Найпопулярніші пригоди: </strong></h4>
+                <h4 style="color: #33691e"><strong>{% trans "Найпопулярніші пригоди" %}: </strong></h4>
                 <div>
                     {%  include 'product/Journey_card.html' %}
                 </div>
@@ -102,7 +104,7 @@
         <!-- Clients slider -->
     {% if clients %}
             <div class="container mt-5">
-                <h4 class="text-center"><strong>Наші кліенти:</strong></h4>
+                <h4 class="text-center"><strong>{% trans "Наші кліенти" %}:</strong></h4>
                 {% include 'pages/clients_slider.html' %}
             </div>
     {% endif %}

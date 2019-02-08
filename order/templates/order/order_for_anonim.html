@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load i18n %}
 
 
 {% block content %}
@@ -13,7 +14,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-5 text-right pl-5 mt-1">
-                        <label class="control-label" for="id_name"><h4 style="color: #33691e"><strong>Прізвище та ім'я:</strong></h4></label>
+                        <label class="control-label" for="id_name"><h4 style="color: #33691e"><strong>{% trans "Прізвище та ім'я" %}:</strong></h4></label>
                     </div>
                     <div class="col-sm-7">
                         <input type="text" name="name" maxlength="255" class="form-control form-control" required="" id="id_name">
@@ -23,7 +24,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-5 text-right pl-5 mt-1">
-                        <label class="control-label" for="id_person"><h4 style="color: #33691e"><strong>Кількість осіб:</strong></h4></label>
+                        <label class="control-label" for="id_person"><h4 style="color: #33691e"><strong>{% trans "Кількість осіб" %}:</strong></h4></label>
                     </div>
                     <div class="col-sm-7">
                         <div>
@@ -35,7 +36,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-5 text-right pl-5 mt-1">
-                        <label class="control-label  " for="id_duration"><h4 style="color: #33691e"><strong>Кількість днів:</strong></h4></label>
+                        <label class="control-label  " for="id_duration"><h4 style="color: #33691e"><strong>{% trans "Кількість днів" %}:</strong></h4></label>
                     </div>
                     <div class="col-sm-7">
                         <div>
@@ -47,12 +48,12 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-5 text-right pl-5 mt-1">
-                        <label class="control-label  " for="id_description"><h4 style="color: #33691e"><strong>Що Вас цікавить?</strong></h4></label>
+                        <label class="control-label  " for="id_description"><h4 style="color: #33691e"><strong>{% trans "Що Вас цікавить" %}?</strong></h4></label>
                     </div>
                     <div class="col-sm-7">
                         <div>
                             <textarea name="description" cols="40" rows="6" class="form-control form-control" required=""
-                                      id="id_description" placeholder="Озеро Синевир, Паланок, закарпатський банош..."></textarea>
+                                      id="id_description" placeholder={% trans "Озеро Синевир, Паланок, закарпатський банош..." %}></textarea>
                         </div>
                     </div>
                 </div>
@@ -60,7 +61,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-5 text-right pl-5 mt-1">
-                        <label class="control-label  " for="id_phone"><h4 style="color: #33691e"><strong>Номер телефону</strong></h4></label>
+                        <label class="control-label  " for="id_phone"><h4 style="color: #33691e"><strong>{% trans "Номер телефону" %}:</strong></h4></label>
                     </div>
                     <div class="col-sm-7">
                         <div>
@@ -72,7 +73,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-5 text-right pl-5 mt-1">
-                        <label class="control-label  " for="id_email"><h4 style="color: #33691e"><strong>Email-адреса</strong></h4></label>
+                        <label class="control-label  " for="id_email"><h4 style="color: #33691e"><strong>{% trans "Email-адреса" %}:</strong></h4></label>
                     </div>
                     <div class="col-sm-7">
                         <div>
@@ -84,18 +85,18 @@
 
             {% if not user.is_authenticated %}
             <div class="container text-center m-4 text-success">
-                <h5>Чи хотіли б Ви отримувати більше пропозицій щодо найкращих пригод?
-                    <a href="{% url 'account_login' %}" class="text-success">Зареєструватись...</a>
+                <h5>{% trans "Чи хотіли б Ви отримувати більше пропозицій щодо найкращих пригод?" %}
+                    <a href="{% url 'account_login' %}" class="text-success"> {% trans "Зареєструватись" %}...</a>
                 </h5>
             </div>
             {% endif %}
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-3">
-                    <a href="{% url 'home' %}" style="text-decoration: none"><button class="btn btn-outline-danger btn-block">Відмінити</button></a>
+                    <a href="{% url 'home' %}" style="text-decoration: none"><button class="btn btn-outline-danger btn-block">{% trans "Відмінити" %}</button></a>
                 </div>
                 <div class="col-sm-3">
-                    <button type="submit" form="order" class="btn btn-outline-success btn-block">Замовити</button>
+                    <button type="submit" form="order" class="btn btn-outline-success btn-block">{% trans "Замовити" %}</button>
                 </div>
                 <div class="col-sm-3"></div>
             </div>

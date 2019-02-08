@@ -7,6 +7,7 @@ from django.core.cache import cache
 from django.core.mail import send_mail
 from likesite.settings import EMAIL_HOST_USER
 from django.template.loader import render_to_string
+from django.utils.translation import gettext_lazy as _
 
 
 def order_anonim(request):
@@ -16,10 +17,10 @@ def order_anonim(request):
         form = CreateOrderAnonim(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Ваше замовлення зареєстроване!"
-                                      " Наш менеджер обов'язково Вас сконтактує найблищим часом!")
+            messages.success(request, _("Ваше замовлення зареєстроване!"
+                                      "Наш менеджер обов'язково Вас сконтактує найблищим часом!"))
 
-            send_mail('LAIK TRAVEL - пітвердження замовлення',
+            send_mail(_('LAIK TRAVEL - пітвердження замовлення'),
                       '',
                       EMAIL_HOST_USER,
                       [request.POST['email']],
@@ -47,20 +48,23 @@ def create_order(request, journey_id):
     if request.user.is_authenticated:
         journey = get_object_or_404(Journey, id=journey_id)
 
-        if request.method == "POST":
-            if journey.sale_price:
-                full_price = int(request.POST['persons']) * journey.sale_price
-            else:
-                full_price = int(request.POST['persons']) * journey.price
+        cached_persons = cache.get('persons', 1)
 
+
+        if journey.sale_price:
+            full_price = int(cached_persons) * journey.sale_price
+        else:
+            full_price = int(cached_persons) * journey.price
+
+        if request.method == "POST":
             order, created = Order.objects.get_or_create(user=request.user, journey=journey,
                                                          email_address = request.user.email,
                                                          contact_phone=request.POST['contact_phone'],
-                                                         persons=request.POST['persons'],
+                                                         persons=cached_persons,
                                                          total=full_price)
             order.save()
 
-            send_mail('LAIK TRAVEL - пітвердження замовлення',
+            send_mail(_('LAIK TRAVEL - пітвердження замовлення'),
                       '',
                       EMAIL_HOST_USER,
                       [order.email_address],
@@ -80,10 +84,12 @@ def create_order(request, journey_id):
         else:
 
             return render(request, 'order/order_for_users.html', {'journey': journey,
-                                                                  'categories': categories})
+                                                                  'categories': categories,
+                                                                  'cached_persons': cached_persons,
+                                                                  'full_price': full_price})
 
     else:
-        messages.error(extra_tags='danger', request=request, message='Для замовлення пригоди спочатку зареєструйтесь!')
+        messages.error(extra_tags='danger', request=request, message=_('Для замовлення пригоди спочатку зареєструйтесь!'))
         return redirect('home')
 
 

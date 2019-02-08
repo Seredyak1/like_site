@@ -20,6 +20,7 @@ import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
+from django.conf.urls.i18n import i18n_patterns
 
 from likesite.sitemap import StaticViewSitemap, CategorySitemap, JourneySitemap, NewsViewSitemap
 from product import views as views_product
@@ -32,7 +33,8 @@ sitemaps = {
     'news': NewsViewSitemap,
 }
 
-urlpatterns = [
+urlpatterns = []
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
     path('category/', include('product.category_urls')),
@@ -44,10 +46,10 @@ urlpatterns = [
     path('journey/', include('product.urls')),
     path('new/', views_product.get_category_new, name="new"),
     path('hot_sale/', views_product.get_category_sale, name="hot_sales"),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
-]
-
+)
 
 urlpatterns += [
     url(r'^__debug__/', include(debug_toolbar.urls)),

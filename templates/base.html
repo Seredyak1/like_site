@@ -11,7 +11,7 @@
   gtag('js', new Date());
   gtag('config', 'UA-119417362-1');
 </script>
-    <title>{% block title %}{% endblock title %} | LAIK оператор пригод</title>
+    <title>{% block title %}{% endblock title %} | {% trans "LAIK оператор пригод" %}</title>
 
     {% block meta %}
         <meta charset="utf-8">
@@ -50,26 +50,42 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ml-3">
-                    <a class="nav-link" href="{% url 'about_us' %}" style="color: #33691e;">Про нас</a>
+                    <a class="nav-link" href="{% url 'about_us' %}" style="color: #33691e;">{% trans "Про нас" %}</a>
                 </li>
                 <li class="nav-item ml-3">
-                    <a class="nav-link" href="{%  url 'order_anonim' %}" style="color: #33691e;">Створити замовлення</a>
+                    <a class="nav-link" href="{%  url 'order_anonim' %}" style="color: #33691e;">{% trans "Створити замовлення" %}</a>
                 </li>
             </ul>
+
+          {# dropdown for set language #}
+           <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language" onchange="this.form.submit();" class="custom-select">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.name_local }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+
             <ul class="navbar-nav">
              {% if not user.is_authenticated %}
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="{% url 'account_login' %}" style="color: #33691e;">Ввійти</a>
+                        <a class="nav-link" href="{% url 'account_login' %}" style="color: #33691e;">{% trans "Ввійти" %}</a>
                     </li>
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="{% url 'account_signup' %}" style="color: #33691e;">Зареєструватися</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}" style="color: #33691e;">{% trans "Зареєструватися" %}</a>
                     </li>
                 {% else %}
                     <li class="nav-item ml-3">
-                        <a class="nav-link" style="color: #33691e;"> Привіт, <strong>{{request.user.first_name}}</strong></a>
+                        <a class="nav-link" style="color: #33691e;"> {% trans "Привіт" %}, <strong>{{request.user.first_name}}</strong></a>
                     </li>
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="{% url 'account_logout' %}" style="color: #33691e;">Вихід</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}" style="color: #33691e;">{% trans "Вихід" %}</a>
                     </li>
                 {% endif %}
             </ul>
@@ -128,7 +144,7 @@
 
             <!-- Grid column -->
                 <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0" style="color: #33691e;">
-                    <h6 class="mb-0 ml-3 text-uppercase"><strong>Долучайтесь у соціальних мережах!</strong></h6>
+                    <h6 class="mb-0 ml-3 text-uppercase"><strong>{% trans "Долучайтесь у соціальних мережах" %}!</strong></h6>
                 </div>
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
                 <!-- Facebook -->
@@ -154,24 +170,24 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase font-weight-bold">Туроператор пригод</h6>
+            <h6 class="text-uppercase font-weight-bold">{% trans "Туроператор пригод" %}</h6>
             <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p>Всі пригоди Закарпаття тут! Відчуй себе мандрівником та підкори край, наближений до неба!</p>
+            <p>{% trans "Всі пригоди Закарпаття тут! Відчуй себе мандрівником та підкори край, наближений до неба" %}!</p>
           </div>
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
             <!-- Links -->
-            <h6 class="text-uppercase font-weight-bold">Про нас</h6>
+            <h6 class="text-uppercase font-weight-bold">{% trans "Про нас" %}</h6>
             <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-              <a class="text-dark" href="{% url 'about_us' %}">Про нас</a>
+              <a class="text-dark" href="{% url 'about_us' %}">{% trans "Про нас" %}</a>
             </p>
             <p>
-              <a class="text-dark" href="{% url 'news' %}">Новини</a>
+              <a class="text-dark" href="{% url 'news' %}">{% trans "Новини" %}</a>
             </p>
             <p>
-              <a class="text-dark" href="{% url 'documents' %}">Документи</a>
+              <a class="text-dark" href="{% url 'documents' %}">{% trans "Документи" %}</a>
             </p>
 
           </div>
@@ -180,16 +196,16 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
             <!-- Links -->
-            <h6 class="text-uppercase font-weight-bold">Пригоди</h6>
+            <h6 class="text-uppercase font-weight-bold">{% trans "Пригоди" %}</h6>
             <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-              <a class="text-dark" href="{% url 'order_anonim' %}">Сворити пригоду</a>
+              <a class="text-dark" href="{% url 'order_anonim' %}">{% trans "Сворити пригоду" %}</a>
             </p>
             <p>
               <a class="text-dark" href="{% url 'faq' %}">FAQ</a>
             </p>
             <p>
-              <a class="text-dark" href="{% url 'feedback' %}">Відгуки</a>
+              <a class="text-dark" href="{% url 'feedback' %}">{% trans "Відгуки" %}</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -198,9 +214,9 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-2">
 
             <!-- Links -->
-            <h6 class="text-uppercase font-weight-bold">Контакти</h6>
+            <h6 class="text-uppercase font-weight-bold">{% trans "Контакти" %}</h6>
             <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p>Ужгород, Україна</p>
+            <p>{% trans "Ужгород, Україна" %}</p>
             <p>office@laik-travel.com</p>
             <p><a href="tel:+380952509586">+380 95 250 9586</a></p>
             <p><a href="tel:+380673777982">+380 67 377 7982</a></p>
@@ -241,5 +257,3 @@
   $("footer.footer").addClass("fixed-bottom");
 
 </script>
-{% block for_scripts %}
-{% endblock for_scripts %}

@@ -1,12 +1,13 @@
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from pages.forms import FeedbackForm
 from pages.models import Feedback, Faq, Document
 from product.models import Category, Journey
 import os
 import mimetypes
+from django.utils.translation import gettext_lazy as _
 from django.http import HttpResponse
 
 
@@ -17,7 +18,7 @@ def feedback(request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Ваш відгук буде опубліковано після перевірки модератором. Дякуємо!')
+            messages.success(request, _('Ваш відгук буде опубліковано після перевірки модератором. Дякуємо!'))
 
     form = FeedbackForm()
 
@@ -30,7 +31,15 @@ def feedback(request):
 
 def about_us(request):
     categories = Category.objects.all()
-    return render(request, 'pages/about_us.html', {"categories": categories})
+    massive_text = _("""
+    - унікальний куточок України. Водночас тут можна побачити
+        холодні вершини Карпат та відчути тепло Закарпатської долини, здійснити подорож гірською полониною та відпочити
+        у гарячих термальних басейнах. Це мультикультурний край, що представлений сотнею різних національностей та етносів, та у якому
+        можна побачити архітектурні стилі з усієї Європи та світу. До сьогодні тут збережений унікальний діалект української мови
+        складений зі слів кожного народу, хто колись проживав чи проживає на Закарпатті, та що змінюється від села до села,
+        від регіону до регіону. Тільки тут можна скуштувати безліч різномінітних страв української, угорської, румунської, чеської,
+        німецької та інших кухонь, спробувати світових сортів вина. Саме такою є земля, наближена до небa!""")
+    return render(request, 'pages/about_us.html', {"categories": categories, "massive_text": massive_text})
 
 
 def get_faq(request):

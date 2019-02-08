@@ -1,5 +1,7 @@
 {% extends "base.html" %}
- {% block title %}Запитання та Відповіді{% endblock title %}
+{% load i18n %}
+
+{% block title %}{% trans "Запитання та Відповіді" %}{% endblock title %}
 
 
 {% block content %}
@@ -11,7 +13,7 @@
     <!-- END block with categories -->
 
     <div class="container mt-3">
-        <h3 class="mt-2 text-center" style="color: #33691e;">Сторінка типових запитань (FAQ)</h3>
+        <h3 class="mt-2 text-center" style="color: #33691e;">{% trans "Сторінка типових запитань (FAQ)" %}</h3>
         <div class="accordion mt-4" id="accordionExample">
             <div class="row justify-content-md-center">
                 <div class="col-md-10">
