@@ -54,7 +54,7 @@
 
             {% endif %}
         {% else %}
-             <h5>{% trans "Авторизуйтесь перед коментуванням!" %}</h5>
+            <h3 class="text-center mt-3"><a href="{% url 'account_signup' %}" class="text-success">{% trans "Авторизуйтесь перед коментуванням!" %}</a></h3>
         {% endif %}
 
 {% for comment in comments %}
