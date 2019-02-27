@@ -25,14 +25,14 @@
                 <h6 class="mt-4">{% trans "Номер" %}: <span class="text-dark"> {{ journey.sku }}</span></h6>
                 <h2 class="mt-3" style="color: #33691e"><strong>{{ journey.title }}</strong></h2>
                          <h4 class="mt-4"> <strong>Тривалість:</strong>
-                            {% if i.durations_days == 1 %}
-                                {{ i.durations_days}} {% trans "день" %}
-                            {% elif i.durations_days < 5 and i.durations_night == 1  %}
-                                {{ i.durations_days}} {% trans "дні" %} / {{i.durations_night }} {% trans "ніч" %}
-                            {% elif i.durations_night < 5 and i.durations_night > 1 and i.durations_days < 5 %}
-                                {{ i.durations_days}} {% trans "дні" %} / {{i.durations_night }} {% trans "ночі" %}
-                            {% elif i.durations_night > 4 or i.durations_days > 4 %}
-                                {{ i.durations_days}} {% trans "днів" %} / {{i.durations_night }} {% trans "ночей" %}
+                            {% if journey.durations_days == 1 %}
+                                {{ journey.durations_days}} {% trans "день" %}
+                            {% elif journey.durations_days < 5 and journey.durations_night == 1  %}
+                                {{ journey.durations_days}} {% trans "дні" %} / {{journey.durations_night }} {% trans "ніч" %}
+                            {% elif journey.durations_night < 5 and journey.durations_night > 1 and journey.durations_days < 5 %}
+                                {{ journey.durations_days}} {% trans "дні" %} / {{journey.durations_night }} {% trans "ночі" %}
+                            {% elif journey.durations_night > 4 or journey.durations_days > 4 %}
+                                {{ journey.durations_days}} {% trans "днів" %} / {{journey.durations_night }} {% trans "ночей" %}
                             {% endif %}</h4>
 
                 <h2 class="text-right mt-5">
