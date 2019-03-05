@@ -33,7 +33,7 @@
                         {% endif %}
                         <!-- END Field with form.errors -->
 
-                    <div class="card-header p-3 mb-2 text-white" style="background-color: #33691e;">
+                    <div class="card-header p-3 mb-2 text-white" style="background-color: #00612f;">
                         <h4 class="my-0 font-weight-normal">{% trans "Вхід" %}</h4>
                     </div>
                     <div class="card-body">
@@ -59,7 +59,7 @@
                                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                                 {% endif %}
                                 <a class="button text-danger" href="{% url 'account_reset_password' %}">{% trans "Забули пароль" %}?</a>
-                                <br></br><input type="submit" value="Вхід" class="btn btn-block btn-success"/>
+                                <br><input type="submit" value="Вхід" class="btn btn-block btn-success"/>
                             </fieldset>
                         	<p class="text-center mt-3">{% trans "Або увійдіть через" %}</p>
                             <div class="row">
