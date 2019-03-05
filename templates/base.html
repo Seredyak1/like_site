@@ -50,10 +50,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ml-3">
-                    <a class="nav-link" href="{% url 'about_us' %}" style="color: #33691e;">{% trans "Про нас" %}</a>
+                    <a class="nav-link" href="{% url 'about_us' %}" style="color: #00612f;">{% trans "Про нас" %}</a>
                 </li>
                 <li class="nav-item ml-3">
-                    <a class="nav-link" href="{%  url 'order_anonim' %}" style="color: #33691e;">{% trans "Створити замовлення" %}</a>
+                    <a class="nav-link" href="{%  url 'order_anonim' %}" style="color: #00612f;">{% trans "Створити замовлення" %}</a>
                 </li>
             </ul>
 
@@ -75,17 +75,17 @@
             <ul class="navbar-nav">
              {% if not user.is_authenticated %}
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="{% url 'account_login' %}" style="color: #33691e;">{% trans "Ввійти" %}</a>
+                        <a class="nav-link" href="{% url 'account_login' %}" style="color: #00612f;">{% trans "Ввійти" %}</a>
                     </li>
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="{% url 'account_signup' %}" style="color: #33691e;">{% trans "Зареєструватися" %}</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}" style="color: #00612f;">{% trans "Зареєструватися" %}</a>
                     </li>
                 {% else %}
                     <li class="nav-item ml-3">
-                        <a class="nav-link" style="color: #33691e;"> {% trans "Привіт" %}, <strong>{{request.user.first_name}}</strong></a>
+                        <a class="nav-link" style="color: #00612f;"> {% trans "Привіт" %}, <strong>{{request.user.first_name}}</strong></a>
                     </li>
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="{% url 'account_logout' %}" style="color: #33691e;">{% trans "Вихід" %}</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}" style="color: #00612f;">{% trans "Вихід" %}</a>
                     </li>
                 {% endif %}
             </ul>
@@ -143,7 +143,7 @@
                 <div class="row py-4 d-flex align-items-center">
 
             <!-- Grid column -->
-                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0" style="color: #33691e;">
+                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0" style="color: #00612f;">
                     <h6 class="mb-0 ml-3 text-uppercase"><strong>{% trans "Долучайтесь у соціальних мережах" %}!</strong></h6>
                 </div>
                 <div class="col-md-6 col-lg-7 text-center text-md-right">

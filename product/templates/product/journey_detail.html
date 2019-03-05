@@ -23,7 +23,7 @@
 
             <div class="col-lg-5">
                 <h6 class="mt-4">{% trans "Номер" %}: <span class="text-dark"> {{ journey.sku }}</span></h6>
-                <h2 class="mt-3" style="color: #33691e"><strong>{{ journey.title }}</strong></h2>
+                <h2 class="mt-3" style="color: #00612f"><strong>{{ journey.title }}</strong></h2>
                          <h4 class="mt-4"> <strong>Тривалість:</strong>
                             {% if journey.durations_days == 1 %}
                                 {{ journey.durations_days}} {% trans "день" %}
@@ -50,13 +50,13 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs md-tabs nav-justified mt-5">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#info" role="tab" style="color: white; background-color: #33691e"><strong>{% trans "Інформація" %}</strong></a>
+            <a class="nav-link active" data-toggle="tab" href="#info" role="tab" style="color: white; background-color: #00612f"><strong>{% trans "Інформація" %}</strong></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#photo" role="tab" style="color: white; background-color: #33691e"><strong>{% trans "Фото" %}</strong></a>
+            <a class="nav-link" data-toggle="tab" href="#photo" role="tab" style="color: white; background-color: #00612f"><strong>{% trans "Фото" %}</strong></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#comments" role="tab" style="color: white; background-color: #33691e"><strong>{% trans "Коментарі" %}</strong>
+            <a class="nav-link" data-toggle="tab" href="#comments" role="tab" style="color: white; background-color: #00612f"><strong>{% trans "Коментарі" %}</strong>
                                                                                         {% if comments.count == 0 %}(0)
                                                                                          {% elif comments.count > 0 %}({{ comments.count }})
                                                                                          {% endif %}</a>
