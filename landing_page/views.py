@@ -7,7 +7,7 @@ from news.models import News
 def home(request):
     journeys = Journey.objects.all()[:12]
     feedbacks = Feedback.objects.all().exclude(is_published=False)[:5]
-    newses = News.objects.last()
+    newses = News.objects.first()
     categories = Category.objects.all()
     clients = ClientCompany.objects.all()
     return render(request, 'landing_page/home.html', {'journeys': journeys,
