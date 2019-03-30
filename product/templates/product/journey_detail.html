@@ -24,7 +24,7 @@
             <div class="col-lg-5">
                 <h6 class="mt-4">{% trans "Номер" %}: <span class="text-dark"> {{ journey.sku }}</span></h6>
                 <h2 class="mt-3" style="color: #00612f"><strong>{{ journey.title }}</strong></h2>
-                         <h4 class="mt-4"> <strong>Тривалість:</strong>
+                         <h4 class="mt-4"> <strong>{% trans "Тривалість:" %}</strong>
                             {% if journey.durations_days == 1 %}
                                 {{ journey.durations_days}} {% trans "день" %}
                             {% elif journey.durations_days < 5 and journey.durations_night == 1  %}
@@ -38,10 +38,10 @@
                 <h2 class="text-right mt-5">
                     {% if journey.sale_price %}
                         <h2>{% trans "Ціна" %}:</h2>
-                        <h3><s class="text-muted"> {{ journey.price }}</s>
+                        <h3><span class="text-danger"><strong>{% trans "від" %}</strong> <s class="text-muted"> {{ journey.price }}</s>
                         <span class="text-danger"><strong>{{ journey.sale_price }} {% trans "грн" %} </strong></span></h3>
                     {% else %}
-                        <h3><span class="text-danger"> {{ journey.price }} {% trans "грн" %} </span></h3>
+                        <h3><span class="text-danger">{% trans "від" %}  {{ journey.price }} {% trans "грн" %} </span></h3>
                     {% endif %}
              </div>
         </div>

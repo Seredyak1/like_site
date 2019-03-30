@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 18:18+0200\n"
+"POT-Creation-Date: 2019-03-30 22:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr "The most popular trips"
 msgid "Наші кліенти"
 msgstr "Our clients"
 
-#: likesite/settings.py:164
+#: likesite/settings.py:166
 msgid "Українська"
 msgstr "Ukrainian"
 
-#: likesite/settings.py:165
+#: likesite/settings.py:167
 msgid "English"
 msgstr "English"
 
@@ -193,7 +193,9 @@ msgstr "Hello,"
 msgid ""
 "Дякуємо, що обрали! Для узгодження всіх деталей наш менеджер зв'яжеться з "
 "Вами найближчим часом."
-msgstr "Thank you for choosing us! For the order confirmation and agreement on all details our manager will contact you soon."
+msgstr ""
+"Thank you for choosing us! For the order confirmation and agreement on all "
+"details our manager will contact you soon."
 
 #: order/templates/order/email_confirmation.html:9
 msgid "Бажаємо хорошого дня та чудової пригоди!"
@@ -208,7 +210,9 @@ msgstr "If you have received the message by mistake, don`t reply."
 msgid ""
 "Зверніть увагу: це електронне повідомлення було відправлено з адреси, яка не "
 "може приймати вхідні електронні листи."
-msgstr "Please note: This e-mail was sent from an address that cannot accept incoming e-mails."
+msgstr ""
+"Please note: This e-mail was sent from an address that cannot accept "
+"incoming e-mails."
 
 #: order/templates/order/email_confirmation.html:14
 msgid ""
@@ -302,31 +306,31 @@ msgstr "Please, add your name and surname"
 msgid "Залиште відгук"
 msgstr "Add feedback"
 
-#: pages/models.py:22 pages/models.py:26 product/models.py:94
+#: pages/models.py:22 pages/models.py:27 product/models.py:94
 msgid "Відгук"
 msgstr "Feedback"
 
-#: pages/models.py:25
+#: pages/models.py:26
 msgid "Імя"
 msgstr "Name"
 
-#: pages/models.py:56
+#: pages/models.py:57
 msgid "Типове запитання"
 msgstr "Typical question"
 
-#: pages/models.py:59
+#: pages/models.py:60
 msgid "Типове Запитання українською"
 msgstr "Typical question in ukr"
 
-#: pages/models.py:60
+#: pages/models.py:61
 msgid "Відповідь українською"
 msgstr "Typical answer in ukr"
 
-#: pages/models.py:61
+#: pages/models.py:62
 msgid "Типове Запитання англійською"
 msgstr "Typical question in eng"
 
-#: pages/models.py:62
+#: pages/models.py:63
 msgid "Відповідь англійською"
 msgstr "Typical answer in eng"
 
@@ -347,7 +351,9 @@ msgstr "Transcarpathia"
 msgid ""
 "Оператор пригод LAiK запрошує до Закарпаття, та організує тільки хороші "
 "пригоди по Сріберній Землі"
-msgstr "Operator of adventures LAiK invites you to Transcarpathia. We organise only good trips in Silver Land"
+msgstr ""
+"Operator of adventures LAiK invites you to Transcarpathia. We organise only "
+"good trips in Silver Land"
 
 #: pages/templates/pages/about_us.html:23
 msgid "У нашій роботі ми опираємось на 3 основні цінності"
@@ -361,7 +367,9 @@ msgstr "Striving for excellence"
 msgid ""
 "Ми завжди продумовуємо все до останньої дрібниці, роблячи пригоду цікавою, "
 "захопливою та такою, що запам'ятається!"
-msgstr "We always think everything through very carefully to make the adventure exciting and memorable!"
+msgstr ""
+"We always think everything through very carefully to make the adventure "
+"exciting and memorable!"
 
 #: pages/templates/pages/about_us.html:32
 msgid "Професіоналізм у дрібницях"
@@ -379,7 +387,8 @@ msgstr "Partnership appreciation"
 msgid ""
 "Цінування та повага до наших партнерів для отримання лише відмінного сервісу "
 "під час пригоди."
-msgstr "Appreciation and respect to our partners for reaching the best results."
+msgstr ""
+"Appreciation and respect to our partners for reaching the best results."
 
 #: pages/templates/pages/about_us.html:45
 msgid "Для зручності, наші пропозиції поділені на категорії"
@@ -389,7 +398,8 @@ msgstr "Our offers are divided into categories"
 msgid ""
 "Якщо ж Ви хочете таку пригоду, яку ще ніхто не мав, ми готові запропонувати "
 "Вам"
-msgstr "If you want an adventure no-one has ever had, we are ready to organize "
+msgstr ""
+"If you want an adventure no-one has ever had, we are ready to organize "
 
 #: pages/templates/pages/about_us.html:52
 msgid "замовити свою пригоду на Закарпатті"
@@ -399,7 +409,9 @@ msgstr "your own trp in Transcarpathia"
 msgid ""
 "Віримо, що пригоди на Закарпатті Вам обов'язково сподобаються. Більше про "
 "нашу роботу Ви зможете прочитати на"
-msgstr "We believe that you are going to like the adventures in Transcarpathia. More about our work you can read on"
+msgstr ""
+"We believe that you are going to like the adventures in Transcarpathia. More "
+"about our work you can read on"
 
 #: pages/templates/pages/about_us.html:56
 msgid "сторінці відгуків"
@@ -423,7 +435,9 @@ msgid "Запитання та Відповіді"
 msgstr "FAQs"
 
 #: pages/templates/pages/faq.html:16
-msgid "Сторінка типових запитань (FAQs)"
+#, fuzzy
+#| msgid "Сторінка типових запитань (FAQs)"
+msgid "Сторінка типових запитань (FAQ)"
 msgstr "Frequently asked questions"
 
 #: pages/templates/pages/feedback.html:17
@@ -468,26 +482,49 @@ msgid "Ваш відгук буде опубліковано після пере
 msgstr "Your feedback will be publish after the moderator checks it. Thanks!"
 
 #: pages/views.py:34
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "    - унікальний куточок України. Водночас тут можна побачити\n"
+#| "        холодні вершини Карпат та відчути тепло Закарпатської долини, "
+#| "здійснити подорож гірською полониною та відпочити\n"
+#| "        у гарячих термальних басейнах. Це мультикультурний край, що "
+#| "представлений сотнею різних національностей та етносів,\n"
+#| "        побачити архітектурні стилі з усієї Європи та світу. До сьогодні "
+#| "тут збережений унікальний діалект української мови\n"
+#| "        складений зі слів кожного народу, хто колись проживав чи проживає "
+#| "на Закарпатті, та що змінюється від села до села,\n"
+#| "        від регіону до регіону. Тільки тут можна скуштувати безліч "
+#| "різномінітних страв української, угорської, румунської, чеської,\n"
+#| "        німецькою та десятків ніших кухонь, спробувати світових сортів "
+#| "вина. Саме такою є земля, наближена до небa!"
 msgid ""
 "\n"
 "    - унікальний куточок України. Водночас тут можна побачити\n"
 "        холодні вершини Карпат та відчути тепло Закарпатської долини, "
 "здійснити подорож гірською полониною та відпочити\n"
 "        у гарячих термальних басейнах. Це мультикультурний край, що "
-"представлений сотнею різних національностей та етносів,\n"
-"        побачити архітектурні стилі з усієї Європи та світу. До сьогодні тут "
-"збережений унікальний діалект української мови\n"
+"представлений сотнею різних національностей та етносів, та у якому\n"
+"        можна побачити архітектурні стилі з усієї Європи та світу. До "
+"сьогодні тут збережений унікальний діалект української мови\n"
 "        складений зі слів кожного народу, хто колись проживав чи проживає на "
 "Закарпатті, та що змінюється від села до села,\n"
 "        від регіону до регіону. Тільки тут можна скуштувати безліч "
 "різномінітних страв української, угорської, румунської, чеської,\n"
-"        німецькою та десятків ніших кухонь, спробувати світових сортів вина. "
-"Саме такою є земля, наближена до небa!"
-msgstr "- a unique nook of Ukraine. At the same time you can see here cold Carpathian peaks and feel the warmth of Transcarpathian valley,"
-"wander around a Polonyna and relax in hot thermal pools. It's a multicultural place represented by a hundred of different nationalities and ethnic groups"
-"Here you can see architecture styles from all over the Europe and world. A unique dialect of a Ukrainian language has been preserved here until nowadays."
-"It has been composed of words taken from every nation which lived or lives in Transcarpathia and varies from village to village, from district to district."
-"Only here you can try many different dishes from Ukrainian, Hungarian, Romanian, Czech, German and other cuisines, taste a variety of world's wines. This is the land close to the sky!"
+"        німецької та інших кухонь, спробувати світових сортів вина. Саме "
+"такою є земля, наближена до небa!"
+msgstr ""
+"- a unique nook of Ukraine. At the same time you can see here cold "
+"Carpathian peaks and feel the warmth of Transcarpathian valley,wander around "
+"a Polonyna and relax in hot thermal pools. It's a multicultural place "
+"represented by a hundred of different nationalities and ethnic groupsHere "
+"you can see architecture styles from all over the Europe and world. A unique "
+"dialect of a Ukrainian language has been preserved here until nowadays.It "
+"has been composed of words taken from every nation which lived or lives in "
+"Transcarpathia and varies from village to village, from district to district."
+"Only here you can try many different dishes from Ukrainian, Hungarian, "
+"Romanian, Czech, German and other cuisines, taste a variety of world's "
+"wines. This is the land close to the sky!"
 
 #: product/models.py:18 product/models.py:69
 msgid "Категорія"
@@ -601,6 +638,7 @@ msgstr "Trips:"
 
 #: product/templates/product/Journey_card.html:15
 #: product/templates/product/Journey_card_with_sale.html:16
+#: product/templates/product/journey_detail.html:27
 msgid "Тривалість:"
 msgstr "Duration:"
 
@@ -642,6 +680,15 @@ msgstr "days"
 #: product/templates/product/journey_detail.html:35
 msgid "ночей"
 msgstr "nights"
+
+#: product/templates/product/Journey_card.html:30
+#: product/templates/product/Journey_card.html:32
+#: product/templates/product/Journey_card_with_sale.html:31
+#: product/templates/product/Journey_card_with_sale.html:33
+#: product/templates/product/journey_detail.html:41
+#: product/templates/product/journey_detail.html:44
+msgid "від"
+msgstr "from"
 
 #: product/templates/product/Journey_card.html:30
 #: product/templates/product/Journey_card.html:32
@@ -773,7 +820,9 @@ msgstr "Reset the password"
 msgid ""
 "Введіть e-mail адресу, яку ви використовували для входу на наш сайт нижче, і "
 "ми надішлемо вам листа з інструкціями для скидання пароля"
-msgstr "Type email address, which you used for signing in on our site, and we wil send you a message with instructions for resetting the password"
+msgstr ""
+"Type email address, which you used for signing in on our site, and we wil "
+"send you a message with instructions for resetting the password"
 
 #: templates/allauth/account/password_reset.html:53
 msgid "E-mail"
@@ -840,7 +889,9 @@ msgstr "Operator of adventures"
 msgid ""
 "Всі пригоди Закарпаття тут! Відчуй себе мандрівником та підкори край, "
 "наближений до неба"
-msgstr "All adventures in Transcarpathia are here! Feel yourself a wanderer and explore the land close to the sky"
+msgstr ""
+"All adventures in Transcarpathia are here! Feel yourself a wanderer and "
+"explore the land close to the sky"
 
 #: templates/base.html:190
 msgid "Документи"
@@ -865,3 +916,8 @@ msgstr "Hot sales to adventures"
 #: templates/header_with_categories.html:8
 msgid "Новинки"
 msgstr "New trips"
+
+#, fuzzy
+#~| msgid "Order # "
+#~ msgid "Order"
+#~ msgstr "Order # "

@@ -21,6 +21,7 @@ class Feedback(models.Model):
     class Meta:
         verbose_name = _("Відгук")
         verbose_name_plural = _("Відгуки")
+        ordering = ("-created_at",)
 
     name = models.CharField(max_length=255, verbose_name=_('Імя'), blank=True)
     body_text = models.TextField(verbose_name=_('Відгук'))
