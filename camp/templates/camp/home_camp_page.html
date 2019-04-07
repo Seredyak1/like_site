@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+ {% block title %}{{ category.seo_title }}{% endblock title %}
+
+{% block content %}
+
+            <!-- START block with categories -->
+    <div class="container mt-1">
+        {%  include 'header_with_categories.html' %}
+    </div>
+
+    {% for camp in camps %}
+        {{ camp.title }}
+        {{ camp.short_description }}
+    {% endfor %}
+{% endblock %}
