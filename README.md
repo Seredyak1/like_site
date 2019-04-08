@@ -15,16 +15,6 @@
 
 6. Створити суперюзера.
 
-*7. Налаштувати значення логінізації через соцмережі: 
-    1) у адмінці відкрити Соціальні акаунти/соціальні додатки
-    2) вказати налаштування як у статті: https://medium.com/@jinkwon711/django-allauth-facebook-login-b536444cbc6b
-    3) Ключі для фейсбуку:
-        App ID: 266412270767251 
-        App Secret: ded36132673bef4e48e00292891b65b2
-       Ключі до гугла:
-        App ID: 332976162394-l7skb4i13eqdva1smmsf0h3va2ki151a.apps.googleusercontent.com
-        App Secret:8gmnzkRlFZaAAm16PbJ82DZm
-
 8. Встановлюємо крутий апп для редагування тексту! До речі, без нього не працюватимуть нормально моделі, тому встановлювати обов'язково!
     1) оновлюємо requirements
     2) йдемо за туторіалом - налаштовуємо лише editor --> https://github.com/django-ckeditor/django-ckeditor
