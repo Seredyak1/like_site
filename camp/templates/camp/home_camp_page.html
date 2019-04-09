@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
- {% block title %}{{ category.seo_title }}{% endblock title %}
+ {% block title %}Активний дитячий відпочинок у Карпатах{% endblock title %}
 
 {% block content %}
 
@@ -9,9 +9,34 @@
     <div class="container mt-1">
         {%  include 'header_with_categories.html' %}
     </div>
+    <div class="container mt-3">
+    <div class="row">
+        {% for camp in camps%}
+        <div class="col-sm-6" style="border: 2px solid #e0e0e0; border-radius: 10px">
+            <img class="img-fluid" src="{{ camp.camp_photos.first.image.url }}">
+            <a class="text-success" href="{% url 'camp_detail' camp.slug %}"><h3 class="text-center mt-2"><strong>{{ camp.title }}</strong></h3></a>
+            <div class="text-justify">
+                {{ camp.short_description|safe }}
+            </div>
+            <div class="text-center">
+                <h5 style="color: #00612f"><strong>{% trans "Дати проведення" %}:</strong></h5>
+                    {% for date in camp.dates.all %}
+                        <p>{{ date.start_date }} - {{ date.end_date }}</p>
+                    {% endfor %}
+            </div>
+            <div class="text-center mt-3">
+                {% if i.sale_price %}
+                    <h2 class="text-danger pr-2">{% trans "від" %} <strike>{{ camp.price }}</strike></h2><h4 class="text-danger">{{ camp.sale_price }} {% trans "грн" %}</h4>
+                {% else %}
+                    <h2 class="text-danger">{% trans "від" %} {{ camp.price }} {% trans "грн" %}</h2></td>
+                {% endif %}
+            </div>
+            <div class="text-center mt-3 mb-4">
+                <a href="{% url 'camp_detail' camp.slug %}"><button class="btn btn-success">{% trans "Дізнатись більше" %}</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
 
-    {% for camp in camps %}
-        {{ camp.title }}
-        {{ camp.short_description }}
-    {% endfor %}
 {% endblock %}

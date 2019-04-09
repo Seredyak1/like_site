@@ -30,8 +30,8 @@ class Camp(models.Model):
                                     help_text='Заголовок для пошукового бота англійською')
     short_description_uk = RichTextField(verbose_name=_('Короткий опис табору українською'))
     short_description_en = RichTextField(verbose_name=_('Короткий опис англійською'), blank=True)
-    description_uk = RichTextField(verbose_name=_('Опис пригоди українською'))
-    description_en = RichTextField(verbose_name=_('Опис пригоди англійською'), blank=True)
+    description_uk = RichTextField(verbose_name=_('Опис табору українською'))
+    description_en = RichTextField(verbose_name=_('Опис табору англійською'), blank=True)
     price = models.IntegerField(verbose_name=_('Ціна у грн'))
     sale_price = models.IntegerField(verbose_name=_('Ціна зі скидкою у грн'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Дата створення'))
@@ -50,7 +50,7 @@ class Camp(models.Model):
 
 class CampPhoto(models.Model):
 
-    camp = models.ForeignKey(Camp, related_name='photos', on_delete=models.CASCADE)
+    camp = models.ForeignKey(Camp, related_name='camp_photos', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='camp-photos')
 
 

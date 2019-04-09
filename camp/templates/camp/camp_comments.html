@@ -1,0 +1,133 @@
+{% load i18n %}
+
+        {% if request.user.is_authenticated %}
+            {% if camp_comments.count == 0 %}
+                <h4 class="text-center">{% trans "Ще ніхто не написав коментар до цієї подорожі!" %} <a data-toggle="modal" data-target="#create"> <h4 class="text-success">{% trans "Будьте першим!" %}</h4></a></h4>
+                <form method="POST" class="form-group" action="{% url 'camp_create_comment' camp.slug %}"> {% csrf_token %}
+                                            <div class="modal custom fade" id="create" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header text-center" style="background: #00612f; color: white;">
+                                                            <h4 class="modal-title w-100 font-weight-bold">{% trans "Додати коментар" %}</h4>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                                {{ form.body }}
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{% trans "Відмінити" %}</button>
+                                                            <button class="btn btn-outline-success" type="submit">{% trans "Зберегти" %}</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
+            {% else %}
+                <div class="text-right mr-3">
+                        <a data-toggle="modal" data-target="#create"><i class="material-icons" style="font-size: 40px; color: #FE3C01;">add</i></a>
+                                    <form method="POST" class="form-group" action="{% url 'camp_create_comment' camp.slug %}"> {% csrf_token %}
+                                            <div class="modal custom fade" id="create" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header text-center" style="background: #00612f; color: white;">
+                                                            <h4 class="modal-title w-100 font-weight-bold">{% trans "Додати коментар" %}</h4>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                                {{ form.body }}
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{% trans "Відмінити" %}</button>
+                                                            <button class="btn btn-outline-success" type="submit">{% trans "Зберегти" %}</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
+                </div>
+
+            {% endif %}
+        {% else %}
+            <h3 class="text-center mt-3"><a href="{% url 'account_signup' %}" class="text-success">{% trans "Авторизуйтесь перед коментуванням!" %}</a></h3>
+        {% endif %}
+
+{% for c in camp_comments %}
+
+    <div class="container">
+        <div class="row" style="margin-top: 10px">
+            <div class="col-md-6" style="color: #33691e"><strong>{{ c.user.first_name }}</strong></div>
+            <div class="col-md-6 text-right" style="color: #00612f"><strong>{{ c.created_at|date:"d/m/y" }}</strong></div>
+        </div>
+
+    <hr style="margin-top: 4px">
+        <div style="border:1px dashed;"><h6 style="margin-left: 10px; margin-right: 10px; padding-top: 5px;">{{ c.body }}</h6></div>
+
+        {% if request.user.is_authenticated %}
+                <div class="text-right" style="margin-top: 10px">
+                    <a data-toggle="modal" data-target="#Update{{ c.id }}"><i class="material-icons" style="font-size: 30px; color: red">edit</i></a>
+                    <a data-toggle="modal" data-target="#Del{{ c.id }}"><i class="material-icons" style="font-size: 30px; color: red;">delete</i></a>
+                </div>
+        {% else %}
+
+            <div class="text-right" style="margin-top: 10px"></div>
+
+        {% endif %}
+
+    </div>
+
+                                            <!-- Modal for update -->
+
+
+                                    <form method="POST" action="{% url 'camp_update_comment' camp.slug c.id %}"> {% csrf_token %}
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Update{{ c.id }}" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center" style="background: #00612f; color: white;">
+                                                    <h4 class="modal-title w-100 font-weight-bold">{% trans "Редагувати коментар" %}:</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ form.body }}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{% trans "Відмінити" %}</button>
+                                                    <button class="btn btn-outline-success" type="submit">{% trans "Зберегти" %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                                                   <!-- Modal for delete -->
+
+
+                                  <form method="POST" action="{% url 'camp_comment_delete' camp.slug c.id %}"> {% csrf_token %}
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Del{{ c.id }}" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center" style="background: #00612f; color: white;">
+                                                    <h4 class="modal-title w-100 font-weight-bold">{% trans "Видалення коментаря" %}</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-center" style="color: blue">{% trans "Ви справді хочете видалити відгук?" %}</p>
+                                                </div>
+                                                <div class="modal-footer small">
+                                                    <button class="btn btn-outline-secondary" data-dismiss="modal">{% trans "Відмінити" %}</button>
+                                                    <button class="btn btn-danger" type="submit">{% trans "Видалити" %}</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  </form>
+{% endfor %}
