@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from product.models import Journey
+from camp.models import Camp, CampDates
 
 
 class Order(models.Model):
@@ -39,6 +40,27 @@ class OrderAnonim(models.Model):
     description = models.TextField(blank=False, verbose_name=_('Опис'))
     person = models.IntegerField(blank=True, verbose_name=_('Кількість осіб'))
     duration = models.IntegerField(blank=False, verbose_name=_('Тривалість'))
+    email = models.CharField(max_length=255, blank=True, verbose_name=_('Email'))
+    phone = models.CharField(max_length=255, blank=False, verbose_name=_('Телефон'))
+    contacted = models.BooleanField(verbose_name="Зконтактовано", default=False)
+
+    def __str__(self):
+        return _("Order # ") + str(self.name)
+
+
+class CampOrder(models.Model):
+    class Meta:
+        verbose_name = _("Замовлення місця у таборі")
+        verbose_name_plural = _("Замовлення місць у таборі")
+
+    name = models.CharField(max_length=255, blank=False, verbose_name=_('ПІБ'))
+    age = models.IntegerField(blank=False, verbose_name=_("Вік"))
+    city = models.CharField(max_length=255, blank=False, verbose_name=_('Місто'))
+
+    camp = models.ForeignKey(Camp, related_name='camp_in_orders', on_delete=False)
+    dates = models.ForeignKey(CampDates, related_name='dates_in_orders', on_delete=False)
+    special = models.TextField(blank=False, verbose_name=_('Побажання'))
+
     email = models.CharField(max_length=255, blank=True, verbose_name=_('Email'))
     phone = models.CharField(max_length=255, blank=False, verbose_name=_('Телефон'))
     contacted = models.BooleanField(verbose_name="Зконтактовано", default=False)

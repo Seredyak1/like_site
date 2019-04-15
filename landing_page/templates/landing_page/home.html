@@ -94,6 +94,10 @@
         <!-- Col for journey cards -->
             <div class="col-sm-8">
                 <h4 style="color: #33691e"><strong>{% trans "Найпопулярніші пригоди" %}: </strong></h4>
+                    <div class="container text-center">
+                        <a href="{% url 'home_camp_page' %}"><img class="img-fluid" src="https://s3.eu-central-1.amazonaws.com/like-site/img/laik+extreme+camp.png" style="border: 2px solid #e0e0e0; border-radius: 10px">
+                        </a>
+                    </div>
                 <div>
                     {%  include 'product/Journey_card.html' %}
                 </div>

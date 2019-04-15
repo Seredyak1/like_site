@@ -93,6 +93,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, related_name='comments', on_delete=False)
     body = models.TextField(verbose_name=_('Відгук'))
     created_at = models.DateTimeField(auto_now_add=True)
+    is_published = models.BooleanField(default=False, verbose_name=_("Опубліковано?"))
 
     def __str__(self):
         return self.body

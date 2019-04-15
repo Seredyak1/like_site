@@ -29,6 +29,11 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name_uk',)
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('body', 'is_published',)
+    list_filter = ('is_published',)
+
+
 admin.site.register(Journey, JourneyAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)

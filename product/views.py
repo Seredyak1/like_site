@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import CommentForm, Comment
 from django.http import Http404
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
+
+from .forms import CommentForm, Comment
 from product.models import Category, Journey
 from product.utils import handle_pagination
 
@@ -11,7 +14,7 @@ def journey_details(request, journey_id):
         raise Http404
 
     categories = Category.objects.all()
-    comments = Comment.objects.filter(journey=journey)
+    comments = Comment.objects.filter(journey=journey).exclude(is_published=False)
     form = CommentForm()
     return render(request, 'product/journey_detail.html', {'journey': journey,
                                                            'categories': categories,
@@ -23,7 +26,7 @@ def journey_comments(request, journey_id):
     journey = Journey.objects.filter(id=journey_id).first()
     if not journey:
         raise Http404
-    comments = Comment.objects.filter(journey=journey)
+    comments = Comment.objects.filter(journey=journey).exclude(is_published=False)
     form = CommentForm()
     categories = Category.objects.all()
     return render(request, 'product/journey_detail.html', {'journey': journey,
@@ -40,6 +43,7 @@ def create_comment(request, journey_id):
             form = CommentForm(request.POST, instance=comment)
             if form.is_valid():
                 form.save()
+                messages.success(request, _("Дякуємо за Ваш коментар. Опублікуємо після перевірки модератором!"))
                 return redirect('/journey/{}/comments'.format(journey_id))
     else:
         return redirect('/')
@@ -65,6 +69,7 @@ def comment_delete(request, comment_id, journey_id):
         comment = get_object_or_404(Comment, id=comment_id, user=request.user.id)
         if request.method == "POST":
             comment.delete()
+            messages.error(extra_tags='danger', request=request, message=_('Ваш відгук видалено!'))
             return redirect('/journey/{}/comments'.format(journey_id))
         return render(request, "product/journey_comments.html")
     else:
