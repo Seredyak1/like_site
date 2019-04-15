@@ -45,13 +45,13 @@ class Camp(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse('journey_details', args=[str(self.id)])
+        return reverse('camp_detail', args=[str(self.id)])
 
 
 class CampPhoto(models.Model):
 
     camp = models.ForeignKey(Camp, related_name='camp_photos', on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='camp-photos')
+    image = models.ImageField(upload_to='camp-photos')
 
 
 class CampDates(models.Model):
@@ -59,6 +59,9 @@ class CampDates(models.Model):
     camp = models.ForeignKey(Camp, related_name='dates', on_delete=models.CASCADE)
     start_date = models.DateField(verbose_name=_('початок табору'), blank=False, null=False)
     end_date = models.DateField(verbose_name=_('кінець табору'), blank=False, null=False)
+
+    def __str__(self):
+        return str(self.start_date) + str(" - ") + str(self.end_date)
 
 
 class CampComment(models.Model):
@@ -69,8 +72,7 @@ class CampComment(models.Model):
     user = models.ForeignKey(User, related_name='comments_camp', on_delete=False)
     body = models.TextField(verbose_name=_('Відгук про табір'))
     created_at = models.DateTimeField(auto_now_add=True)
+    is_published = models.BooleanField(default=False, verbose_name=_("Опубліковано?"))
 
     def __str__(self):
         return self.body
-
-

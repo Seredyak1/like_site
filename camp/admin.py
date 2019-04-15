@@ -17,5 +17,10 @@ class CampAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'slug')
 
 
+class CampCommentAdmin(admin.ModelAdmin):
+    list_display = ('body', 'is_published',)
+    list_filter = ('is_published',)
+
+
 admin.site.register(Camp, CampAdmin)
-admin.site.register(CampComment)
+admin.site.register(CampComment, CampCommentAdmin)

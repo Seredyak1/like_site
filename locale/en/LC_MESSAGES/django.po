@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-30 22:04+0200\n"
+"POT-Creation-Date: 2019-04-15 18:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,218 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: camp/models.py:25
+#, fuzzy
+#| msgid "Назва Категорії Українською"
+msgid "Назва табору Українською"
+msgstr "Category's title in uk"
+
+#: camp/models.py:26
+#, fuzzy
+#| msgid "Назва Категорії Англійською"
+msgid "Назва табору Англійською"
+msgstr "Category's title in eng"
+
+#: camp/models.py:27 camp/models.py:29 product/models.py:59
+#: product/models.py:61
+msgid "SEO title"
+msgstr "SEO title"
+
+#: camp/models.py:31
+#, fuzzy
+#| msgid "Типове Запитання українською"
+msgid "Короткий опис табору українською"
+msgstr "Typical question in ukr"
+
+#: camp/models.py:32
+#, fuzzy
+#| msgid "Опис пригоди англійською"
+msgid "Короткий опис англійською"
+msgstr "Trip's description in eng"
+
+#: camp/models.py:33
+#, fuzzy
+#| msgid "Опис пригоди українською"
+msgid "Опис табору українською"
+msgstr "Trip's description in uk"
+
+#: camp/models.py:34
+#, fuzzy
+#| msgid "Опис пригоди англійською"
+msgid "Опис табору англійською"
+msgstr "Trip's description in eng"
+
+#: camp/models.py:35 product/models.py:67
+msgid "Ціна у грн"
+msgstr "Price"
+
+#: camp/models.py:36 product/models.py:68
+msgid "Ціна зі скидкою у грн"
+msgstr "Sale price"
+
+#: camp/models.py:37 product/models.py:70
+msgid "Дата створення"
+msgstr "Created"
+
+#: camp/models.py:38 product/models.py:71
+msgid "Дата останнього оновлення"
+msgstr "Updated"
+
+#: camp/models.py:39
+#, fuzzy
+#| msgid "Назва в URL"
+msgid "Назва табору в URL"
+msgstr "URL slug"
+
+#: camp/models.py:60
+msgid "початок табору"
+msgstr "Camp's start date"
+
+#: camp/models.py:61
+msgid "кінець табору"
+msgstr "Camp's end date"
+
+#: camp/models.py:73
+msgid "Відгук про табір"
+msgstr "Comment about camp"
+
+#: camp/models.py:75 product/models.py:96
+#, fuzzy
+#| msgid "Опублікувати"
+msgid "Опубліковано?"
+msgstr "Confirm"
+
+#: camp/templates/camp/camp_comments.html:5
+#: product/templates/product/journey_comments.html:5
+msgid "Ще ніхто не написав коментар до цієї подорожі!"
+msgstr "No-one has written a comment yet!"
+
+#: camp/templates/camp/camp_comments.html:5
+#: product/templates/product/journey_comments.html:5
+msgid "Будьте першим!"
+msgstr "Be the first!"
+
+#: camp/templates/camp/camp_comments.html:12
+#: camp/templates/camp/camp_comments.html:37
+#: product/templates/product/journey_comments.html:12
+#: product/templates/product/journey_comments.html:37
+msgid "Додати коментар"
+msgstr "Add a comment"
+
+#: camp/templates/camp/camp_comments.html:20
+#: camp/templates/camp/camp_comments.html:45
+#: camp/templates/camp/camp_comments.html:101
+#: camp/templates/camp/camp_comments.html:126
+#: order/templates/order/order_for_anonim.html:96
+#: order/templates/order/order_for_users.html:60
+#: pages/templates/pages/feedback.html:51
+#: product/templates/product/journey_comments.html:20
+#: product/templates/product/journey_comments.html:45
+#: product/templates/product/journey_comments.html:101
+#: product/templates/product/journey_comments.html:126
+msgid "Відмінити"
+msgstr "Cancel"
+
+#: camp/templates/camp/camp_comments.html:21
+#: camp/templates/camp/camp_comments.html:46
+#: camp/templates/camp/camp_comments.html:102
+#: product/templates/product/journey_comments.html:21
+#: product/templates/product/journey_comments.html:46
+#: product/templates/product/journey_comments.html:102
+msgid "Зберегти"
+msgstr "Confirm"
+
+#: camp/templates/camp/camp_comments.html:57
+#: product/templates/product/journey_comments.html:57
+msgid "Авторизуйтесь перед коментуванням!"
+msgstr "Sign in before commenting!"
+
+#: camp/templates/camp/camp_comments.html:95
+#: product/templates/product/journey_comments.html:95
+msgid "Редагувати коментар"
+msgstr "Edit a comment"
+
+#: camp/templates/camp/camp_comments.html:120
+#: product/templates/product/journey_comments.html:120
+msgid "Видалення коментаря"
+msgstr "Delete a comment"
+
+#: camp/templates/camp/camp_comments.html:123
+#: product/templates/product/journey_comments.html:123
+msgid "Ви справді хочете видалити відгук?"
+msgstr "Are you sure you want to delete this comment?"
+
+#: camp/templates/camp/camp_comments.html:127
+#: product/templates/product/journey_comments.html:127
+msgid "Видалити"
+msgstr "Delete"
+
+#: camp/templates/camp/camp_detail.html:30
+msgid "Дати проведення (заїздів)"
+msgstr "Camp dates"
+
+#: camp/templates/camp/camp_detail.html:36
+#, fuzzy
+#| msgid "Зареєструватись"
+msgid "Забронювати місце"
+msgstr "Register"
+
+#: camp/templates/camp/camp_detail.html:43
+#: product/templates/product/journey_detail.html:56
+msgid "Фото"
+msgstr "Photos"
+
+#: camp/templates/camp/camp_detail.html:57
+#: landing_page/templates/landing_page/home.html:73 pages/models.py:23
+#: pages/templates/pages/feedback.html:4 pages/templates/pages/feedback.html:22
+#: templates/base.html:208
+msgid "Відгуки"
+msgstr "Feedback"
+
+#: camp/templates/camp/home_camp_page.html:22
+#, fuzzy
+#| msgid "Дата створення"
+msgid "Дати проведення"
+msgstr "Created"
+
+#: camp/templates/camp/home_camp_page.html:29
+#: camp/templates/camp/home_camp_page.html:31
+#: product/templates/product/Journey_card.html:30
+#: product/templates/product/Journey_card.html:32
+#: product/templates/product/Journey_card_with_sale.html:31
+#: product/templates/product/Journey_card_with_sale.html:33
+#: product/templates/product/journey_detail.html:41
+#: product/templates/product/journey_detail.html:44
+msgid "від"
+msgstr "from"
+
+#: camp/templates/camp/home_camp_page.html:29
+#: camp/templates/camp/home_camp_page.html:31
+#: product/templates/product/Journey_card.html:30
+#: product/templates/product/Journey_card.html:32
+#: product/templates/product/Journey_card_with_sale.html:31
+#: product/templates/product/Journey_card_with_sale.html:33
+#: product/templates/product/journey_detail.html:42
+#: product/templates/product/journey_detail.html:44
+msgid "грн"
+msgstr "UAH"
+
+#: camp/templates/camp/home_camp_page.html:35 news/templates/news/news.html:31
+#: product/templates/product/Journey_card.html:38
+#: product/templates/product/Journey_card_with_sale.html:39
+msgid "Дізнатись більше"
+msgstr "Learn more"
+
+#: camp/views.py:36 product/views.py:46
+#, fuzzy
+#| msgid "Ваш відгук буде опубліковано після перевірки модератором. Дякуємо!"
+msgid "Дякуємо за Ваш коментар. Опублікуємо після перевірки модератором!"
+msgstr "Your feedback will be publish after the moderator checks it. Thanks!"
+
+#: camp/views.py:64 product/views.py:72
+msgid "Ваш відгук видалено!"
+msgstr "Your comment was removed"
 
 #: landing_page/templates/landing_page/home.html:4
 msgid "Пригоди, відпочинок, дозвілля у Карпатах / Корпоративи та відпустка"
@@ -43,12 +255,6 @@ msgstr "Read more"
 msgid "Більше новин"
 msgstr "More news"
 
-#: landing_page/templates/landing_page/home.html:73 pages/models.py:23
-#: pages/templates/pages/feedback.html:4 pages/templates/pages/feedback.html:22
-#: templates/base.html:208
-msgid "Відгуки"
-msgstr "Feedback"
-
 #: landing_page/templates/landing_page/home.html:89
 msgid "Більше відгуків"
 msgstr "More feedback"
@@ -57,27 +263,21 @@ msgstr "More feedback"
 msgid "Найпопулярніші пригоди"
 msgstr "The most popular trips"
 
-#: landing_page/templates/landing_page/home.html:107
+#: landing_page/templates/landing_page/home.html:111
 msgid "Наші кліенти"
 msgstr "Our clients"
 
-#: likesite/settings.py:166
+#: likesite/settings.py:167
 msgid "Українська"
 msgstr "Ukrainian"
 
-#: likesite/settings.py:167
+#: likesite/settings.py:168
 msgid "English"
 msgstr "English"
 
 #: news/models.py:18 news/templates/news/news.html:4 templates/base.html:187
 msgid "Новини"
 msgstr "News"
-
-#: news/templates/news/news.html:31
-#: product/templates/product/Journey_card.html:38
-#: product/templates/product/Journey_card_with_sale.html:39
-msgid "Дізнатись більше"
-msgstr "Learn more"
 
 #: news/templates/news/news_detail.html:17
 msgid "Повернутись до всіх новин"
@@ -87,79 +287,115 @@ msgstr "Return to all news"
 msgid "Більше фото"
 msgstr "More photos"
 
-#: order/forms.py:8
+#: order/forms.py:11 order/forms.py:27
 msgid "Призвіще та ім'я"
 msgstr "Surname and name"
 
-#: order/forms.py:9 order/models.py:41
+#: order/forms.py:12 order/models.py:42
 msgid "Тривалість"
 msgstr "Duration"
 
-#: order/forms.py:10 order/models.py:40
+#: order/forms.py:13 order/models.py:41
 #: order/templates/order/order_for_anonim.html:27
 #: order/templates/order/order_for_users.html:19
 msgid "Кількість осіб"
 msgstr "Number of people"
 
-#: order/forms.py:11
+#: order/forms.py:14
 msgid "Що б Ви хотіли побачити?"
 msgstr "What are you interested in?"
 
-#: order/forms.py:12 order/templates/order/order_for_anonim.html:76
+#: order/forms.py:15 order/forms.py:32
+#: order/templates/order/order_for_anonim.html:76
 msgid "Email-адреса"
 msgstr "Email"
 
-#: order/models.py:10 order/models.py:11
-msgid "Замовлення"
-msgstr "Order"
+#: order/forms.py:28 order/models.py:57
+#, fuzzy
+#| msgid "Вхід"
+msgid "Вік"
+msgstr "Sign in"
 
-#: order/models.py:14
-msgid "Нове"
-msgstr "New"
+#: order/forms.py:29 order/models.py:58
+msgid "Місто"
+msgstr "City"
 
-#: order/models.py:15
-msgid "Оплачене"
-msgstr "Paid"
+#: order/forms.py:30
+#, fuzzy
+#| msgid "Повторіть пароль"
+msgid "Виберіть дати:"
+msgstr "Repeat the password"
 
-#: order/models.py:18
-msgid "Покупець"
-msgstr "Customer"
-
-#: order/models.py:21 order/templates/order/order_for_anonim.html:64
+#: order/forms.py:31 order/models.py:22
+#: order/templates/order/order_for_anonim.html:64
 msgid "Номер телефону"
 msgstr "Phone number"
 
-#: order/models.py:23
+#: order/models.py:11 order/models.py:12
+msgid "Замовлення"
+msgstr "Order"
+
+#: order/models.py:15
+msgid "Нове"
+msgstr "New"
+
+#: order/models.py:16
+msgid "Оплачене"
+msgstr "Paid"
+
+#: order/models.py:19
+msgid "Покупець"
+msgstr "Customer"
+
+#: order/models.py:24
 msgid "Загальна ціна"
 msgstr "Total price"
 
-#: order/models.py:30 order/models.py:47
+#: order/models.py:31 order/models.py:48 order/models.py:69
 msgid "Order # "
 msgstr "Order # "
 
-#: order/models.py:35
+#: order/models.py:36
 msgid "Анонімне замовлення"
 msgstr "Anonymous order"
 
-#: order/models.py:36
+#: order/models.py:37
 msgid "Анонімні замовлення"
 msgstr "Anonymous orders"
 
-#: order/models.py:38
+#: order/models.py:39 order/models.py:56
 msgid "ПІБ"
 msgstr "Surname and name"
 
-#: order/models.py:39
+#: order/models.py:40
 msgid "Опис"
 msgstr "Description"
 
-#: order/models.py:42
+#: order/models.py:43 order/models.py:64
 msgid "Email"
 msgstr "Email"
 
-#: order/models.py:43
+#: order/models.py:44 order/models.py:65
 msgid "Телефон"
 msgstr "Phone number"
+
+#: order/models.py:53
+#, fuzzy
+#| msgid "Замовлення пригоди"
+msgid "Замовлення місця у таборі"
+msgstr "Trip ordering"
+
+#: order/models.py:54
+#, fuzzy
+#| msgid "Замовлення пригоди"
+msgid "Замовлення місць у таборі"
+msgstr "Trip ordering"
+
+#: order/models.py:62
+#, fuzzy
+#| msgid "Типове запитання"
+msgid "Побажання"
+msgstr "Typical question"
 
 #: order/templates/order/confirmation_page.html:13
 msgid "Дякуємо, що обрали!"
@@ -244,16 +480,6 @@ msgstr "Do you want to receive more offers about the best trips?"
 msgid "Зареєструватись"
 msgstr "Register"
 
-#: order/templates/order/order_for_anonim.html:96
-#: order/templates/order/order_for_users.html:60
-#: pages/templates/pages/feedback.html:51
-#: product/templates/product/journey_comments.html:20
-#: product/templates/product/journey_comments.html:45
-#: product/templates/product/journey_comments.html:101
-#: product/templates/product/journey_comments.html:126
-msgid "Відмінити"
-msgstr "Cancel"
-
 #: order/templates/order/order_for_anonim.html:99
 #: order/templates/order/order_for_users.html:63
 #: product/templates/product/Journey_card.html:6
@@ -284,17 +510,17 @@ msgid ""
 "Для підтвердження замовлення введіть актуальний номер мобільного телефону"
 msgstr "For order confirmation write your actual phone number"
 
-#: order/views.py:20
+#: order/views.py:22 order/views.py:112
 msgid ""
 "Ваше замовлення зареєстроване!Наш менеджер обов'язково Вас сконтактує "
 "найблищим часом!"
 msgstr "Your order is registered! Our manager will contact you soon!"
 
-#: order/views.py:23 order/views.py:67
+#: order/views.py:25 order/views.py:69 order/views.py:115
 msgid "LAIK TRAVEL - пітвердження замовлення"
 msgstr "LAIK TRAVEL - order confirmation"
 
-#: order/views.py:92
+#: order/views.py:94
 msgid "Для замовлення пригоди спочатку зареєструйтесь!"
 msgstr "To order the trip register first!"
 
@@ -586,10 +812,6 @@ msgstr "Trip's title uk"
 msgid "Назва пригоди англійською"
 msgstr "Trip's title en"
 
-#: product/models.py:59 product/models.py:61
-msgid "SEO title"
-msgstr "SEO title"
-
 #: product/models.py:63
 msgid "Опис пригоди українською"
 msgstr "Trip's description in uk"
@@ -605,22 +827,6 @@ msgstr "Duration days"
 #: product/models.py:66
 msgid "Тривалість ночей"
 msgstr "Duration nights"
-
-#: product/models.py:67
-msgid "Ціна у грн"
-msgstr "Price"
-
-#: product/models.py:68
-msgid "Ціна зі скидкою у грн"
-msgstr "Sale price"
-
-#: product/models.py:70
-msgid "Дата створення"
-msgstr "Created"
-
-#: product/models.py:71
-msgid "Дата останнього оновлення"
-msgstr "Updated"
 
 #: product/templates/product/Category_detail.html:32
 #: product/templates/product/new_journeys.html:16
@@ -681,70 +887,9 @@ msgstr "days"
 msgid "ночей"
 msgstr "nights"
 
-#: product/templates/product/Journey_card.html:30
-#: product/templates/product/Journey_card.html:32
-#: product/templates/product/Journey_card_with_sale.html:31
-#: product/templates/product/Journey_card_with_sale.html:33
-#: product/templates/product/journey_detail.html:41
-#: product/templates/product/journey_detail.html:44
-msgid "від"
-msgstr "from"
-
-#: product/templates/product/Journey_card.html:30
-#: product/templates/product/Journey_card.html:32
-#: product/templates/product/Journey_card_with_sale.html:31
-#: product/templates/product/Journey_card_with_sale.html:33
-#: product/templates/product/journey_detail.html:42
-#: product/templates/product/journey_detail.html:44
-msgid "грн"
-msgstr "UAH"
-
-#: product/templates/product/journey_comments.html:5
-msgid "Ще ніхто не написав коментар до цієї подорожі!"
-msgstr "No-one has written a comment yet!"
-
-#: product/templates/product/journey_comments.html:5
-msgid "Будьте першим!"
-msgstr "Be the first!"
-
-#: product/templates/product/journey_comments.html:12
-#: product/templates/product/journey_comments.html:37
-msgid "Додати коментар"
-msgstr "Add a comment"
-
-#: product/templates/product/journey_comments.html:21
-#: product/templates/product/journey_comments.html:46
-#: product/templates/product/journey_comments.html:102
-msgid "Зберегти"
-msgstr "Confirm"
-
-#: product/templates/product/journey_comments.html:57
-msgid "Авторизуйтесь перед коментуванням!"
-msgstr "Sign in before commenting!"
-
-#: product/templates/product/journey_comments.html:95
-msgid "Редагувати коментар"
-msgstr "Edit a comment"
-
-#: product/templates/product/journey_comments.html:120
-msgid "Видалення коментаря"
-msgstr "Delete a comment"
-
-#: product/templates/product/journey_comments.html:123
-msgid "Ви справді хочете видалити відгук?"
-msgstr "Are you sure you want to delete this comment?"
-
-#: product/templates/product/journey_comments.html:127
-msgid "Видалити"
-msgstr "Delete"
-
 #: product/templates/product/journey_detail.html:53
 msgid "Інформація"
 msgstr "Info"
-
-#: product/templates/product/journey_detail.html:56
-msgid "Фото"
-msgstr "Photos"
 
 #: product/templates/product/journey_detail.html:59
 msgid "Коментарі"

@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'landing_page.apps.LandingPageConfig',
     'pages.apps.PagesConfig',
     'news.apps.NewsConfig',
-    'camp',
+    'camp.apps.CampConfig',
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"

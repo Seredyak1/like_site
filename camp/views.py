@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 from .models import Camp, CampComment
 from product.models import Category
@@ -15,7 +17,7 @@ def get_camp_page(request):
 def get_camp_detail(request, slug):
     categories = Category.objects.all()
     camp = get_object_or_404(Camp, slug=slug)
-    camp_comments = camp.comments_camp.all()
+    camp_comments = camp.comments_camp.all().exclude(is_published=False)
     form = CampCommentForm()
     return render(request, 'camp/camp_detail.html', {'camp': camp,
                                                      'categories': categories,
@@ -31,12 +33,14 @@ def camp_create_comment(request, slug):
             form = CampCommentForm(request.POST, instance=camp_comment)
             if form.is_valid():
                 form.save()
+                messages.success(request, _("Дякуємо за Ваш коментар. Опублікуємо після перевірки модератором!"))
                 return redirect('/camps/{}/'.format(slug))
     else:
         return redirect('/')
 
 
 def camp_update_comment(request, с_id, slug):
+    # c_id = comment_id
     if request.user.is_authenticated:
         camp_comment = get_object_or_404(CampComment, id=с_id, user=request.user.id)
         if request.method == "POST":
@@ -52,10 +56,12 @@ def camp_update_comment(request, с_id, slug):
 
 
 def camp_comment_delete(request, с_id, slug):
+    # c_id = comment_id
     if request.user.is_authenticated:
         camp_comment = get_object_or_404(CampComment, id=с_id, user=request.user.id)
         if request.method == "POST":
             camp_comment.delete()
+            messages.error(extra_tags='danger', request=request, message=_('Ваш відгук видалено!'))
             return redirect('/camps/{}/'.format(slug))
         return render(request, "camp/camp_comments.html")
     else:
