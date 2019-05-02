@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-15 18:51+0300\n"
+"POT-Creation-Date: 2019-05-02 11:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,7 @@ msgstr "Add a comment"
 #: camp/templates/camp/camp_comments.html:45
 #: camp/templates/camp/camp_comments.html:101
 #: camp/templates/camp/camp_comments.html:126
-#: order/templates/order/order_for_anonim.html:96
+#: order/templates/order/order_for_anonim.html:98
 #: order/templates/order/order_for_users.html:60
 #: pages/templates/pages/feedback.html:51
 #: product/templates/product/journey_comments.html:20
@@ -267,11 +267,11 @@ msgstr "The most popular trips"
 msgid "Наші кліенти"
 msgstr "Our clients"
 
-#: likesite/settings.py:167
+#: likesite/settings.py:168
 msgid "Українська"
 msgstr "Ukrainian"
 
-#: likesite/settings.py:168
+#: likesite/settings.py:169
 msgid "English"
 msgstr "English"
 
@@ -296,7 +296,7 @@ msgid "Тривалість"
 msgstr "Duration"
 
 #: order/forms.py:13 order/models.py:41
-#: order/templates/order/order_for_anonim.html:27
+#: order/templates/order/order_for_anonim.html:29
 #: order/templates/order/order_for_users.html:19
 msgid "Кількість осіб"
 msgstr "Number of people"
@@ -306,7 +306,7 @@ msgid "Що б Ви хотіли побачити?"
 msgstr "What are you interested in?"
 
 #: order/forms.py:15 order/forms.py:32
-#: order/templates/order/order_for_anonim.html:76
+#: order/templates/order/order_for_anonim.html:78
 msgid "Email-адреса"
 msgstr "Email"
 
@@ -327,7 +327,7 @@ msgid "Виберіть дати:"
 msgstr "Repeat the password"
 
 #: order/forms.py:31 order/models.py:22
-#: order/templates/order/order_for_anonim.html:64
+#: order/templates/order/order_for_anonim.html:66
 msgid "Номер телефону"
 msgstr "Phone number"
 
@@ -456,31 +456,37 @@ msgid ""
 "електоронною поштою"
 msgstr "If you need to contact us again, use our email, please"
 
-#: order/templates/order/order_for_anonim.html:17
+#: order/templates/order/order_for_anonim.html:5
+#, fuzzy
+#| msgid "Назва пригоди"
+msgid "Власна пригода"
+msgstr "Personal journey"
+
+#: order/templates/order/order_for_anonim.html:19
 msgid "Прізвище та ім'я"
 msgstr "Surname and name"
 
-#: order/templates/order/order_for_anonim.html:39
+#: order/templates/order/order_for_anonim.html:41
 msgid "Кількість днів"
 msgstr "Duration in days"
 
-#: order/templates/order/order_for_anonim.html:51
+#: order/templates/order/order_for_anonim.html:53
 msgid "Що Вас цікавить"
 msgstr "What are you interested in?"
 
-#: order/templates/order/order_for_anonim.html:56
+#: order/templates/order/order_for_anonim.html:58
 msgid "Озеро Синевир, Паланок, закарпатський банош..."
 msgstr "Sinevir lake, castles, Transcarpathian dishes..."
 
-#: order/templates/order/order_for_anonim.html:88
+#: order/templates/order/order_for_anonim.html:90
 msgid "Чи хотіли б Ви отримувати більше пропозицій щодо найкращих пригод?"
 msgstr "Do you want to receive more offers about the best trips?"
 
-#: order/templates/order/order_for_anonim.html:89
+#: order/templates/order/order_for_anonim.html:91
 msgid "Зареєструватись"
 msgstr "Register"
 
-#: order/templates/order/order_for_anonim.html:99
+#: order/templates/order/order_for_anonim.html:101
 #: order/templates/order/order_for_users.html:63
 #: product/templates/product/Journey_card.html:6
 #: product/templates/product/Journey_card_with_sale.html:7
