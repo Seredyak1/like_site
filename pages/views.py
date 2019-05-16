@@ -1,32 +1,38 @@
+import os
+import mimetypes
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils.translation import gettext_lazy as _
+from django.http import HttpResponse
+from django.views import generic, View
+
 from pages.forms import FeedbackForm
 from pages.models import Feedback, Faq, Document
 from product.models import Category, Journey
-import os
-import mimetypes
-from django.utils.translation import gettext_lazy as _
-from django.http import HttpResponse
 
 
-def feedback(request):
-    categories = Category.objects.all()
-    """Create or show list for feedback"""
-    if request.method == "POST":
-        form = FeedbackForm(request.POST)
+class FeedbackView(View):
+
+    template_name = 'pages/feedback.html'
+    form_class = FeedbackForm
+    initial = {'key': 'value'}
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        feedbacks = Feedback.objects.all().exclude(is_published=False)
+        return render(request, self.template_name, {'form': form,
+                                                    'feedbacks': feedbacks})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, _('Ваш відгук буде опубліковано після перевірки модератором. Дякуємо!'))
+            return redirect('feedback')
 
-    form = FeedbackForm()
-
-    feedbacks = Paginator(Feedback.objects.exclude(is_published=False), 10)
-    page = request.GET.get('page')
-    feedbacks = feedbacks.get_page(page)
-
-    return render(request, 'pages/feedback.html', {'feedbacks': feedbacks, 'form': form, 'categories': categories})
+        return render(request, self.template_name, {'form': form})
 
 
 def about_us(request):
@@ -42,10 +48,16 @@ def about_us(request):
     return render(request, 'pages/about_us.html', {"categories": categories, "massive_text": massive_text})
 
 
-def get_faq(request):
-    categories = Category.objects.all()
-    faq = Faq.objects.all()
-    return render(request, 'pages/faq.html', {'categories': categories, 'faq': faq})
+class FAQView(generic.ListView):
+
+    template_name = 'pages/faq.html'
+    model = Faq
+    context_object_name = 'faq'
+
+    def get_context_data(self, **kwargs):
+        context = super(FAQView, self).get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
 
 
 def search(request):
@@ -67,11 +79,16 @@ def search(request):
                                                      'journeys_count': journeys_count})
 
 
-def documents(request):
-    documents = Document.objects.all()
-    categories = Category.objects.all()
+class DocumentsView(generic.ListView):
 
-    return render(request, 'pages/documents.html', {'documents': documents, 'categories': categories})
+    template_name = 'pages/documents.html'
+    model = Document
+    context_object_name = 'documents'
+
+    def get_context_data(self, **kwargs):
+        context = super(DocumentsView, self).get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
 
 
 def download_file(request, file_id):

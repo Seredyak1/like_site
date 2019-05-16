@@ -18,7 +18,7 @@ class CampAdmin(admin.ModelAdmin):
 
 
 class CampCommentAdmin(admin.ModelAdmin):
-    list_display = ('body', 'is_published',)
+    list_display = ('user', 'camp', 'body', 'is_published',)
     list_filter = ('is_published',)
 
 
