@@ -49,7 +49,9 @@ urlpatterns += i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
-    path('camps/', include('camp.urls'))
+    path('camps/', include('camp.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('api.urls'))
 )
 
 urlpatterns += [
