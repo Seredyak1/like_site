@@ -1,18 +1,29 @@
 from django.shortcuts import render, get_object_or_404
-from .utils import handle_pagination
+from django.views import generic, View
+
 from .models import News
 from product.models import Category
 
 
-def news(request):
-    newses = News.objects.all().exclude(published=False)
-    categories = Category.objects.all()
-    return render(request, 'news/news.html', {'newses': handle_pagination(request, newses),
-                                              'categories': categories})
+class NewsListView(generic.ListView):
+
+    template_name = 'news/news.html'
+    queryset = News.objects.all().exclude(published=False)
+    context_object_name = 'newses'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(NewsListView, self).get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
 
 
-def news_detail(request, news_id):
-    news = get_object_or_404(News, id=news_id)
-    categories = Category.objects.all()
-    return render(request, 'news/news_detail.html', {'news': news,
-                                                     'categories': categories})
+class NewsDetailViews(View):
+
+    template_name = 'news/news_detail.html'
+
+    def get(self, request, news_id, *args, **kwargs):
+        news = get_object_or_404(News, id=news_id)
+        categories = Category.objects.all()
+        return render(request, 'news/news_detail.html', {'news': news,
+                                                         'categories': categories})
