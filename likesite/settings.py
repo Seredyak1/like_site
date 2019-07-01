@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'storages',
     'rest_framework',
+    'rest_framework_swagger',
 
     'allauth',
     'allauth.account',
@@ -216,10 +217,21 @@ ACCOUNT_FORMS = {
 }
 
 
+
+
 #DRF config
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
+
+
+#Settings for JWT Auth
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
 }
 
 try:
