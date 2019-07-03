@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'storages',
+    'rest_framework',
 
     'allauth',
     'allauth.account',
@@ -173,7 +174,7 @@ LOCALE_PATHS = (
 )
 
 
-LANGUAGE_CODE = 'uk-UA'
+LANGUAGE_CODE = 'uk'
 
 TIME_ZONE = 'UTC'
 
@@ -212,6 +213,13 @@ AWS_QUERYSTRING_AUTH = False
 
 ACCOUNT_FORMS = {
     'signup': 'pages.forms.CustomSignupForm',
+}
+
+
+#DRF config
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
 }
 
 try:
