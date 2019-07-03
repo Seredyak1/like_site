@@ -1,6 +1,4 @@
 from rest_framework import serializers
-from django.utils.translation import gettext_lazy as _, get_language
-from django.db.models import F
 
 from news.models import *
 from pages.models import *
@@ -16,10 +14,15 @@ class NewsPreviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        fields = ['title_uk', 'title_en', 'short_description_uk', 'short_description_uk', 'first_image']
+        locale = get_language()
+        if locale == 'uk':
+            fields = ('title_uk', 'short_description_uk', 'first_image',)
+        elif locale == 'en':
+            fields = ('title_en', 'short_description_en', 'first_image',)
 
     def get_first_image(self, instance):
         try:
+            # self.news_image.first().image.url
             first_image = NewsPhoto.objects.filter(news=instance.id).first().image.url
         except:
             first_image = None
@@ -28,10 +31,11 @@ class NewsPreviewSerializer(serializers.ModelSerializer):
 
 class NewsSerializer(serializers.ModelSerializer):
 
+#    images = serializers.ImageField(many=True, )
     images = serializers.SerializerMethodField()
 
     class Meta:
-        model = NewsPhoto
+        model = News
         fields = '__all__'
 
     def get_images(self, instance):
@@ -199,7 +203,7 @@ class JourneyCommentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = '__all__'
-        read_only_fields = ('user', 'created_at', 'is_published', 'journey')
+        read_only_fields = ('user', 'created_at', 'is_published', 'journey',)
 
 
 # ORDER API----------------------------------------------------------------------------------------------------
@@ -216,8 +220,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('contact_phone', 'persons',)
+        fields = ('contact_phone', 'persons', 'email_address',)
         read_only_field = ('email_address',)
 
-    def create(self, validated_data):
-        return Order.objects.create(**validated_data)
+    # def create(self, validated_data):
+    #     return Order.objects.create(**validated_data)

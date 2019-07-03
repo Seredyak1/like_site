@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from rest_framework import routers
 
 from .views import *
@@ -30,4 +30,5 @@ urlpatterns = [
     path('order_anonim/', OrderAnonimAPIView.as_view()),
     path('order/<int:journey_id>/', OrderAPIView.as_view()),
 
+    path('rest-auth/', include('rest_auth.urls'))
 ]

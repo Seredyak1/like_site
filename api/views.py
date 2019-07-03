@@ -1,7 +1,7 @@
 from django.utils.decorators import method_decorator
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework import generics, mixins, viewsets, views
+from rest_framework import generics, views
 from rest_framework import permissions
 from django.views.decorators.csrf import csrf_exempt
 
@@ -78,8 +78,7 @@ class FeedbackAPIView(generics.ListCreateAPIView):
     queryset = Feedback.objects.all()
 
     def get_queryset(self):
-        queryset = Feedback.objects.all().exclude(is_published=False)
-        return queryset
+        return Feedback.objects.all().exclude(is_published=False)
 
 
 # CAMP API VIEWS ----------------------------------------------------------------------------------------------
@@ -102,18 +101,6 @@ class CampDetailAPIView(generics.RetrieveAPIView):
     lookup_field = 'slug'
 
 
-class CampDatesAPIView(views.APIView):
-    """
-    get:
-    Return all dates of Camp
-    """
-    def get(self, request, slug, *args, **kwargs):
-        camp = Camp.object.get(slug=slug)
-        data = CampDates.objects.filter(camp=camp).all()
-        serializer = CampDatesSerializer(data, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
-
-
 class CampCommentsAPIView(generics.ListCreateAPIView):
     """
     post:
@@ -122,7 +109,7 @@ class CampCommentsAPIView(generics.ListCreateAPIView):
     get:
     Return all comment for this Camp
     """
-    permission_classes = (permissions.IsAuthenticated, )
+    permission_classes = (permissions.IsAuthenticated,)
     serializer_class = CampCommentSerializer
     queryset = CampComment.objects.all()
     lookup_field = 'slug'
@@ -175,7 +162,6 @@ class JourneyCardListAPIView(generics.ListAPIView):
     queryset = Journey.objects.all()[:10]
 
 
-
 class JourneyCardListWithCategoryAPIView(generics.ListAPIView):
     """
     get:
@@ -192,8 +178,7 @@ class JourneyCardListWithCategoryAPIView(generics.ListAPIView):
 class JourneyCardListForNewAPIView(generics.ListAPIView):
     """
     get:
-    Return list with all journeys
-    sorted for 10th first journies
+    Return list with 10th first journies
     """
     serializer_class = JourneyCardSerializer
     queryset = Journey.objects.all().order_by("created_at")[:10]
@@ -258,6 +243,7 @@ class JourneyCommentsUpdateAndDeleteAPIView(generics.RetrieveUpdateDestroyAPIVie
     queryset = Comment.objects.all()
     lookup_field = 'id'
 
+
 # ORDER API----------------------------------------------------------------------------------------------------
 class OrderAnonimAPIView(generics.CreateAPIView):
     """
@@ -282,7 +268,7 @@ class OrderAPIView(generics.CreateAPIView):
         user = self.request.user
         email_address = self.request.user.email
         status = 0
-        persons = int(self.request.data.get('persons', None))
+        persons = int(self.request.data.get('persons', 1))
         if journey.sale_price:
             total = int(journey.sale_price * persons)
         else:
