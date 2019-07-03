@@ -68,10 +68,10 @@ def search(request):
 
 
 def documents(request):
-    documents = Document.objects.all()
+    docs = Document.objects.all()
     categories = Category.objects.all()
 
-    return render(request, 'pages/documents.html', {'documents': documents, 'categories': categories})
+    return render(request, 'pages/documents.html', {'documents': docs, 'categories': categories})
 
 
 def download_file(request, file_id):
