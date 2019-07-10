@@ -21,10 +21,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
 from django.conf.urls.i18n import i18n_patterns
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 from likesite.sitemap import StaticViewSitemap, CategorySitemap, JourneySitemap, NewsViewSitemap
 from product import views as views_product
+from rest_framework_swagger.views import get_swagger_view
 
+schema_view = get_swagger_view(title='Pastebin API')
 
 sitemaps = {
     'journey': JourneySitemap,
@@ -34,6 +37,7 @@ sitemaps = {
 }
 
 urlpatterns = []
+
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('landing_page.urls')),
@@ -51,8 +55,14 @@ urlpatterns += i18n_patterns(
          name='django.contrib.sitemaps.views.sitemap'),
     path('camps/', include('camp.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
 )
+
+urlpatterns += [
+    path('api-token-auth/', obtain_jwt_token),
+    path('api-token-refresh/', refresh_jwt_token),
+    path('swagger/', schema_view),
+]
 
 urlpatterns += [
     url(r'^__debug__/', include(debug_toolbar.urls)),
