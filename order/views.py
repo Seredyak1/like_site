@@ -10,7 +10,7 @@ from product.models import Journey, Category
 from .forms import CreateOrderAnonim, CreateCampOrder
 from .models import Order
 from camp.models import Camp, CampDates
-
+from .tasks import send_order_anonim_email, send_order_email
 
 def order_anonim(request):
     categories = Category.objects.all()
@@ -22,21 +22,8 @@ def order_anonim(request):
             messages.success(request, _("Ваше замовлення зареєстроване!"
                                       "Наш менеджер обов'язково Вас сконтактує найблищим часом!"))
 
-            send_mail(_('LAIK TRAVEL - пітвердження замовлення'),
-                      '',
-                      EMAIL_HOST_USER,
-                      [request.POST['email']],
-                      html_message=render_to_string('order/email_confirmation.html'),
-                      fail_silently=False)
-
-            send_mail('LAIK TRAVEL - замовлення',
-                      """Зробили нове анонімне замовлення! Зконтактувати найблищим часом. 
-                      http://laik-travel.com/admin/order/order/
-                      """,
-                      EMAIL_HOST_USER,
-                      ['sanya.seredyak@gmail.com', 'office@laik-travel.com'],
-                      fail_silently=False)
-
+            email = request.POST['email']
+            send_order_anonim_email.delay(email)
             redirect('/')
 
     form = CreateOrderAnonim()
@@ -65,22 +52,8 @@ def create_order(request, journey_id):
                                                          persons=cached_persons,
                                                          total=full_price)
             order.save()
-
-            send_mail(_('LAIK TRAVEL - пітвердження замовлення'),
-                      '',
-                      EMAIL_HOST_USER,
-                      [order.email_address],
-                      html_message=render_to_string('order/email_confirmation.html'),
-                      fail_silently=False)
-
-            send_mail('LAIK TRAVEL - замовлення',
-                      """Зробили нове замовлення! Зконтактувати найблищим часом. 
-                      http://laik-travel.com/admin/order/orderanonim/
-                      """,
-                      EMAIL_HOST_USER,
-                      ['sanya.seredyak@gmail.com', 'office@laik-travel.com'],
-                      fail_silently=False)
-
+            email = order.email_address
+            send_order_email.delay(email)
             return render(request, 'order/confirmation_page.html', {'categories': categories})
 
         else:
