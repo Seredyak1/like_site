@@ -20,8 +20,8 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
-    'send-report-every-single-minute': {
-        'task': 'publisher.tasks.send_view_count_report',
-        'schedule': crontab(),  # change to `crontab(minute=0, hour=12)` if you want it to run daily at midnight
+    'send-report-every-9-oclock': {
+        'task': 'order.tasks.send_report_for_open_order',
+        'schedule': crontab(hour=9),  # change to `crontab(minute=0, hour=12)` if you want it to run daily at midnight
     },
 }
