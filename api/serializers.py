@@ -14,11 +14,7 @@ class NewsPreviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        locale = get_language()
-        if locale == 'uk':
-            fields = ('title_uk', 'short_description_uk', 'first_image',)
-        elif locale == 'en':
-            fields = ('title_en', 'short_description_en', 'first_image',)
+        fields = ('title_uk', 'short_description_uk', 'first_image',)
 
     def get_first_image(self, instance):
         try:
@@ -31,7 +27,6 @@ class NewsPreviewSerializer(serializers.ModelSerializer):
 
 class NewsSerializer(serializers.ModelSerializer):
 
-#    images = serializers.ImageField(many=True, )
     images = serializers.SerializerMethodField()
 
     class Meta:

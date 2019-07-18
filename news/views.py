@@ -8,9 +8,11 @@ from product.models import Category
 class NewsListView(generic.ListView):
 
     template_name = 'news/news.html'
-    queryset = News.objects.all().exclude(published=False)
     context_object_name = 'newses'
     paginate_by = 10
+
+    def get_queryset(self):
+        return News.objects.all().exclude(published=False)
 
     def get_context_data(self, **kwargs):
         context = super(NewsListView, self).get_context_data(**kwargs)
