@@ -18,11 +18,3 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
-
-app.conf.timezone = settings.TIME_ZONE
-app.conf.beat_schedule = {
-    'send-report-every-9-oclock': {
-        'task': 'order.tasks.send_report_for_open_order',
-        'schedule': crontab(minute='25', hour='11'),
-    },
-}
