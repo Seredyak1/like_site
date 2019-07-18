@@ -64,7 +64,9 @@ class FaqAPIView(generics.ListAPIView):
     Return all FAQs
     """
     serializer_class = FAQSerializer
-    queryset = Faq.objects.all()
+
+    def get_queryset(self):
+        return Faq.objects.all()
 
 
 class FeedbackAPIView(generics.ListCreateAPIView):
