@@ -45,11 +45,11 @@ class Document(models.Model):
         return self.title_ukr
 
 
-class FaqManager(models.Manager):
-
-    def get_queryset(self):
-        locale = get_language()
-        return super().get_queryset().annotate(question=F('question_' + locale), answer=F('answer_' + locale))
+# class FaqManager(models.Manager):
+#
+#     def get_queryset(self):
+#         locale = get_language()
+#         return super().get_queryset().annotate(question=F('question_' + locale), answer=F('answer_' + locale))
 
 
 class Faq(models.Model):
@@ -62,7 +62,7 @@ class Faq(models.Model):
     question_en = RichTextField(blank=True, verbose_name=_("Типове Запитання англійською"))
     answer_en = RichTextField(blank=True, verbose_name=_("Відповідь англійською"), null=True)
 
-    objects = FaqManager()
+    # objects = FaqManager()
 
     def __str__(self):
         return self.question_uk

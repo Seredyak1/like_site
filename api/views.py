@@ -22,7 +22,6 @@ class NewsAPIView(generics.ListAPIView):
     Return a list of all news
     """
     serializer_class = NewsPreviewSerializer
-    queryset = News.objects.all()
 
     def get_queryset(self):
         return News.objects.all().exclude(published=False)
@@ -34,8 +33,10 @@ class NewsDetailAPIView(generics.RetrieveAPIView):
     Return one News obj by id
     """
     serializer_class = NewsSerializer
-    queryset = News.objects.all()
     lookup_field = 'id'
+
+    def get_queryset(self):
+        return News.objects.all().exclude(published=False)
 
 
 # PAGES API VIEWS-----------------------------------------------------------------------------------------------
@@ -88,7 +89,9 @@ class CampsAPIView(generics.ListAPIView):
     List with all camps
     """
     serializer_class = CampPreviewSerializer
-    queryset = Camp.object.all()
+
+    def get_queryset(self):
+        return Camp.object.all()
 
 
 class CampDetailAPIView(generics.RetrieveAPIView):
@@ -97,9 +100,10 @@ class CampDetailAPIView(generics.RetrieveAPIView):
     Return one Camp obj by slug
     """
     serializer_class = CampDetailSerializer
-    queryset = Camp.object.all()
     lookup_field = 'slug'
 
+    def get_queryset(self):
+        return Camp.object.all()
 
 class CampCommentsAPIView(generics.ListCreateAPIView):
     """
@@ -140,7 +144,9 @@ class CategoryListAPIView(generics.ListAPIView):
     Return list of categories
     """
     serializer_class = CategoryListSerializer
-    queryset = Category.objects.all()
+
+    def get_queryset(self):
+        return Category.objects.all()
 
 
 class CategoryDetailAPIView(generics.RetrieveAPIView):
@@ -149,9 +155,10 @@ class CategoryDetailAPIView(generics.RetrieveAPIView):
     Return one Category by slug
     """
     serializer_class = CategoryDetailSerializer
-    queryset = Category.objects.all()
     lookup_field = 'slug'
 
+    def get_queryset(self):
+        return Category.objects.all()
 
 class JourneyCardListAPIView(generics.ListAPIView):
     """
@@ -159,7 +166,9 @@ class JourneyCardListAPIView(generics.ListAPIView):
     Return list with all journeys
     """
     serializer_class = JourneyCardSerializer
-    queryset = Journey.objects.all()[:10]
+
+    def get_queryset(self):
+        return Journey.objects.all()[:10]
 
 
 class JourneyCardListWithCategoryAPIView(generics.ListAPIView):
@@ -168,7 +177,6 @@ class JourneyCardListWithCategoryAPIView(generics.ListAPIView):
     Return list with journeys by category
     """
     serializer_class = JourneyCardSerializer
-    queryset = Journey.objects.all()
     lookup_field = 'slug'
 
     def get_queryset(self):
@@ -181,7 +189,9 @@ class JourneyCardListForNewAPIView(generics.ListAPIView):
     Return list with 10th first journies
     """
     serializer_class = JourneyCardSerializer
-    queryset = Journey.objects.all().order_by("created_at")[:10]
+
+    def get_queryset(self):
+        return Journey.objects.all().order_by("created_at")[:10]
 
 
 class JourneyCardListWithSalePriceAPIView(generics.ListAPIView):
@@ -190,7 +200,6 @@ class JourneyCardListWithSalePriceAPIView(generics.ListAPIView):
     Return list with journeys with sale price
     """
     serializer_class = JourneyCardSerializer
-    queryset = Journey.objects.all()
 
     def get_queryset(self):
         return Journey.objects.all().exclude(sale_price__isnull=True)
@@ -202,8 +211,10 @@ class JourneyDetailAPIView(generics.RetrieveAPIView):
     Return one journey by id
     """
     serializer_class = JourneySerializer
-    queryset = Journey.objects.all()
     lookup_field = 'id'
+
+    def get_queryset(self):
+        return Journey.objects.all()
 
 
 class JourneyCommentsAPIView(generics.ListCreateAPIView):

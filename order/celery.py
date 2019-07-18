@@ -3,7 +3,7 @@ import os
 from celery import Celery
 from celery.schedules import crontab
 
-from likesite import settings
+from django.conf import settings
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'likesite.settings')
@@ -19,9 +19,10 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
+app.conf.timezone = settings.TIME_ZONE
 app.conf.beat_schedule = {
     'send-report-every-9-oclock': {
         'task': 'order.tasks.send_report_for_open_order',
-        'schedule': crontab(hour=9),  # change to `crontab(minute=0, hour=12)` if you want it to run daily at midnight
+        'schedule': crontab(minute='25', hour='11'),
     },
 }
