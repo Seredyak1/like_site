@@ -6,9 +6,9 @@ from celery.schedules import crontab
 from django.conf import settings
 
 # set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'likesite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'likesite.settings.local')
 
-app = Celery('like_site', broker=settings.BROKER_URL)
+app = Celery('like_site', broker=settings.CELERY_BROKER_URL)
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.

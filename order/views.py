@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.core.cache import cache
 from django.core.mail import send_mail
-from likesite.settings import EMAIL_HOST_USER
+from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
 
@@ -47,11 +47,10 @@ def create_order(request, journey_id):
 
         if request.method == "POST":
             order, created = Order.objects.get_or_create(user=request.user, journey=journey,
-                                                         email_address = request.user.email,
+                                                         email_address=request.user.email,
                                                          contact_phone=request.POST['contact_phone'],
                                                          persons=cached_persons,
                                                          total=full_price)
-            order.save()
             email = order.email_address
             send_order_email.delay(email)
             return render(request, 'order/confirmation_page.html', {'categories': categories})
@@ -77,8 +76,8 @@ def update_persons(request, journey_id):
 def create_camp_order(request, slug):
     categories = Category.objects.all()
     camp = Camp.object.filter(slug=slug)
+    form = CreateCampOrder()
     if request.method == "POST":
-        form = CreateCampOrder()
         form.fields['dates'].quesryset = CampDates.objects.filter(camp=camp)
         if form.is_valid():
             form.save()
@@ -87,7 +86,7 @@ def create_camp_order(request, slug):
 
             send_mail(_('LAIK TRAVEL - пітвердження замовлення'),
                       '',
-                      EMAIL_HOST_USER,
+                      settings.settings.settings.settings.EMAIL_HOST_USER,
                       [request.POST['email']],
                       html_message=render_to_string('order/email_confirmation.html'),
                       fail_silently=False)
@@ -96,11 +95,10 @@ def create_camp_order(request, slug):
                       """Зробили нове анонімне замовлення! Зконтактувати найблищим часом. 
                       http://laik-travel.com/admin/order/order/
                       """,
-                      EMAIL_HOST_USER,
+                      settings.settings.settings.settings.EMAIL_HOST_USER,
                       ['sanya.seredyak@gmail.com', 'office@laik-travel.com'],
                       fail_silently=False)
 
             redirect('/')
 
-    form = CreateCampOrder()
     return render(request, 'order/order_for_camp.html', {'form': form, 'categories': categories})

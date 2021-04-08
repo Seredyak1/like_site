@@ -85,7 +85,7 @@ PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'), os.path.join(BASE_DIR, 'templates', 'allauth')],
+        'DIRS': ['templates', 'templates/allauth'],
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -101,18 +101,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'likesite.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 
 # Password validation
@@ -219,8 +207,6 @@ ACCOUNT_FORMS = {
 }
 
 
-
-
 #DRF config
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -230,6 +216,23 @@ REST_FRAMEWORK = {
     ),
 }
 
+# Swagger
+SWAGGER_SETTINGS = {
+    "SUPPORTED_SUBMIT_METHOD": ['get', 'post', 'put', 'delete', ],
+    'USE_SESSION_AUTH': False,
+    'JSON_EDITOR': True,
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'description': 'Personal API Key authorization',
+            'name': 'Authorization',
+            'in': 'header',
+        }
+    },
+    'APIS_SORTER': 'alpha',
+    "SHOW_REQUEST_HEADERS": True,
+    "VALIDATOR_URL": None
+}
 
 #Settings for JWT Auth
 JWT_AUTH = {
@@ -237,27 +240,6 @@ JWT_AUTH = {
 }
 
 # CELERY
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-CELERY_BEAT_SCHEDULE = {}
-
-
-# REDIS related settings
-REDIS_HOST = 'localhost'
-REDIS_PORT = '6379'
-BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
-CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-if DEBUG:
-    INSTALLED_APPS += ['debug_toolbar']
-    MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
-    INTERNAL_IPS = ['127.0.0.1']
+CELERY_accept_content = ['application/json']
+CELERY_result_serializer = 'json'
+CELERY_task_serializer = 'json'
