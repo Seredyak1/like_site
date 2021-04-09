@@ -20,7 +20,7 @@ django-rest-swagger==2.1.2
 django-social-widgets==0.4.0
 django-storages==1.7.1
 django-timezone-field==3.0
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 docutils==0.14
 gunicorn==20.0.4
